@@ -19,3 +19,24 @@ Replay from the repository root with `sqlite3 -echo module-01/tour.db ".read mod
 The local database is excluded from Git by `.gitignore`.
 
 AI-assisted observation: `.schema` was useful because it displayed the exact table definition and column types before querying.
+
+## Task 5: SQL Island
+
+[Skipped at the student's request](sql-island.md); no gameplay evidence is claimed.
+
+## Task 6: Telemetry pipeline
+
+- [Generator](generate_telemetry.py)
+- [SQLite loader](load_telemetry.py)
+- [Three SQL queries](queries.sql)
+- [Results, timings, database size and row count](telemetry-results.md)
+
+Generated CSV and database files stay local and can be reproduced from the scripts.
+
+## Task 7: AI-assisted SQL verification
+
+- [Generated query](overnight.sql)
+- [Prompt, execution, query plan and verification report](ai-sql-verification.md)
+- [Reproducible verification script](verify_telemetry.py)
+
+Implementation and evidence were prepared with AI assistance. Review the time-boundary interpretation in the verification report.

@@ -6,3 +6,6 @@
 *.parquet
 .env
 __pycache__/
+
+# generated synthetic telemetry; recreate with the committed generator
+module-01/telemetry.csv
