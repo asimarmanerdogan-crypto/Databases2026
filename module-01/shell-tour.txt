@@ -1,0 +1,22 @@
+.read module-01/tour-commands.sql
+.bail on
+.mode column
+.headers on
+CREATE TABLE IF NOT EXISTS reading(machine TEXT, vib REAL);
+DELETE FROM reading;
+INSERT INTO reading VALUES ('cnc-01', 1.2), ('cnc-02', 2.4), ('cnc-01', 0.9);
+.tables
+ name
+-------
+reading
+.schema reading
+CREATE TABLE reading(machine TEXT, vib REAL);
+.timer on
+SELECT machine, max(vib) AS peak FROM reading GROUP BY machine;
+machine  peak
+-------  ----
+cnc-01    1.2
+cnc-02    2.4
+Run Time: real 0.000817 user 0.000000 sys 0.000000
+.timer off
+.echo off
