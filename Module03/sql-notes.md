@@ -1,3 +1,9 @@
+# Current Module03 audit — 2026-10-25
+
+See the [task overview](README.md), [warehouse verification and curiosities](warehouse-notes.md), [measured benchmarks](benchmark-results.md) and [current safari output](plan-safari-notes.md). The sections below are the preserved historical A/B record; references there to tasks being outside scope or not pushed describe the earlier run. Real pod comparison remains pending.
+
+---
+
 # Module 03 — Tasks A and B
 
 ## Objective

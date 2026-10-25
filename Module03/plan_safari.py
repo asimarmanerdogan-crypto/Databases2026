@@ -58,7 +58,7 @@ Compare actual SQLite query plans before and after adding an ordinary index, and
 | Query | Before-index prediction |
 | --- | --- |
 """ + "\n".join(f"| Q{i}: `{q}` | SCAN |" for i, q in enumerate(queries, 1)) + "\n\nActual plans pending execution.\n"
-(out / "sql-notes.md").write_text(notes, encoding="utf-8")
+(out / "plan-safari-notes.md").write_text(notes, encoding="utf-8")
 
 sql = ["-- Task A: run against the EXISTING Module02/legacy.db only.",
        "-- Predictions before indexing: Q1 SCAN; Q2 SCAN; Q3 SCAN.",
@@ -119,9 +119,9 @@ wrong = [f"Q{i}" for i, p in enumerate(baseline, 1) if not all(r[3].startswith("
 notes += "\n## Prediction check\n\n" + ("Predictions that differed: " + ", ".join(wrong) if wrong else "All three before-index SCAN predictions matched. No incorrect prediction is invented.") + "\n"
 notes += "\n## Data-preservation check\n\nAll user-table row counts and SHA-256 fingerprints of sorted record representations were identical before and after. Query result sets also matched across the index change. Only the experiment index was added.\n\n```json\n" + json.dumps(before, indent=2) + "\n```\n"
 notes += "\n## Conclusion\n\nAn index helps when the filter can use its stored keys to find a smaller set of rows. It does not automatically help every query. We ran the plans and saw which searches used it, while keeping every existing database record unchanged.\n\n## Files and replay\n\n- [SQL statements](plan-safari.sql): ordered record of this run, not a blindly repeatable reset script; the CREATE INDEX will fail if the experiment index already exists.\n- [Python runner](plan_safari.py): checks the existing database and safely resets only a matching experiment index on later runs. Run with the project's Python interpreter.\n- [Earlier CLI baseline](legacy-before-index.txt): retained as historical evidence; this run uses Python SQLite instead.\n\nTask B, Task C and the warehouse exercise are outside this Task A run. No pod discussion or GitHub commit/push is claimed.\n"
-(out / "sql-notes.md").write_text(notes, encoding="utf-8")
+(out / "plan-safari-notes.md").write_text(notes, encoding="utf-8")
 conn.close()
 print(json.dumps({"database": str(db), "sqlite_version": sqlite3.sqlite_version,
                   "initial_indexes": indexes, "before": baseline, "after": indexed,
                   "negative": negative_plans, "records_unchanged": before == after,
-                  "files": [str(out / n) for n in ["plan-safari.sql", "sql-notes.md", "plan_safari.py"]]}, indent=2))
+                  "files": [str(out / n) for n in ["plan-safari.sql", "plan-safari-notes.md", "plan_safari.py"]]}, indent=2))

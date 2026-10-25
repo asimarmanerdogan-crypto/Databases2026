@@ -4,7 +4,7 @@ Personal portfolio for HSBI Databases (2026): reproducible local database experi
 
 - [Module 01: Introduction and Local-First Foundations](Module01/README.md)
 - [Module 02: Data Contracts and Legacy Schema Audit](Module02/README.md)
-- [Module 03: SQL notes](Module03/sql-notes.md)
+- [Module 03: SQL and Query Profiling](Module03/README.md)
 - [Course workbook](https://github.com/iotempire/iotempire-teaching/tree/main/full-classes/hsbi-databases-10d)
 - [Syllabus](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md)
 

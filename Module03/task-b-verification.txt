@@ -10,4 +10,4 @@ Rows (sorted for display only; SQL specifies no result order):
 (3, 'cnc-05', 'Beier', '2026-02-20', 'P-1001')
 PASS: same complete rows and multiplicities; no projection or join needed.
 PASS: read-only database hash unchanged.
-SHA-256: 2e496567662d9ab4adef4e1f23c554451f04cae69df4e69a1f01245443c92f77
+SHA-256: 745e431c64ed25fa78cdfdbda3e15f38bb87f1000b992bc0298f65e9f45085ce

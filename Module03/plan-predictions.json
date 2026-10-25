@@ -1,0 +1,8 @@
+{
+  "attribution": "AI-assisted predictions for this run, not an unaided student attempt",
+  "baseline_dashboard": "SCAN ol; SEARCH o,c,p by primary key; temporary B-trees for grouping, distinct counting and ordering",
+  "date_only": "May leave dashboard unchanged; single-day lookup should SEARCH the date index",
+  "line_order": "May change join order and may be slower for this broad aggregate",
+  "line_product": "Likely unused for dashboard but used for direct product filter",
+  "wrapped_date": "Ordinary date index should not narrow date(ordered_on)"
+}
