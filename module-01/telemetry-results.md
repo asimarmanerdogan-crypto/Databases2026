@@ -15,7 +15,7 @@ SELECT machine, COUNT(*) AS n FROM readings GROUP BY machine;
 | cnc-01 | 57600 |
 | cnc-02 | 57600 |
 | cnc-03 | 57600 |
-Wall-clock execute + fetch time: 97.359 ms (one run).
+Wall-clock execute + fetch time: 555.408 ms (one run).
 
 ```sql
 SELECT machine, MAX(vib_rms) AS peak_vib FROM readings GROUP BY machine;
@@ -25,7 +25,7 @@ SELECT machine, MAX(vib_rms) AS peak_vib FROM readings GROUP BY machine;
 | cnc-01 | 2.398 |
 | cnc-02 | 3.168 |
 | cnc-03 | 2.55 |
-Wall-clock execute + fetch time: 113.032 ms (one run).
+Wall-clock execute + fetch time: 416.097 ms (one run).
 
 ```sql
 SELECT COUNT(*) AS alarm_readings FROM readings WHERE vib_rms > 2.0;
@@ -33,7 +33,7 @@ SELECT COUNT(*) AS alarm_readings FROM readings WHERE vib_rms > 2.0;
 | alarm_readings |
 | --- |
 | 11714 |
-Wall-clock execute + fetch time: 30.307 ms (one run).
+Wall-clock execute + fetch time: 108.908 ms (one run).
 
 Times are machine-dependent observations, not a benchmark.
 

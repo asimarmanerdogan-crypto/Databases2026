@@ -40,3 +40,7 @@ Generated CSV and database files stay local and can be reproduced from the scrip
 - [Reproducible verification script](verify_telemetry.py)
 
 Implementation and evidence were prepared with AI assistance. Review the time-boundary interpretation in the verification report.
+
+## Learning goals and task audit
+
+See [Module 01 overview](../Module01/README.md) and the [required-task audit](../Module01/audit.md).

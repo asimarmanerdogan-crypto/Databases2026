@@ -1,7 +1,7 @@
 [project]
 name = "databases-portfolio"
 version = "0.1.0"
-description = "Add your description here"
+description = "Asim Arman Erdogan's HSBI Databases portfolio"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
