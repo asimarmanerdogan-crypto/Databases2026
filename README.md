@@ -23,4 +23,3 @@ uv run python module-01/verify_telemetry.py
 Python is pinned in `.python-version`; library versions are locked in `uv.lock`. Database files, generated telemetry and secrets stay local.
 
 AI assistance was used to prepare code, documentation and verification evidence. Personal gameplay, pod participation and instructor access require separate evidence; see the module audit.
-

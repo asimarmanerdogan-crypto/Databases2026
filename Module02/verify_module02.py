@@ -136,7 +136,8 @@ with engine.begin() as c:
     reject("NULL site", insert(machine_t), Machine(**(valid | {"machine_id":2,"machine_name":"cnc-02","serial_no":"SN-2"})).model_dump() | {"site":None})
     assert c.exec_driver_sql("PRAGMA foreign_key_check").fetchall() == []
 
-(here / "contract-ddl.sql").write_text("\n\n".join(str(CreateTable(t).compile(engine)).strip()+";" for t in metadata.sorted_tables)+"\n", encoding="utf-8")
+ddl = "\n\n".join(str(CreateTable(t).compile(engine)).strip()+";" for t in metadata.sorted_tables)
+(here / "contract-ddl.sql").write_text("\n".join(line.rstrip() for line in ddl.splitlines())+"\n", encoding="utf-8")
 (here / "verification.txt").write_text("\n".join([
     "PASS legacy SQLite integrity_check; table counts 4/4/4",
     "PASS all five defect cases and numeric comparison counterexample",
