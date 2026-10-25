@@ -1,0 +1,20 @@
+PASS legacy SQLite integrity_check; table counts 4/4/4
+PASS all five defect cases and numeric comparison counterexample
+PASS 1:n proof: machine 1 has two sensors; missing parent rejected
+PASS model rejects installed='2026-02-30'
+PASS model rejects serial_no='BAD'
+PASS model rejects machine_id=0
+PASS model rejects site=' '
+PASS model rejects price -1.00
+PASS model rejects price 1.234
+PASS model rejects price 10000000.00
+PASS model rejects repeated part in a job
+PASS database rejects duplicate serial
+PASS database rejects orphan machine
+PASS database rejects orphan technician
+PASS database rejects duplicate junction pair
+PASS database rejects missing part
+PASS database rejects negative price
+PASS database rejects excess precision
+PASS database rejects NULL site
+PASS corrected schema foreign_key_check; emitted DDL

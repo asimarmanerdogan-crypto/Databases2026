@@ -1,6 +1,6 @@
 # Module 02 study log
 
-Prepared on 2026-10-22 with AI assistance. This is a sourced technical draft, not evidence that a 30-minute pod session occurred. The introductory “concepts above” were not included in the supplied excerpt; scope here is ER modelling, keys and cardinality.
+Prepared on 2026-10-22 with AI assistance. This is a sourced technical draft, not evidence that a 30-minute pod session occurred. Updated on 2026-10-25 against the full module instructions; technical work and executed evidence are linked below.
 
 ## 1. References used
 
@@ -105,7 +105,34 @@ Open question: when should a nameplate have its own lifecycle/entity rather than
 
 ## Remaining assignment evidence
 
-- Four workshop-specific sketches and one CREATE TABLE + COUNT proof.
+- Completed with AI assistance: [four workshop sketches and CREATE TABLE + COUNT proof](er-examples.md).
 - Actual pod discussion, agreed learning and any unresolved disagreement.
 - One image selected by the pods and shared to the course Discord channel.
-- Creation of the deliberately flawed legacy.db from the provided fixture.
+- Completed and verified: the deliberately flawed legacy.db rebuilt from [legacy-setup.sql](legacy-setup.sql); the original .db was SQL text and has been preserved locally as legacy-original-text.sql.
+
+## Verified technical continuation — 2026-10-25
+
+- [Task B: Four workshop sketches and one executable cardinality proof](er-examples.md)
+- [Task 1: Reconstructed legacy ER model and forgotten requirements](er-audit.md)
+- [Measured legacy cardinalities](cardinality-results.md)
+- [Task 2: Five integrity defects, queries, results and production impact](defect-results.md)
+- [Task 3: Executable contract](contract.py), [DDL](contract-ddl.sql), [enforcement decisions](contract-notes.md)
+- [Executed checks](verification.txt)
+
+### Further concepts
+
+A natural key has business meaning (serial_no/part_no); a surrogate ID decouples references from mutable labels. A surrogate does not remove the need to enforce business uniqueness. Technician names are not reliable identity keys.
+
+A comma-separated parts_used field represents multiple relationships in one value. A junction table gives each job/part association its own row and composite key, making joins and uniqueness enforceable.
+
+EER adds specialization/generalization, including whether subtypes overlap and whether every supertype belongs to a subtype. Relational implementations may use a discriminator or subtype tables; no inheritance is required for the base maintenance schema.
+
+### Additional LLM question and verification
+
+Prompt: Does a SQLite Date or NUMERIC declaration alone enforce valid calendar dates and exact monetary precision, and does drawing a mandatory 1:1 line enforce total participation?
+
+AI answer: No. SQLite type affinity is not full domain validation. Calendar validity is checked in the Pydantic contract, numeric price checks are explicit, and foreign-key enforcement is enabled for every connection. A unique FK does not force a parent to have a child.
+
+Verification: The executable checks reject an impossible calendar date through Pydantic, negative/over-precision prices, orphan references and duplicate junction pairs. The 1:1 sketch explicitly distinguishes its business rule from the weaker shared-FK implementation. Raw SQL date validity remains a documented limitation, not a claimed database guarantee.
+
+Sources consulted for this continuation: [Pydantic validators](https://docs.pydantic.dev/latest/concepts/validators/), [SQLAlchemy SQLite foreign keys](https://docs.sqlalchemy.org/en/20/dialects/sqlite.html#foreign-key-support). No new web-search terms or personal pod experience are claimed.
