@@ -42,13 +42,16 @@ The inventory query confirmed six items with owner 20 after collecting ownerless
 
 The technical notes above summarize the demonstration; they do not answer these questions on the student's behalf.
 
-1. **What did you learn about databases and SQL from the game alone?**
-   Student answer pending.
-2. **Which SQL commands and patterns did you actually use?**
-   Student answer pending. Distinguish watching the assistant from personally entering queries.
-3. **In your own words, what are a table, a row, a column and a query?**
-   Student answer pending.
-4. **What surprised you and what is still confusing?**
-   Student answer pending.
+1. **What did you learn about databases and SQL from the game alone?**  
+It was good practice for me and helped me understand SQL commands and how they work.
+
+2. **Which SQL commands and patterns did you actually use?**  
+I used SELECT, WHERE, JOIN, GROUP BY, INSERT, UPDATE and DELETE. 
+
+3. **In your own words, what are a table, a row, a column and a query?**  
+A table organizes data. A row is one record, and a column holds one type of information. A query is an instruction to get or change data.
+
+4. **What surprised you and what is still confusing?**  
+I was surprised that SQL commands could control the story. JOIN and GROUP BY are still a little confusing, and I need more practice with them.
 
 [Game](https://sql-island.informatik.uni-kl.de/) · [Module instructions](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/01-introduction-and-local-first.md)
