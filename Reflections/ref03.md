@@ -1,12 +1,45 @@
-# Module 03 — Personal reflection pending
+# Reflection 03 — SQL and query profiling
 
-AI-assisted technical evidence was checked on 2026-10-25. These prompts are not completed personal answers and do not claim to reproduce the unavailable course reflection template.
+> Personal answers deliberately pending at the student's request. Uses the course reflection template.
 
-- Which plan surprised you, and can you explain why the index helped or hurt?
-- How did you verify the query's DISTINCT count and year boundaries?
-- What did the AI get wrong or leave ambiguous?
-- What did you learn from the other pod, and what did you contribute?
-- Can you explain bound parameters and reproduce the injection example yourself?
-- What remains unclear about algebra, subqueries or window functions?
+## Take-away
 
-[Module evidence](../Module03/README.md) · [Course reflection template](https://github.com/iotempire/iot-portfolio-template/blob/main/Reflections/TEMPLATE.md)
+**What do you want to remember? What would be your advice to your past self?**
+
+[short description here]
+
+## What was good?
+
+**Which measurement, circuit, or explanation worked well — and why?**
+
+[short description here]
+
+## What was difficult?
+
+**Where did you struggle? What was the root cause?**
+
+[short description here]
+
+## Exploration and show stoppers
+
+**Was there any good or fun “struggling” or exploration? Anything where you should reach out to peers or instructors?**
+
+[short description here]
+
+## Interaction with peers and instructors
+
+**Who did you work with, what did you learn from them, and what did you give back?**
+
+[short description here]
+
+## How did you verify AI suggestions?
+
+**What did you ask an AI, and how did you check the answer against a datasheet, a measurement, a packet capture, or a live test? Where was it wrong?**
+
+[short description here]
+
+## Help and extra work
+
+**Who helped you, and was it valuable? Who did you help? Did you present, implement, make a PR, or fix something crucial for the class?**
+
+[short description here]

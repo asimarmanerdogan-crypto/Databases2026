@@ -100,7 +100,7 @@ except BaseException:
 def details(p):
     return "; ".join(r[3] for r in p)
 
-notes = notes.replace("Actual plans pending execution.", f"Database: `{db}`. Python SQLite version: `{sqlite3.sqlite_version}`.\n\nInitial indexes: `{indexes!r}`. " + ("Only the verified experiment index was reset." if drop else "No index existed, so none was removed."))
+notes = notes.replace("Actual plans pending execution.", f"Database: `Module02/legacy.db`. Python SQLite version: `{sqlite3.sqlite_version}`.\n\nInitial indexes: `{indexes!r}`. " + ("Only the verified experiment index was reset." if drop else "No index existed, so none was removed."))
 notes += "\n## Actual comparison\n\n| Query | Prediction | Before | After |\n| --- | --- | --- | --- |\n"
 for i, (b, a) in enumerate(zip(baseline, indexed), 1):
     notes += f"| Q{i} | SCAN | `{details(b)}` | `{details(a)}` |\n"
@@ -118,7 +118,7 @@ notes += "\nLOWER(technician) asks SQLite to compare a computed expression. The 
 wrong = [f"Q{i}" for i, p in enumerate(baseline, 1) if not all(r[3].startswith("SCAN") for r in p)]
 notes += "\n## Prediction check\n\n" + ("Predictions that differed: " + ", ".join(wrong) if wrong else "All three before-index SCAN predictions matched. No incorrect prediction is invented.") + "\n"
 notes += "\n## Data-preservation check\n\nAll user-table row counts and SHA-256 fingerprints of sorted record representations were identical before and after. Query result sets also matched across the index change. Only the experiment index was added.\n\n```json\n" + json.dumps(before, indent=2) + "\n```\n"
-notes += "\n## Conclusion\n\nAn index helps when the filter can use its stored keys to find a smaller set of rows. It does not automatically help every query. We ran the plans and saw which searches used it, while keeping every existing database record unchanged.\n\n## Files and replay\n\n- [SQL statements](plan-safari.sql): ordered record of this run, not a blindly repeatable reset script; the CREATE INDEX will fail if the experiment index already exists.\n- [Python runner](plan_safari.py): checks the existing database and safely resets only a matching experiment index on later runs. Run with the project's Python interpreter.\n- [Earlier CLI baseline](legacy-before-index.txt): retained as historical evidence; this run uses Python SQLite instead.\n\nTask B, Task C and the warehouse exercise are outside this Task A run. No pod discussion or GitHub commit/push is claimed.\n"
+notes += "\n## Conclusion\n\nAn index helps when the filter can use its stored keys to find a smaller set of rows. It does not automatically help every query. We ran the plans and saw which searches used it, while keeping every existing database record unchanged.\n\n## Files and replay\n\n- [SQL statements](plan-safari.sql): ordered record of this run, not a blindly repeatable reset script; the CREATE INDEX will fail if the experiment index already exists.\n- [Python runner](plan_safari.py): checks the existing database and safely resets only a matching experiment index on later runs. Run with the project's Python interpreter.\nSee [module overview](README.md) for the algebra, warehouse and collaboration evidence.\n"
 (out / "plan-safari-notes.md").write_text(notes, encoding="utf-8")
 conn.close()
 print(json.dumps({"database": str(db), "sqlite_version": sqlite3.sqlite_version,

@@ -1,13 +1,45 @@
-# Module 02 — Student reflection pending
+# Reflection 02 — Data contracts and legacy schemas
 
-Technical evidence was prepared and checked with AI assistance on 2026-10-25. This page contains prompts, not completed personal answers. The course links to [this reflection template](https://github.com/iotempire/iot-portfolio-template/blob/main/Reflections/TEMPLATE.md); its contents could not be retrieved during this audit, so this is not claimed to reproduce the template.
+> Personal answers deliberately pending at the student's request. Uses the course reflection template.
 
-Please supply your own answers after reviewing and running the work:
+## Take-away
 
-- What did you learn about entities, keys, cardinality and hidden business rules?
-- Which task was difficult, and how did you resolve it?
-- What did you contribute and learn in the pod and neighbouring-pod discussion?
-- Which AI suggestion did you verify, how, and what was wrong or incomplete?
-- What remains unclear and what will you explore next?
+**What do you want to remember? What would be your advice to your past self?**
 
-Evidence available to review: [module overview](../Module02/README.md), [ER audit](../Module02/er-audit.md), [defect results](../Module02/defect-results.md), [contract checks](../Module02/verification.txt).
+[short description here]
+
+## What was good?
+
+**Which measurement, circuit, or explanation worked well — and why?**
+
+[short description here]
+
+## What was difficult?
+
+**Where did you struggle? What was the root cause?**
+
+[short description here]
+
+## Exploration and show stoppers
+
+**Was there any good or fun “struggling” or exploration? Anything where you should reach out to peers or instructors?**
+
+[short description here]
+
+## Interaction with peers and instructors
+
+**Who did you work with, what did you learn from them, and what did you give back?**
+
+[short description here]
+
+## How did you verify AI suggestions?
+
+**What did you ask an AI, and how did you check the answer against a datasheet, a measurement, a packet capture, or a live test? Where was it wrong?**
+
+[short description here]
+
+## Help and extra work
+
+**Who helped you, and was it valuable? Who did you help? Did you present, implement, make a PR, or fix something crucial for the class?**
+
+[short description here]

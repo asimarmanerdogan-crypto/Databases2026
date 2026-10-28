@@ -37,9 +37,9 @@ for query in (here / "queries.sql").read_text(encoding="utf-8").split(";"):
 report.extend(["Times are machine-dependent observations, not a benchmark.", "",
                "Cloud cost: this local run has no cloud-service charge; a hosted version would depend on the provider, resources, storage and traffic, with charges paid by the cloud account owner.", "",
                "Reproduce from the repository root:", "```text",
-               "uv run python module-01/generate_telemetry.py",
-               "uv run python module-01/load_telemetry.py",
-               "uv run python module-01/verify_telemetry.py", "```"])
+               "uv run python Module01/generate_telemetry.py",
+               "uv run python Module01/load_telemetry.py",
+               "uv run python Module01/verify_telemetry.py", "```"])
 (here / "telemetry-results.md").write_text("\n".join(report), encoding="utf-8")
 
 prompt = ('Here is my SQLite table: readings(ts TEXT, machine TEXT, temp_c REAL, '
@@ -128,7 +128,7 @@ The model correctly grouped by machine, computed AVG and sorted descending, and 
 
 ## Reproduce
 
-Run `uv run python module-01/verify_telemetry.py` after generating and loading the data. Failed checks raise assertions; successful checks recreate this evidence.
+Run `uv run python Module01/verify_telemetry.py` after generating and loading the data. Failed checks raise assertions; successful checks recreate this evidence.
 '''
 (here / "ai-sql-verification.md").write_text(report7, encoding="utf-8")
 boundary.close()

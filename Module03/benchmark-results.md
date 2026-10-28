@@ -1,6 +1,6 @@
 # Task 1–2 — Measured warehouse query plans
 
-SQLite 3.53.1; Python 3.14.8.
+SQLite 3.53.1; Python 3.14.10.
 perf_counter; same process/connection; one untimed warmup; 3 batches; execute+fetch; ms/query
 Index build cost is excluded; this measures warm query execution, not end-to-end deployment cost.
 Fresh fixture in a temporary disk database; the existing warehouse.db is opened read-only and unchanged.
@@ -18,18 +18,18 @@ Fresh fixture in a temporary disk database; the existing warehouse.db is opened 
 
 | stage | query | samples ms/query | median ms/query | batch size |
 | --- | --- | --- | --- | --- |
-| baseline | dashboard | 148.8350, 157.0080, 166.2666 | 157.0080 | 1 |
-| only ix_orders_ordered_on | dashboard | 164.6979, 161.0909, 168.5761 | 164.6979 | 1 |
-| only ix_orderline_order | dashboard | 144.7543, 145.1798, 146.6074 | 145.1798 | 1 |
-| only ix_orderline_product | dashboard | 141.2010, 140.1556, 148.4327 | 141.2010 | 1 |
-| cumulative through ix_orders_ordered_on | dashboard | 141.0921, 145.9739, 155.2281 | 145.9739 | 1 |
-| cumulative through ix_orderline_order | dashboard | 1640.4235, 1654.6662, 1734.7740 | 1654.6662 | 1 |
-| cumulative through ix_orderline_product | dashboard | 1648.9737, 1682.8363, 1625.2575 | 1648.9737 | 1 |
-| baseline | single day | 3.7769, 3.7856, 3.6604 | 3.7769 | 50 |
-| date index | single day | 0.2569, 0.2539, 0.2527 | 0.2539 | 50 |
-| date index | wrapped date | 8.6895, 8.5644, 8.6017 | 8.6017 | 10 |
-| baseline | product lookup | 14.5023, 14.9353, 14.9635 | 14.9353 | 10 |
-| product index | product lookup | 3.7131, 3.6836, 3.6300 | 3.6836 | 10 |
+| baseline | dashboard | 98.3460, 99.8031, 100.8639 | 99.8031 | 1 |
+| only ix_orders_ordered_on | dashboard | 99.4498, 98.9236, 101.7380 | 99.4498 | 1 |
+| only ix_orderline_order | dashboard | 103.9837, 101.0152, 100.1408 | 101.0152 | 1 |
+| only ix_orderline_product | dashboard | 107.0360, 95.1275, 99.5175 | 99.5175 | 1 |
+| cumulative through ix_orders_ordered_on | dashboard | 102.0745, 102.7633, 101.2559 | 102.0745 | 1 |
+| cumulative through ix_orderline_order | dashboard | 1266.2695, 1142.2625, 1227.6889 | 1227.6889 | 1 |
+| cumulative through ix_orderline_product | dashboard | 1237.3264, 1363.8969, 1219.7808 | 1237.3264 | 1 |
+| baseline | single day | 3.1546, 2.6730, 2.6178 | 2.6730 | 50 |
+| date index | single day | 0.2684, 0.2660, 0.2668 | 0.2668 | 50 |
+| date index | wrapped date | 6.5951, 7.4685, 4.9340 | 6.5951 | 10 |
+| baseline | product lookup | 11.9305, 9.1651, 10.1461 | 10.1461 | 10 |
+| product index | product lookup | 2.3955, 1.6481, 2.0970 | 2.0970 | 10 |
 
 ## Exact plans captured before timing
 
@@ -140,12 +140,12 @@ Fresh fixture in a temporary disk database; the existing warehouse.db is opened 
 
 ## Plan and time changes relative to dashboard baseline
 
-- only ix_orders_ordered_on: plan changed=False; median/baseline=1.049 (slower in this run).
-- only ix_orderline_order: plan changed=False; median/baseline=0.925 (faster in this run).
-- only ix_orderline_product: plan changed=False; median/baseline=0.899 (faster in this run).
-- cumulative through ix_orders_ordered_on: plan changed=False; median/baseline=0.930 (faster in this run).
-- cumulative through ix_orderline_order: plan changed=True; median/baseline=10.539 (slower in this run).
-- cumulative through ix_orderline_product: plan changed=True; median/baseline=10.502 (slower in this run).
+- only ix_orders_ordered_on: plan changed=False; median/baseline=0.996 (faster in this run).
+- only ix_orderline_order: plan changed=False; median/baseline=1.012 (slower in this run).
+- only ix_orderline_product: plan changed=False; median/baseline=0.997 (faster in this run).
+- cumulative through ix_orders_ordered_on: plan changed=False; median/baseline=1.023 (slower in this run).
+- cumulative through ix_orderline_order: plan changed=True; median/baseline=12.301 (slower in this run).
+- cumulative through ix_orderline_product: plan changed=True; median/baseline=12.398 (slower in this run).
 
 ## Verification
 

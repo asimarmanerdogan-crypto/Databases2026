@@ -17,10 +17,12 @@ Exploration plan: generate machine telemetry, measure local SQLite queries, and 
 
 - [Module instructions](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/01-introduction-and-local-first.md)
 - [Syllabus](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md)
-- [Runnable scripts and evidence for Tasks 3–7](../module-01/README.md)
-- [Required-task audit](audit.md)
+- [Reflection](../Reflections/ref01.md)
+- [SQL Island (pending)](sql-island.md)
+- [Learning-goal evidence audit](audit.md)
+- [Pod mate: Habiba Darwish](https://github.com/Habiba-AladdinDarwish) — portfolio URL not supplied.
 
-Existing scripts remain in `module-01/`; run commands from the repository root as shown in their evidence index.
+Run commands from the repository root. Technical evidence is indexed below.
 
 ## Course model
 
@@ -34,4 +36,45 @@ An embedded database simplifies deployment and offline operation, but SQLite per
 
 ## Participation and attribution
 
-Code and evidence were prepared and rechecked with AI assistance. Pod members, portfolio links, division of work, peer audit and introductory experience/expectations have not yet been supplied. No pod activity or personal reflection is claimed here.
+The [existing student reflection](../Reflections/ref01.md) records weekend work with the pod and three other classmates. Scripts and technical evidence were prepared and checked with AI assistance. See [collaboration notes](../COLLABORATION.md) for the limits of the available participation record. Peer audit remains pending.
+
+## Task 3: Reproducible toolchain
+
+Run `uv run python Module01/uv-check.py` from the repository root.
+
+- [Verification script](uv-check.py)
+- [Recorded version output](uv-check-output.txt)
+- [Project dependencies](../pyproject.toml)
+- [Locked dependencies](../uv.lock)
+
+## Task 4: SQLite shell tour
+
+- [Replayable shell commands](tour-commands.sql)
+- [Captured session, including query timing](shell-tour.txt)
+- [Schema and data dump](tour.sql)
+
+Replay from the repository root with `sqlite3 -echo Module01/tour.db ".read Module01/tour-commands.sql"`.
+The local database is excluded from Git by `.gitignore`.
+
+AI-assisted observation: `.schema` was useful because it displayed the exact table definition and column types before querying.
+
+## Task 5: SQL Island
+
+[Pending at the student's request](sql-island.md); no gameplay evidence is claimed.
+
+## Task 6: Telemetry pipeline
+
+- [Generator](generate_telemetry.py)
+- [SQLite loader](load_telemetry.py)
+- [Three SQL queries](queries.sql)
+- [Results, timings, database size and row count](telemetry-results.md)
+
+Generated CSV and database files stay local and can be reproduced from the scripts.
+
+## Task 7: AI-assisted SQL verification
+
+- [Generated query](overnight.sql)
+- [Prompt, execution, query plan and verification report](ai-sql-verification.md)
+- [Reproducible verification script](verify_telemetry.py)
+
+Implementation and evidence were prepared with AI assistance. Review the time-boundary interpretation in the verification report.

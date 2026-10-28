@@ -16,12 +16,12 @@
 | --- | --- | --- |
 | A — Study | [Study log](study-log.md), two attributed example redraws and verified Q&A | Technical notes present; actual pod study unconfirmed |
 | B — Four sketches | [ER examples and proof](er-examples.md), [SQL](cardinality.sql) | Completed with AI assistance and executed proof |
-| C — Explain and share | Agreed-learning section in study log | Actual neighbouring-pod discussion, shared image and Discord post pending |
+| C — Explain and share | [Collaboration record](../COLLABORATION.md), agreed-learning section in study log | Face-to-face discussion confirmed; specific takeaways and shared image/post details to revisit |
 | Setup | [Fixture](legacy-setup.sql) | Fixed: legacy.db was SQL text, now rebuilt as a real SQLite database |
 | 1 — ER reconstruction | [ER audit](er-audit.md), [counts](cardinality-results.md) | Completed and checked |
 | 2 — Integrity defects | [Queries](defect-queries.sql), [results and impact](defect-results.md) | All five demonstrated |
 | 3 — Code contract | [Python](contract.py), [DDL](contract-ddl.sql), [decisions](contract-notes.md), [checks](verification.txt) | Built and checked with negative tests |
-| Reflection | [Student reflection prompts](../Reflections/ref02.md) | Personal answers pending |
+| Reflection | [Course reflection template](../Reflections/ref02.md) | Personal answers deliberately pending |
 
 The source places a draft boundary before these tasks; this audit covers all starred tasks as the working checklist. Stretchers 4–5 were not required for this pass. Technical completion does not replace student participation or checkpoint explanation.
 

@@ -15,7 +15,7 @@ SELECT machine, COUNT(*) AS n FROM readings GROUP BY machine;
 | cnc-01 | 57600 |
 | cnc-02 | 57600 |
 | cnc-03 | 57600 |
-Wall-clock execute + fetch time: 555.408 ms (one run).
+Wall-clock execute + fetch time: 45.726 ms (one run).
 
 ```sql
 SELECT machine, MAX(vib_rms) AS peak_vib FROM readings GROUP BY machine;
@@ -25,7 +25,7 @@ SELECT machine, MAX(vib_rms) AS peak_vib FROM readings GROUP BY machine;
 | cnc-01 | 2.398 |
 | cnc-02 | 3.168 |
 | cnc-03 | 2.55 |
-Wall-clock execute + fetch time: 416.097 ms (one run).
+Wall-clock execute + fetch time: 52.032 ms (one run).
 
 ```sql
 SELECT COUNT(*) AS alarm_readings FROM readings WHERE vib_rms > 2.0;
@@ -33,7 +33,7 @@ SELECT COUNT(*) AS alarm_readings FROM readings WHERE vib_rms > 2.0;
 | alarm_readings |
 | --- |
 | 11714 |
-Wall-clock execute + fetch time: 108.908 ms (one run).
+Wall-clock execute + fetch time: 13.338 ms (one run).
 
 Times are machine-dependent observations, not a benchmark.
 
@@ -41,7 +41,7 @@ Cloud cost: this local run has no cloud-service charge; a hosted version would d
 
 Reproduce from the repository root:
 ```text
-uv run python module-01/generate_telemetry.py
-uv run python module-01/load_telemetry.py
-uv run python module-01/verify_telemetry.py
+uv run python Module01/generate_telemetry.py
+uv run python Module01/load_telemetry.py
+uv run python Module01/verify_telemetry.py
 ```

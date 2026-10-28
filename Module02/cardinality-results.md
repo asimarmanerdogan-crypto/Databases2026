@@ -10,7 +10,7 @@ SELECT machine_name, COUNT(*) AS jobs FROM maint_job GROUP BY machine_name;
 | cnc-01 | 2 |
 | cnc-02 | 1 |
 | cnc-05 | 1 |
-Measured execute + fetch: 0.166 ms (one local run).
+Measured execute + fetch: 0.108 ms (one local run).
 
 ```sql
 SELECT technician, COUNT(*) AS jobs FROM maint_job GROUP BY technician;
@@ -20,7 +20,7 @@ SELECT technician, COUNT(*) AS jobs FROM maint_job GROUP BY technician;
 | Beier | 2 |
 | Klaas | 1 |
 | Werther | 1 |
-Measured execute + fetch: 0.116 ms (one local run).
+Measured execute + fetch: 0.085 ms (one local run).
 
 ```sql
 SELECT job_id, parts_used, CASE WHEN parts_used IS NULL OR trim(parts_used)='' THEN 0 ELSE length(parts_used)-length(replace(parts_used, ',', ''))+1 END AS n_parts FROM maint_job;
@@ -31,7 +31,7 @@ SELECT job_id, parts_used, CASE WHEN parts_used IS NULL OR trim(parts_used)='' T
 | 2 | P-1003 | 1 |
 | 3 | P-1001 | 1 |
 | 4 | NULL | 0 |
-Measured execute + fetch: 0.129 ms (one local run).
+Measured execute + fetch: 0.097 ms (one local run).
 
 ```sql
 WITH RECURSIVE split(job_id, part_no, rest) AS (
@@ -46,4 +46,4 @@ WITH RECURSIVE split(job_id, part_no, rest) AS (
 | P-1001 | 2 |
 | P-1002 | 1 |
 | P-1003 | 1 |
-Measured execute + fetch: 0.197 ms (one local run).
+Measured execute + fetch: 0.155 ms (one local run).

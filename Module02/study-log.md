@@ -44,7 +44,7 @@ Verification: The duplicate P-1003 insert succeeded without constraints. The rul
 
 Answer: No. It prevents two children sharing the same non-null parent reference. It does not require each parent to be referenced.
 
-Verification: In the one-to-many experiment, a foreign key limited child references but did not impose a parent-side minimum. Official SQLite documentation defines a child-to-parent existence check; full 1:1 total participation needs an additional design decision or enforcement mechanism. The four-sketch exercise remains the next step.
+Verification: In the one-to-many experiment, a foreign key limited child references but did not impose a parent-side minimum. Official SQLite documentation defines a child-to-parent existence check; full 1:1 total participation needs an additional design decision or enforcement mechanism. The four sketches and executable proof are in [er-examples.md](er-examples.md).
 
 ## 5. Two selected found examples, redrawn
 
@@ -91,7 +91,7 @@ Lesson from this example: a relationship line needs executable constraints. The 
 
 ## Agreed learning (pod discussion)
 
-Pending actual discussion with the neighbouring pod. No shared agreement, participants, elapsed discussion time or Discord post is claimed.
+The student confirmed a face-to-face discussion with another pod. There is no online conversation history. Specific shared conclusions, disagreements, participants and any shared image/post were not supplied; the student asked to revisit those details later. No agreement is invented. See [collaboration record](../COLLABORATION.md).
 
 Candidate discussion points:
 
@@ -106,7 +106,7 @@ Open question: when should a nameplate have its own lifecycle/entity rather than
 ## Remaining assignment evidence
 
 - Completed with AI assistance: [four workshop sketches and CREATE TABLE + COUNT proof](er-examples.md).
-- Actual pod discussion, agreed learning and any unresolved disagreement.
+- Document the specific takeaways and unresolved disagreements from the confirmed face-to-face discussion when revisiting it with the student.
 - One image selected by the pods and shared to the course Discord channel.
 - Completed and verified: the deliberately flawed legacy.db rebuilt from [legacy-setup.sql](legacy-setup.sql); the original .db was SQL text and has been preserved locally as legacy-original-text.sql.
 

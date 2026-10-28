@@ -1,7 +1,8 @@
 import sys, platform, sqlite3
+from pathlib import Path
 from importlib.metadata import version, PackageNotFoundError
 
-print("uv-managed Python:", sys.executable)
+print("uv-managed Python:", Path(sys.executable).name)
 print("python            ", platform.python_version())
 print("sqlite (stdlib)   ", sqlite3.sqlite_version)
 for pkg in ("duckdb", "datasette", "sqlite-utils", "pydantic", "sqlalchemy"):

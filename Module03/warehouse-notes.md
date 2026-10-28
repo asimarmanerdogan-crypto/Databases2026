@@ -24,15 +24,15 @@ AI answer: try ix_orders_ordered_on, ix_orderline_order and ix_orderline_product
 
 [bench.py](bench.py) captures a plan before each timed variant, performs an untimed warmup, and reports three samples and their median. All measurements run in the same process and connection. Short lookups use repeated batches to amortize timer overhead. Isolated tests reset to the baseline; cumulative tests also reproduce the course sequence. Source warehouse.db is read-only; index changes occur on a temporary disk fixture built from setup.sql.
 
-The first measured run found:
+The [current benchmark report](benchmark-results.md) contains the authoritative samples, medians and plans for the latest replay. It confirms:
 
-- Date-index-only dashboard: the plan stayed unchanged. Small timing differences with the same plan are not evidence of a useful index.
-- Date plus order-line-order indexes: the dashboard plan changed and became much slower (about 1.65 seconds versus 0.157 seconds baseline). More indexes did not mean faster aggregation.
-- Single-day lookup: the date index changed SCAN orders to SEARCH through ix_orders_ordered_on; median fell from about 3.78 ms to 0.254 ms per execution, about 15 times faster in this run.
-- Wrapping the date column in date(...) defeated that ordinary index lookup; the result stayed correct while traversal became a scan.
-- ix_orderline_product was not used by the dashboard, but a direct product_id filter used it and improved the measured lookup. It is query-dependent, not universally useless.
+- The date index leaves this broad dashboard plan unchanged; small clock differences alone do not establish an improvement.
+- Combining date and order-line-order indexes changes the dashboard plan and is slower than the baseline in the recorded run.
+- A single-day lookup uses SEARCH through the date index and is substantially faster in this run.
+- Wrapping ordered_on in date(...) prevents the ordinary narrow index lookup while preserving the result.
+- The product index does not help this dashboard, but is used by a direct product filter.
 
-These rounded figures describe this saved run only. Re-running bench.py updates the raw report; use that report as the authority for subsequent measurements. Index build/storage cost is outside this query-only benchmark.
+Exact timings depend on the machine and cache. Consult the generated table rather than copying historical milliseconds into prose. Index build/storage cost is outside this query-only benchmark.
 
 ## Task 3: Injection and the apostrophe crash
 
@@ -68,7 +68,7 @@ Source: [Module 3 setup and pod-study section](https://github.com/iotempire/iote
 - SQL logical order is FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY. SQLite permits some alias references as an extension, so “a SELECT alias always fails in WHERE” is an overgeneralization. An aggregate such as COUNT(*) in WHERE is a clearer invalid stage example.
 - A covering index contains every requested value; asking for an unindexed payload column requires visiting the table. A full index scan can still be covering.
 
-Actual pod members, exchanged curiosities, SQLite versions from the other pod and questions posted to #sql-questions remain pending.
+Pod mate Habiba Darwish and face-to-face discussions for Modules 2–3 are confirmed by the student. Specific exchanged curiosities, the other pod's SQLite version and any questions posted to #sql-questions will be revisited later; see [collaboration record](../COLLABORATION.md).
 
 References: [SQLite plan vocabulary](https://www.sqlite.org/eqp.html), [optimizer behavior](https://www.sqlite.org/optoverview.html), [Python sqlite3 parameter binding](https://docs.python.org/3/library/sqlite3.html#sqlite3-placeholders). No personal web-search history is claimed.
 

@@ -1,4 +1,4 @@
-.read module-01/tour-commands.sql
+.read Module01/tour-commands.sql
 .bail on
 .mode column
 .headers on

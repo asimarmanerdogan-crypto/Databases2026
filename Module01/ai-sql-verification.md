@@ -50,4 +50,4 @@ The model correctly grouped by machine, computed AVG and sorted descending, and 
 
 ## Reproduce
 
-Run `uv run python module-01/verify_telemetry.py` after generating and loading the data. Failed checks raise assertions; successful checks recreate this evidence.
+Run `uv run python Module01/verify_telemetry.py` after generating and loading the data. Failed checks raise assertions; successful checks recreate this evidence.

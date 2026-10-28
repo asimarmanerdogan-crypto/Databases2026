@@ -1,5 +1,5 @@
-uv-managed Python: C:\Users\aerdogan4\Documents\Codex\Databases2026\.venv\Scripts\python.exe
-python             3.14.8
+uv-managed Python: python.exe
+python             3.14.10
 sqlite (stdlib)    3.53.1
 duckdb             1.5.6
 datasette          0.65.5

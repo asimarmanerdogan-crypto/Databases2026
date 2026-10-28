@@ -12,7 +12,7 @@ Compare actual SQLite query plans before and after adding an ordinary index, and
 | Q2: `SELECT * FROM machine WHERE machine_name = 'cnc-02';` | SCAN |
 | Q3: `SELECT * FROM maint_job WHERE technician LIKE '%ei%';` | SCAN |
 
-Database: `C:\Users\aerdogan4\Documents\Codex\Databases2026\Module02\legacy.db`. Python SQLite version: `3.53.1`.
+Database: `Module02/legacy.db`. Python SQLite version: `3.53.1`.
 
 Initial indexes: `[]`. No index existed, so none was removed.
 
@@ -143,6 +143,4 @@ An index helps when the filter can use its stored keys to find a smaller set of 
 
 - [SQL statements](plan-safari.sql): ordered record of this run, not a blindly repeatable reset script; the CREATE INDEX will fail if the experiment index already exists.
 - [Python runner](plan_safari.py): checks the existing database and safely resets only a matching experiment index on later runs. Run with the project's Python interpreter.
-- [Earlier CLI baseline](legacy-before-index.txt): retained as historical evidence; this run uses Python SQLite instead.
-
-Task B, Task C and the warehouse exercise are outside this Task A run. No pod discussion or GitHub commit/push is claimed.
+See [module overview](README.md) for the algebra, warehouse and collaboration evidence.
