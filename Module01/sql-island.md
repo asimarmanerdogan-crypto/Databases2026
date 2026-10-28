@@ -1,6 +1,6 @@
 # SQL Island — completed guided demonstration
 
-Completed on 2026-10-28 in the English version, using the character name Asim. The final screen confirmed that the game was over after the pilot was released and the character left the island.
+Completed on in the English version, using the character name Asim. The final screen confirmed that the game was over after the pilot was released and the character left the island.
 
 ## Completion evidence
 
