@@ -8,6 +8,7 @@
 - The student confirmed that the Module 2 and 3 discussions with another pod took place face to face. No online conversation history exists for those meetings, and no transcript is required to establish that they happened. The specific discussion points, joint decisions and any image/Discord post can be documented later from the participants' recollection.
 - GitHub access was checked on 2026-10-28: Ulrich Norbisrath (`ulno`) and Habiba Darwish (`Habiba-AladdinDarwish`) are collaborators. Repository access alone does not establish authorship of a particular task.
 - AI assistance was used for code, documentation, diagrams and automated technical verification. Reports label assisted work; an automated check is not evidence of independent student performance.
+- SQL Island was completed as an assistant-operated demonstration watched by the student, with step-by-step Turkish explanations. The [game record](Module01/sql-island.md) includes the student's supplied certificate and a completion screenshot; personal answers are still pending.
 
 ## Peer audit — deliberately pending
 

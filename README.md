@@ -23,7 +23,7 @@ Python is selected by .python-version and dependency versions by uv.lock. The ru
 
 ## Remaining personal work
 
-- SQL Island gameplay, four answers and progress screenshot.
+- Four personal SQL Island answers; the [guided session, certificate and completion screenshot](Module01/sql-island.md) are now documented.
 - Reflection 02 and 03 personal answers.
 - The student's peer audit of a pod mate's work.
 

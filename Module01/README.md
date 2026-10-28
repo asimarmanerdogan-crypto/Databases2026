@@ -18,7 +18,7 @@ Exploration plan: generate machine telemetry, measure local SQLite queries, and 
 - [Module instructions](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/01-introduction-and-local-first.md)
 - [Syllabus](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md)
 - [Reflection](../Reflections/ref01.md)
-- [SQL Island (pending)](sql-island.md)
+- [SQL Island — guided completion and certificate](sql-island.md)
 - [Learning-goal evidence audit](audit.md)
 - [Pod mate: Habiba Darwish](https://github.com/Habiba-AladdinDarwish) — portfolio URL not supplied.
 
@@ -60,7 +60,7 @@ AI-assisted observation: `.schema` was useful because it displayed the exact tab
 
 ## Task 5: SQL Island
 
-[Pending at the student's request](sql-island.md); no gameplay evidence is claimed.
+[Completed guided demonstration](sql-island.md), with the original certificate, completion screenshot and SQL examples. The student watched while the assistant entered and explained the queries. Four personal answers remain pending.
 
 ## Task 6: Telemetry pipeline
 
