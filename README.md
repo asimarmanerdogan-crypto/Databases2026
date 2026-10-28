@@ -5,8 +5,8 @@ This is my portfolio for the HSBI Databases course. It brings together my SQL ex
 | Module | Work | Reflection |
 | --- | --- | --- |
 | [01 - Introduction and Local-First](Module01/README.md) | Tool setup, SQLite, telemetry and SQL Island | [Reflection 1](Reflections/ref01.md) |
-| [02 - Data Contracts and Legacy Schemas](Module02/README.md) | ER diagrams, data problems and a corrected schema | [Reflection 2 - draft](Reflections/ref02.md) |
-| [03 - SQL and Query Profiling](Module03/README.md) | Query plans, index benchmarks, injection and query rewrites | [Reflection 3 - draft](Reflections/ref03.md) |
+| [02 - Data Contracts and Legacy Schemas](Module02/README.md) | ER diagrams, data problems and a corrected schema | [Reflection 2](Reflections/ref02.md) |
+| [03 - SQL and Query Profiling](Module03/README.md) | Query plans, index benchmarks, injection and query rewrites | [Reflection 3](Reflections/ref03.md) |
 
 [Checkpoint guide](CHECKPOINT.md) · [Pod work and AI assistance](COLLABORATION.md) · [Course workbook](https://github.com/iotempire/iotempire-teaching/tree/main/full-classes/hsbi-databases-10d) · [Syllabus](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md)
 
@@ -27,7 +27,6 @@ I work with [Habiba Darwish](https://github.com/Habiba-AladdinDarwish/Darwish_Da
 
 ## Still to finish
 
-- Reflection 2 and Reflection 3.
 - A follow-up discussion with Habiba about the portfolio review.
 - A short record of the main points from the Module 3 pod discussion. The [Module 2 discussion and shared diagram](Module02/study-log.md#agreed-learning-pod-discussion) are documented.
 

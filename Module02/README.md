@@ -21,7 +21,7 @@
 | 1 - ER reconstruction | [ER audit](er-audit.md), [counts](cardinality-results.md) | Completed and checked |
 | 2 - Integrity defects | [Queries](defect-queries.sql), [results and impact](defect-results.md) | All five demonstrated |
 | 3 - Code contract | [Python](contract.py), [DDL](contract-ddl.sql), [decisions](contract-notes.md), [checks](verification.txt) | Built and checked with negative tests |
-| Reflection | [Reflection 2](../Reflections/ref02.md) | Draft |
+| Reflection | [Reflection 2](../Reflections/ref02.md) | Completed |
 
 These files cover the core technical tasks. The optional inheritance and extra Mermaid exercises are not included.
 

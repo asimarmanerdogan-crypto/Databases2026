@@ -23,7 +23,7 @@
 | 3 - Injection | [demo](injection_demo.py), [output](injection-output.txt), [explanation](warehouse-notes.md) | Apostrophe crash, bypass and bound-parameter fix verified |
 | 4 - Algebra to plan | [Dashboard algebra and verification](warehouse-notes.md) | Completed with AI assistance |
 | 5 - Query rewrites | [SQL, results, plans and comparison](query-rewrites.md), [runner](query_rewrites.py) | Correlated subquery, window function and HAVING verified |
-| Reflection | [Reflection 3](../Reflections/ref03.md) | Draft |
+| Reflection | [Reflection 3](../Reflections/ref03.md) | Completed |
 
 The technical work includes the core exercises and [extra comparisons of window functions, correlated subqueries and HAVING](query-rewrites.md).
 
