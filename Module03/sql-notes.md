@@ -1,6 +1,6 @@
-# Module 03 — Curiosity collection
+# Module 03 - Curiosity collection
 
-Technical notes prepared with AI assistance. No unaided prediction or neighbouring-pod conversation is invented.
+These notes collect questions and examples from the exercises, with AI assistance.
 
 | Curiosity | Source | Observation or question |
 | --- | --- | --- |
@@ -14,4 +14,4 @@ Technical notes prepared with AI assistance. No unaided prediction or neighbouri
 
 ## Collaboration
 
-The student confirmed face-to-face Module 2–3 discussions with another pod; no online conversation history exists. See [collaboration record](../COLLABORATION.md). Specific exchanged curiosities, the other pod's SQLite version and any questions posted in Discord can be recorded later. Peer audit is deliberately pending.
+We discussed Modules 2 and 3 with another pod face to face. I still need to add the main points, the other pod's SQLite version and any questions shared in Discord. See [pod notes](../COLLABORATION.md) for the review with Habiba.

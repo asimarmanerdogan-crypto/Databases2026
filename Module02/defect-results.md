@@ -1,6 +1,6 @@
-# Integrity defects — actual query results
+# Integrity defects - actual query results
 
-AI-assisted verification against the deliberately flawed fixture. Comments state production impact.
+Each query below checks a problem in the sample data. The SQL comments explain what could go wrong in use.
 
 ```sql
 -- 1. Orphan job: cannot be assigned to a real machine/site.

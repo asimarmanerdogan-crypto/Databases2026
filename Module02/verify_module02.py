@@ -42,8 +42,8 @@ def render_query(query):
 
 
 queries = (here / "defect-queries.sql").read_text().split(";")
-report = ["# Integrity defects — actual query results", "",
-          "AI-assisted verification against the deliberately flawed fixture. Comments state production impact.", ""]
+report = ["# Integrity defects - actual query results", "",
+          "Each query below checks a problem in the sample data. The SQL comments explain what could go wrong in use.", ""]
 for query in queries:
     if query.strip():
         report.append(render_query(query.strip() + ";"))

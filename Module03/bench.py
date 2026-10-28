@@ -22,7 +22,7 @@ indexes = {
 
 # Save an explicit AI-assisted prediction before any plan execution in this run.
 prediction = {
-    "attribution": "AI-assisted predictions for this run, not an unaided student attempt",
+    "attribution": "AI-assisted predictions saved before checking the query plans",
     "baseline_dashboard": "SCAN ol; SEARCH o,c,p by primary key; temporary B-trees for grouping, distinct counting and ordering",
     "date_only": "May leave dashboard unchanged; single-day lookup should SEARCH the date index",
     "line_order": "May change join order and may be slower for this broad aggregate",
@@ -141,7 +141,7 @@ output = dict(sqlite=sqlite3.sqlite_version, python=platform.python_version(),
               checks=["Independent Python aggregate agrees", "Year boundaries, DISTINCT, no-order fixture passed",
                       "All benchmark results preserved", "Source warehouse file hash unchanged"])
 (here/"benchmark-results.json").write_text(json.dumps(output,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-report = ["# Task 1–2 — Measured warehouse query plans", "",
+report = ["# Task 1-2 - Measured warehouse query plans", "",
           f"SQLite {sqlite3.sqlite_version}; Python {platform.python_version()}.",
           output["timer"], "Index build cost is excluded; this measures warm query execution, not end-to-end deployment cost.",
           "Fresh fixture in a temporary disk database; the existing warehouse.db is opened read-only and unchanged.", "",
@@ -152,7 +152,7 @@ for m in measurements:
     report.append(f"| {m['stage']} | {m['query']} | {', '.join(f'{x:.4f}' for x in m['samples_ms'])} | {m['median_ms']:.4f} | {m['batch']} |")
 report += ["", "## Exact plans captured before timing", ""]
 for m in measurements:
-    report += [f"### {m['stage']} — {m['query']}", "```text", *[repr(tuple(p)) for p in m["plan"]], "```", ""]
+    report += [f"### {m['stage']} - {m['query']}", "```text", *[repr(tuple(p)) for p in m["plan"]], "```", ""]
 report += ["## Plan and time changes relative to dashboard baseline", ""]
 for m in measurements:
     if m["query"] == "dashboard" and m is not base:

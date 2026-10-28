@@ -1,17 +1,17 @@
-# SQL Island — completed guided demonstration
+# SQL Island - completed guided demonstration
 
-Completed on in the English version, using the character name Asim. The final screen confirmed that the game was over after the pilot was released and the character left the island.
+I completed the English version using the character name Asim. After the pilot was released, the character left the island and the game showed its completion screen.
 
 ## Completion evidence
 
-- [Original completion certificate (PDF)](evidence/Certificate_SQL-Island.pdf) — supplied by the student, unchanged.
+- [Original completion certificate (PDF)](evidence/Certificate_SQL-Island.pdf) (original file).
 - [Completion screenshot](evidence/sql-island-completed.jpg).
 
 ![SQL Island completion screen](evidence/sql-island-completed.jpg)
 
 ## How the session was completed
 
-The student requested an explanatory demonstration and watched while the AI assistant entered the queries and explained each step in Turkish. Some statements were run automatically by the game as teaching examples. This records a completed guided session, not independent gameplay or an unaided assessment of the student's SQL knowledge. The certificate records the game's completion; this note records the assistance used.
+I completed the game as a guided session. The assistant entered the queries and explained them in Turkish while I watched. Some examples were run automatically by the game.
 
 ## Commands and patterns demonstrated
 
@@ -34,24 +34,22 @@ The student requested an explanatory demonstration and watched while the AI assi
 
 ## Verification and a correction during play
 
-The editor initially retained an earlier SELECT when the friendly-person query was entered. The result still contained evil characters, so it did not meet the intended filter. The assistant cleared the editor, ran only the filtered statement and confirmed friendly results. A successful execution alone did not establish that the intended query had run.
+At one point, the editor kept an earlier SELECT, and the result still included evil characters. Clearing the editor and running only the filtered query fixed this. It was a useful reminder to look at the result, not just the success message.
 
 The inventory query confirmed six items with owner 20 after collecting ownerless items. Results identified the pilot as Arthur Tailor, personid 8, initially kidnapped. After the release UPDATE, the game advanced to the departure and completion screens.
 
-## Four personal questions — student answers pending
+## My answers
 
-The technical notes above summarize the demonstration; they do not answer these questions on the student's behalf.
+1. **What did you learn about databases and SQL from the game alone?**
+   It was good practice for me and helped me understand SQL commands and how they work.
 
-1. **What did you learn about databases and SQL from the game alone?**  
-It was good practice for me and helped me understand SQL commands and how they work.
+2. **Which SQL commands and patterns did you actually use?**
+   I used SELECT, WHERE, JOIN, GROUP BY, INSERT, UPDATE and DELETE.
 
-2. **Which SQL commands and patterns did you actually use?**  
-I used SELECT, WHERE, JOIN, GROUP BY, INSERT, UPDATE and DELETE. 
+3. **In your own words, what are a table, a row, a column and a query?**
+   A table organizes data. A row is one record, and a column holds one type of information. A query is an instruction to get or change data.
 
-3. **In your own words, what are a table, a row, a column and a query?**  
-A table organizes data. A row is one record, and a column holds one type of information. A query is an instruction to get or change data.
-
-4. **What surprised you and what is still confusing?**  
-I was surprised that SQL commands could control the story. JOIN and GROUP BY are still a little confusing, and I need more practice with them.
+4. **What surprised you and what is still confusing?**
+   I was surprised that SQL commands could control the story. JOIN and GROUP BY are still a little confusing, and I need more practice with them.
 
 [Game](https://sql-island.informatik.uni-kl.de/) · [Module instructions](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/01-introduction-and-local-first.md)

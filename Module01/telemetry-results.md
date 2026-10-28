@@ -1,6 +1,6 @@
 # Task 6: Synthetic telemetry in SQLite
 
-AI-assisted execution using the course's fixed-seed generator; these are synthetic readings, not real factory data.
+The course generator creates repeatable simulated readings using a fixed random seed.
 
 Database size: 10,526,720 bytes.
 Row count: 172,800.

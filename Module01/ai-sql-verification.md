@@ -1,6 +1,6 @@
 # Task 7: LLM-assisted SQL verification
 
-This record was generated and checked with AI assistance. It does not claim a personal student reflection.
+SQL and verification checks prepared with AI assistance.
 
 ## Exact prompt
 
@@ -16,7 +16,7 @@ GROUP BY machine
 ORDER BY avg_spindle_load DESC;
 ```
 
-Interpretation: “after 18:00” means strictly later than 18:00:00 on each date. Exactly 18:00 and early-morning readings are excluded. If “overnight” means an entire 18:00–06:00 shift, this query needs a different predicate, for example `time(ts) >= '18:00:00' OR time(ts) < '06:00:00'`. Confirm the business definition before using it.
+Interpretation: “after 18:00” means strictly later than 18:00:00 on each date. Exactly 18:00 and early-morning readings are excluded. If “overnight” means an entire 18:00-06:00 shift, this query needs a different predicate, for example `time(ts) >= '18:00:00' OR time(ts) < '06:00:00'`. Confirm the business definition before using it.
 
 ## Execution results
 

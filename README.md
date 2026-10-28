@@ -1,30 +1,34 @@
-# HSBI Databases Portfolio — Asim Arman Erdogan
+# HSBI Databases Portfolio - Asim Arman Erdogan
 
-Personal portfolio for HSBI Databases (2026): reproducible local database experiments, SQL results and verification of AI suggestions.
+This is my portfolio for the HSBI Databases course. It brings together my SQL exercises, Python scripts, query results and reflections.
 
-| Module | Evidence | Reflection |
+| Module | Work | Reflection |
 | --- | --- | --- |
-| [01 — Introduction and Local-First](Module01/README.md) | Toolchain, shell, telemetry and AI SQL verification | [ref01](Reflections/ref01.md) |
-| [02 — Data Contracts and Legacy Schemas](Module02/README.md) | ER diagrams, five proven defects and executable contract | [ref02 — answers pending](Reflections/ref02.md) |
-| [03 — SQL and Query Profiling](Module03/README.md) | Plans, benchmarks, injection, algebra and query rewrites | [ref03 — answers pending](Reflections/ref03.md) |
+| [01 - Introduction and Local-First](Module01/README.md) | Tool setup, SQLite, telemetry and SQL Island | [Reflection 1](Reflections/ref01.md) |
+| [02 - Data Contracts and Legacy Schemas](Module02/README.md) | ER diagrams, data problems and a corrected schema | [Reflection 2 - draft](Reflections/ref02.md) |
+| [03 - SQL and Query Profiling](Module03/README.md) | Query plans, index benchmarks, injection and query rewrites | [Reflection 3 - draft](Reflections/ref03.md) |
 
-[Checkpoint guide](CHECKPOINT.md) · [Collaboration and attribution](COLLABORATION.md) · [Course workbook](https://github.com/iotempire/iotempire-teaching/tree/main/full-classes/hsbi-databases-10d) · [Syllabus](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md)
+[Checkpoint guide](CHECKPOINT.md) · [Pod work and AI assistance](COLLABORATION.md) · [Course workbook](https://github.com/iotempire/iotempire-teaching/tree/main/full-classes/hsbi-databases-10d) · [Syllabus](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md)
 
-## Reproduce
+## Run the exercises
 
-Install uv, then run from this repository root:
+Install uv, then run these commands from the repository root:
 
 ```sh
 uv sync --locked
 uv run python reproduce.py
 ```
 
-Python is selected by .python-version and dependency versions by uv.lock. The runner rebuilds only the course lab tables and generated reports, then verifies results. Keep unrelated data outside these lab files. Local databases, generated telemetry and secrets are ignored by Git. SQLite shell transcripts are separate CLI evidence; the full Python replay does not require the SQLite executable.
+The Python version is set in .python-version and the packages are locked in uv.lock. The script rebuilds the course lab tables and updates their reports. Keep unrelated data outside these lab databases. Database files, generated CSV data and secrets stay out of Git.
 
-## Remaining personal work
+## My pod
 
-- Four personal SQL Island answers; the [guided session, certificate and completion screenshot](Module01/sql-island.md) are now documented.
-- Reflection 02 and 03 personal answers.
-- The student's peer audit of a pod mate's work.
+I work with [Habiba Darwish](https://github.com/Habiba-AladdinDarwish/Darwish_Databases_C2026). We also discussed Modules 2 and 3 with another pod in person. Habiba's portfolio is private, so its links require access.
 
-Pod mate: [Habiba Darwish](https://github.com/Habiba-AladdinDarwish). Module 2–3 discussions with another pod were held face to face. Specific takeaways, her portfolio URL and any Discord evidence will be revisited later; see [collaboration notes](COLLABORATION.md). Technical artifacts were prepared and checked with AI assistance. Personal understanding must be demonstrated at the checkpoint.
+## Still to finish
+
+- Reflection 2 and Reflection 3.
+- A follow-up discussion with Habiba about the portfolio review.
+- A short record of the main points from our face-to-face pod discussions and any shared image or Discord post.
+
+SQL Island is completed, with [answers, certificate and a completion screenshot](Module01/sql-island.md).

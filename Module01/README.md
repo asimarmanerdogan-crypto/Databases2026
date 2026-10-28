@@ -1,4 +1,4 @@
-# Module 01 — Introduction and Local-First Foundations
+# Module 01 - Introduction and Local-First Foundations
 
 Owner: Asim Arman Erdogan.
 
@@ -6,10 +6,10 @@ Exploration plan: generate machine telemetry, measure local SQLite queries, and 
 
 ## Learning goals
 
-1. Explain how this class works — the CBL/PBL philosophy, the portfolio-based project work assessment, and the "moving bar" of a first-time course.
+1. Explain how this class works - the CBL/PBL philosophy, the portfolio-based project work assessment, and the "moving bar" of a first-time course.
 2. Set up your personal GitHub portfolio from the course template, with a clean first commit and a `.gitignore` that keeps databases and secrets out of Git.
-3. Set up the entire toolchain reproducibly with `uv` — one fixed Python plus SQLite, DuckDB, Datasette, and more — on Windows, macOS, or Linux, and verify it.
-4. Explain — with a measurement, not a slide — the difference between an embedded database and a client/server database, and why most local apps should not run a server.
+3. Set up the entire toolchain reproducibly with `uv` - one fixed Python plus SQLite, DuckDB, Datasette, and more - on Windows, macOS, or Linux, and verify it.
+4. Explain - with a measurement, not a slide - the difference between an embedded database and a client/server database, and why most local apps should not run a server.
 5. Load real rows into SQLite and query them from Python using bound parameters.
 6. Take a first LLM-generated query, run it, and begin the habit that defines this course: verify before you trust.
 
@@ -18,9 +18,9 @@ Exploration plan: generate machine telemetry, measure local SQLite queries, and 
 - [Module instructions](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/01-introduction-and-local-first.md)
 - [Syllabus](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md)
 - [Reflection](../Reflections/ref01.md)
-- [SQL Island — guided completion and certificate](sql-island.md)
+- [SQL Island - guided completion and certificate](sql-island.md)
 - [Learning-goal evidence audit](audit.md)
-- [Pod mate: Habiba Darwish](https://github.com/Habiba-AladdinDarwish) — portfolio URL not supplied.
+- [Pod mate: Habiba Darwish](https://github.com/Habiba-AladdinDarwish/Darwish_Databases_C2026) (private portfolio).
 
 Run commands from the repository root. Technical evidence is indexed below.
 
@@ -36,7 +36,7 @@ An embedded database simplifies deployment and offline operation, but SQLite per
 
 ## Participation and attribution
 
-The [existing student reflection](../Reflections/ref01.md) records weekend work with the pod and three other classmates. Scripts and technical evidence were prepared and checked with AI assistance. See [collaboration notes](../COLLABORATION.md) for the limits of the available participation record. Peer audit remains pending.
+I worked with Habiba and three other classmates over the weekend. My [reflection](../Reflections/ref01.md) describes that experience. See [collaboration notes](../COLLABORATION.md) for the portfolio review and how AI was used.
 
 ## Task 3: Reproducible toolchain
 
@@ -60,7 +60,7 @@ AI-assisted observation: `.schema` was useful because it displayed the exact tab
 
 ## Task 5: SQL Island
 
-[Completed guided demonstration](sql-island.md), with the original certificate, completion screenshot and SQL examples. The student watched while the assistant entered and explained the queries. Four personal answers remain pending.
+[Completed guided demonstration](sql-island.md), with the original certificate, completion screenshot and SQL examples. I watched the assistant enter and explain the queries, and added my answers below the game notes.
 
 ## Task 6: Telemetry pipeline
 

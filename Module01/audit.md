@@ -1,16 +1,16 @@
-# Module 01 — Evidence audit
+# Module 01 - Work overview
 
-Updated 2026-10-28. Assessment is based on demonstrating the learning goals, not a mandatory task checklist. Starred tasks are the normal route; alternative proof must demonstrate the same goals. [Course assessment](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md).
+The course assesses the learning goals through the portfolio and checkpoint discussion. Tasks are a way to show those goals. [Assessment rules](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md).
 
-| Area | Evidence and status |
+| Area | Work and evidence |
 | --- | --- |
-| Portfolio | Personalized public repository, learning goals, meaningful commits and ignored databases/secrets. Instructor `ulno` is a collaborator (live access check, 2026-10-28). Template provenance is not established; existing repo name is Databases2026. |
-| Git and collaboration | [Collaboration record](../COLLABORATION.md). Peer audit pending; unavailable participant details are explicitly distinguished from confirmed weekend collaboration. |
-| Toolchain | [.python-version](../.python-version), [project dependencies](../pyproject.toml), [lockfile](../uv.lock), [version check](uv-check-output.txt). |
-| Shell | [Commands](tour-commands.sql), [captured output](shell-tour.txt), [dump](tour.sql). |
-| SQL Island | [Guided demonstration completed](sql-island.md) on 2026-10-28; original certificate and completion screenshot included. Assistant-operated play is disclosed. Four student answers remain pending. |
-| Telemetry | [Results](telemetry-results.md), bound-parameter loader and reproducible generator/verifier. 172,800 synthetic readings. |
-| AI SQL | [Prompt, query, plans and boundary tests](ai-sql-verification.md). “After 18:00” is a stated daily-time interpretation, not an entire overnight shift. |
-| Reflection | [Student reflection](../Reflections/ref01.md), moved to the standard location and edited for clarity. |
+| Portfolio | Personal README, learning goals and commit history. The instructor has access. Local databases and secrets are ignored by Git. |
+| Pod work | [Habiba's portfolio](https://github.com/Habiba-AladdinDarwish/Darwish_Databases_C2026) and [collaboration notes](../COLLABORATION.md). |
+| Tool setup | [Python version](../.python-version), [dependencies](../pyproject.toml), [lockfile](../uv.lock) and [version output](uv-check-output.txt). |
+| SQLite shell | [Commands](tour-commands.sql), [output](shell-tour.txt) and [database dump](tour.sql). |
+| SQL Island | [Completed guided session](sql-island.md), with answers, certificate and screenshot. |
+| Telemetry | [Results](telemetry-results.md), generator, parameterized loader and verification script. The dataset contains 172,800 simulated readings. |
+| AI-generated SQL | [Prompt, query, plan and checks](ai-sql-verification.md). The time filter means strictly after 18:00 each day. |
+| Reflection | [Reflection 1](../Reflections/ref01.md). |
 
-No remote-database benchmark is claimed. The local measurements show that the workload can run without a server; concurrent writers or shared network access can justify client/server deployment.
+The measurements show that this workload runs locally without a database server. They do not compare SQLite's speed with a remote server.

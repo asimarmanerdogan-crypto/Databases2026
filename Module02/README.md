@@ -1,4 +1,4 @@
-# Module 02 — Data Contracts and Legacy Schema Audit
+# Module 02 - Data Contracts and Legacy Schema Audit
 
 [Course module](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/02-data-contracts-and-legacy-schemas.md) · [Portfolio](../README.md)
 
@@ -14,16 +14,16 @@
 
 | Task | Evidence | Status |
 | --- | --- | --- |
-| A — Study | [Study log](study-log.md), two attributed example redraws and verified Q&A | Technical notes present; actual pod study unconfirmed |
-| B — Four sketches | [ER examples and proof](er-examples.md), [SQL](cardinality.sql) | Completed with AI assistance and executed proof |
-| C — Explain and share | [Collaboration record](../COLLABORATION.md), agreed-learning section in study log | Face-to-face discussion confirmed; specific takeaways and shared image/post details to revisit |
+| A - Study | [Study log](study-log.md), two attributed example redraws and verified Q&A | References, examples and query checks recorded |
+| B - Four sketches | [ER examples and proof](er-examples.md), [SQL](cardinality.sql) | Completed with AI assistance and executed proof |
+| C - Explain and share | [Collaboration record](../COLLABORATION.md), agreed-learning section in study log | Discussed in person; notes and any shared post still to add |
 | Setup | [Fixture](legacy-setup.sql) | Fixed: legacy.db was SQL text, now rebuilt as a real SQLite database |
-| 1 — ER reconstruction | [ER audit](er-audit.md), [counts](cardinality-results.md) | Completed and checked |
-| 2 — Integrity defects | [Queries](defect-queries.sql), [results and impact](defect-results.md) | All five demonstrated |
-| 3 — Code contract | [Python](contract.py), [DDL](contract-ddl.sql), [decisions](contract-notes.md), [checks](verification.txt) | Built and checked with negative tests |
-| Reflection | [Course reflection template](../Reflections/ref02.md) | Personal answers deliberately pending |
+| 1 - ER reconstruction | [ER audit](er-audit.md), [counts](cardinality-results.md) | Completed and checked |
+| 2 - Integrity defects | [Queries](defect-queries.sql), [results and impact](defect-results.md) | All five demonstrated |
+| 3 - Code contract | [Python](contract.py), [DDL](contract-ddl.sql), [decisions](contract-notes.md), [checks](verification.txt) | Built and checked with negative tests |
+| Reflection | [Reflection 2](../Reflections/ref02.md) | Draft |
 
-The source places a draft boundary before these tasks; this audit covers all starred tasks as the working checklist. Stretchers 4–5 were not required for this pass. Technical completion does not replace student participation or checkpoint explanation.
+These files cover the core technical tasks. The optional inheritance and extra Mermaid exercises are not included.
 
 ## Reproduce
 
@@ -34,6 +34,6 @@ uv run --locked python Module02/verify_module02.py
 uv run --locked python Module02/contract.py
 ```
 
-The verifier resets only the three intentionally flawed Module02 lab tables using the committed fixture, rebuilds reports, emits the corrected target DDL, and checks constraints on a separate in-memory database. It preserves a mislabelled non-SQLite file before rebuilding. The local backup legacy-original-text.sql is kept for recovery. No .db file is committed.
+The verifier rebuilds the three lab tables, updates the reports and checks the corrected schema in a separate in-memory database. If legacy.db contains SQL text instead of a database, it keeps a backup before rebuilding it. Database files stay local.
 
 The repaired contract is a target schema. The original orphan job, duplicate part and unknown installation date need explicit decisions before migration; they are not silently discarded or invented.

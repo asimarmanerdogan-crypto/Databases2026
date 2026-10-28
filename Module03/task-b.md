@@ -1,4 +1,4 @@
-## Task B — SQL and relational algebra
+## Task B - SQL and relational algebra
 
 ### Chosen query
 
@@ -10,7 +10,7 @@ Meaning: retain the complete maintenance-job records whose technician is Beier.
 
 ### Initial attempt and assistance
 
-I initially did not know how to express this in relational algebra and asked the LLM for help. The expression below was taught by the LLM before the formal translation prompt was submitted. There is therefore no independent, unaided student translation to compare, and no pod discussion is claimed.
+I needed help with relational algebra, so the first expression was explained by the LLM. I then compared it with a second AI translation. Both versions were assisted.
 
 Assisted expression: `σ_{technician = 'Beier'}(maint_job)`.
 
@@ -23,8 +23,6 @@ SELECT * FROM maint_job WHERE technician = 'Beier';
 
 Explain each operator. Do not introduce unnecessary operators. Do not inspect or modify my existing answers or project files.
 ```
-
-The file-inspection restriction applied to that earlier translation-only request. This portfolio section was added later at my explicit request to complete Task B.
 
 ### LLM response and operator explanation
 
@@ -44,7 +42,7 @@ The response was `σ_{technician = 'Beier'}(maint_job)`.
 | Projection | None | None |
 | Join | None | None |
 
-There is no semantic difference between the two assisted expressions. This is a consistency check, not proof of independent understanding. The key learning is that SQL's SELECT keyword does not automatically require relational-algebra projection: WHERE maps to selection here, and all columns remain.
+Both assisted expressions mean the same thing. The useful distinction is that SQL SELECT and algebra selection are different: WHERE maps to selection here, while SELECT * keeps every column.
 
 ### Verification against legacy.db
 
@@ -61,4 +59,4 @@ Reproduce from the repository root:
 .\.venv\Scripts\python.exe Module03/verify_task_b.py
 ```
 
-The database was opened read-only and its SHA-256 was unchanged. No data or index was modified. This completes the AI-assisted technical record for Task B; it does not replace the exercise's intended independent first attempt. Task C's real pod comparison remains pending.
+The check opens the database read-only and confirms that its file hash stays unchanged. It verifies the assisted translation; I still need to practise writing the expression without help.

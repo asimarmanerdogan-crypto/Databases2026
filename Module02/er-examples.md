@@ -1,8 +1,8 @@
-# Task B — Four workshop ER sketches
+# Task B - Four workshop ER sketches
 
 AI-assisted models. Lower bounds are explicit assumptions where the story says “many” without specifying a minimum.
 
-## 1. Machine and nameplate — exactly 1:1
+## 1. Machine and nameplate - exactly 1:1
 
 ```mermaid
 erDiagram
@@ -20,7 +20,7 @@ erDiagram
 
 A shared primary/foreign key enforces at most one nameplate per machine and exactly one existing machine per nameplate. It does **not** require every machine to have a nameplate. To enforce both mandatory sides without cyclic insertion or triggers, I would store required `serial_no UNIQUE NOT NULL` and `manufacturer NOT NULL` on Machine. A separate entity is justified only if the nameplate has an independent lifecycle; then total participation needs an explicit transaction/workflow or database enforcement. The diagram describes the business rule, not what a lone FK guarantees.
 
-## 2. Machine and sensors — 1:n
+## 2. Machine and sensors - 1:n
 
 ```mermaid
 erDiagram
@@ -47,7 +47,7 @@ Run [cardinality.sql](cardinality.sql) against a fresh SQLite database, or run t
 
 The verifier also inserts an orphan sensor deliberately and confirms a foreign-key error. The counts exhibit 1:n; the NOT NULL FK enforces the child-to-parent rule. They do not prove that every machine must have a sensor.
 
-## 3. Work orders and parts — m:n
+## 3. Work orders and parts - m:n
 
 ```mermaid
 erDiagram

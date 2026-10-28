@@ -1,6 +1,6 @@
 # Module 02 study log
 
-Prepared on 2026-10-22 with AI assistance. This is a sourced technical draft, not evidence that a 30-minute pod session occurred. Updated on 2026-10-25 against the full module instructions; technical work and executed evidence are linked below.
+These notes bring together the references, diagrams and query checks for Module 2. They were prepared with AI assistance and updated after checking the full module tasks.
 
 ## 1. References used
 
@@ -12,10 +12,10 @@ Prepared on 2026-10-22 with AI assistance. This is a sourced technical draft, no
 
 ## 2. Web searches performed by the assistant
 
-- `site.opentextbc.ca dbdesign entity relationship model weak entity employee dependent` — found the textbook's entity/attribute examples and EmployeePhone model; [source](https://opentextbc.ca/dbdesign01/chapter/chapter-8-entity-relationship-model/).
-- `site.sqlite.org foreignkeys CREATE TABLE UNIQUE composite primary key` — found official constraint and foreign-key documentation; [source](https://www.sqlite.org/foreignkeys.html), [CREATE TABLE](https://www.sqlite.org/lang_createtable.html).
+- `site.opentextbc.ca dbdesign entity relationship model weak entity employee dependent` - found the textbook's entity/attribute examples and EmployeePhone model; [source](https://opentextbc.ca/dbdesign01/chapter/chapter-8-entity-relationship-model/).
+- `site.sqlite.org foreignkeys CREATE TABLE UNIQUE composite primary key` - found official constraint and foreign-key documentation; [source](https://www.sqlite.org/foreignkeys.html), [CREATE TABLE](https://www.sqlite.org/lang_createtable.html).
 
-These are the assistant's actual web-search terms, not a claim about the student's Google history.
+These searches were carried out with AI assistance.
 
 ## 3. Technical observations and counterexamples
 
@@ -26,7 +26,7 @@ These are the assistant's actual web-search terms, not a claim about the student
 
 ## 4. LLM Q&A
 
-The prompts below are explicit technical questions posed and answered within this AI-assisted preparation, not a retrospective claim about student prompts.
+These questions helped structure the AI-assisted explanations and checks.
 
 ### Prompt: Which table holds the foreign key in a machine-to-sensor 1:n relationship?
 
@@ -48,7 +48,7 @@ Verification: In the one-to-many experiment, a foreign key limited child referen
 
 ## 5. Two selected found examples, redrawn
 
-These are assistant-selected teaching examples. Mermaid drawings are original simplified redraws/adaptations, not screenshots. The explicit lower bounds below are stated assumptions rather than claims about every source diagram.
+These two examples were selected with AI assistance and redrawn in Mermaid. The notes explain the assumptions about whether a relationship is optional or required.
 
 ### Example A: Employee and multiple phone numbers
 
@@ -91,7 +91,7 @@ Lesson from this example: a relationship line needs executable constraints. The 
 
 ## Agreed learning (pod discussion)
 
-The student confirmed a face-to-face discussion with another pod. There is no online conversation history. Specific shared conclusions, disagreements, participants and any shared image/post were not supplied; the student asked to revisit those details later. No agreement is invented. See [collaboration record](../COLLABORATION.md).
+We discussed the module with another pod in person. I still need to write down the main conclusions and any disagreements. See [pod notes](../COLLABORATION.md).
 
 Candidate discussion points:
 
@@ -106,11 +106,11 @@ Open question: when should a nameplate have its own lifecycle/entity rather than
 ## Remaining assignment evidence
 
 - Completed with AI assistance: [four workshop sketches and CREATE TABLE + COUNT proof](er-examples.md).
-- Document the specific takeaways and unresolved disagreements from the confirmed face-to-face discussion when revisiting it with the student.
+- Write down the main points and disagreements from our face-to-face discussion.
 - One image selected by the pods and shared to the course Discord channel.
 - Completed and verified: the deliberately flawed legacy.db rebuilt from [legacy-setup.sql](legacy-setup.sql); the original .db was SQL text and has been preserved locally as legacy-original-text.sql.
 
-## Verified technical continuation — 2026-10-25
+## Verified technical continuation - 2026-10-25
 
 - [Task B: Four workshop sketches and one executable cardinality proof](er-examples.md)
 - [Task 1: Reconstructed legacy ER model and forgotten requirements](er-audit.md)
@@ -135,4 +135,4 @@ AI answer: No. SQLite type affinity is not full domain validation. Calendar vali
 
 Verification: The executable checks reject an impossible calendar date through Pydantic, negative/over-precision prices, orphan references and duplicate junction pairs. The 1:1 sketch explicitly distinguishes its business rule from the weaker shared-FK implementation. Raw SQL date validity remains a documented limitation, not a claimed database guarantee.
 
-Sources consulted for this continuation: [Pydantic validators](https://docs.pydantic.dev/latest/concepts/validators/), [SQLAlchemy SQLite foreign keys](https://docs.sqlalchemy.org/en/20/dialects/sqlite.html#foreign-key-support). No new web-search terms or personal pod experience are claimed.
+Further references: [Pydantic validators](https://docs.pydantic.dev/latest/concepts/validators/), [SQLAlchemy SQLite foreign keys](https://docs.sqlalchemy.org/en/20/dialects/sqlite.html#foreign-key-support).

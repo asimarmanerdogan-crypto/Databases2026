@@ -1,11 +1,11 @@
-# Query rewrites — subqueries, windows and HAVING
+# Query rewrites - subqueries, windows and HAVING
 
-AI-assisted executable examples; no unaided student attempt or external model transcript is claimed.
+These query rewrites were prepared and checked with AI assistance.
 SQLite 3.53.1. Reproduce: `uv run python Module03/query_rewrites.py`.
 
 ## Query and plan comparison
 
-The original course report is the grouped baseline; the rewrites were prepared by the assistant. For this report, GROUP BY is the clearest form. The correlated form repeats an indexed count per customer and uses EXISTS to retain exactly the customers present in the original inner join. The window form preserves each late-order row; DISTINCT reduces repeated customer/count pairs to one row per customer. No timing advantage is claimed.
+The course report is the grouped baseline. The rewrites were prepared with AI assistance. For this report, GROUP BY is the clearest form. The correlated form repeats an indexed count per customer and uses EXISTS to retain exactly the customers present in the original inner join. The window form preserves each late-order row; DISTINCT reduces repeated customer/count pairs to one row per customer. No timing advantage is claimed.
 
 A query-specific `(customer_id,status)` index is added only to an in-memory backup. It covers the count/EXISTS predicates; a different index/workload can produce different plans.
 

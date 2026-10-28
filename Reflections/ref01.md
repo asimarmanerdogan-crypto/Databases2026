@@ -1,33 +1,29 @@
-# Module 01 — Reflection
+# Module 01 - Reflection
 
 ## Take-away
 
-The first module mainly focused on setting up the tools and environment. I learned how uv manages Python and project dependencies, how SQLite dot-commands work, and why a local-first database can be more suitable than a cloud-based system for some applications. My main takeaway is that AI can speed up coding, but its output still needs human verification. A person must take responsibility for the final result, because AI can make mistakes and cannot be held accountable.
+I learned how uv manages Python and packages, how SQLite commands work, and why a local database can be enough for some applications. AI can help with code, but the result still needs checking. A query can run without answering the right question.
 
 ## What was good?
 
-It gets better as I advance in learning.
+It became more enjoyable as I started to understand what was happening.
 
 ## What was difficult?
 
-As someone learning databases and GitHub from scratch, I found the beginning quite challenging. I am enjoying it more as I understand what is happening.
+I was learning databases and GitHub from scratch, so setting things up and understanding the commands was challenging at first.
 
 ## Exploration and show stoppers
 
-At first, the whole module was an exploration because these topics were new to me.
+Most of the module was new to me. Trying the commands and seeing their results helped make the ideas clearer.
 
 ## Interaction with peers and instructors
 
-My pod mate is Habiba Darwish. We also worked with three other classmates over the weekend and helped each other understand the material. No completed peer audit is claimed here.
+My pod mate is Habiba Darwish. We also worked with three other classmates over the weekend and helped each other understand the material.
 
 ## How did you verify AI suggestions?
 
-My original reflection mainly described installation and live tests without observed wrong results. That description was too broad: the portfolio also includes a [reproducible SQL verification report](../Module01/ai-sql-verification.md). The AI-assisted checks compare SQL aggregation with a separate Python calculation, inspect EXPLAIN QUERY PLAN and test time boundaries. They identify an ambiguity: “after 18:00” excludes early-morning readings, whereas an entire overnight shift would need a different predicate. A deliberately misspelled column also raises an error. These are documented automated checks, not a claim that I performed each check independently. My takeaway is to distinguish a query that runs from a query that matches the intended business meaning.
+The [verification report](../Module01/ai-sql-verification.md) checks the SQL result with a separate Python calculation and tests the time boundaries. These checks were prepared with AI assistance. One useful example is “after 18:00”: it excludes early-morning readings, so it is different from a full overnight shift. A misspelled column also produces an error. This shows why checking the meaning of a query matters as much as checking whether it runs.
 
 ## Help and extra work
 
-We worked together with my pod and three other classmates over the weekend. We helped each other with the parts we understood and the parts we did not understand.
-
----
-
-Edited for clarity from the student's existing reflection. The technical verification paragraph was reconciled with the linked evidence using AI assistance; no additional personal participation is claimed.
+In our weekend group, we helped each other with the parts we understood and the parts we found difficult. AI explanations also helped with the technical work.

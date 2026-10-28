@@ -47,13 +47,13 @@ if existing:
         raise RuntimeError(f"Refusing to remove an unfamiliar index: {existing}")
     drop = 'DROP INDEX "ix_job_tech";'
 
-notes = """# Module 03 — Task A: Plan Safari
+notes = """# Module 03 - Task A: Plan Safari
 
 ## Objective
 
 Compare actual SQLite query plans before and after adding an ordinary index, and find predicates that cannot use it to narrow the search. Prepared with AI assistance using Python's built-in sqlite3; no SQLite CLI installation is needed.
 
-## Original predictions — recorded before this run
+## Original predictions - recorded before this run
 
 | Query | Before-index prediction |
 | --- | --- |

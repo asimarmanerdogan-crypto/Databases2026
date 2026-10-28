@@ -1,10 +1,10 @@
-# Module 03 — Task A: Plan Safari
+# Module 03 - Task A: Plan Safari
 
 ## Objective
 
 Compare actual SQLite query plans before and after adding an ordinary index, and find predicates that cannot use it to narrow the search. Prepared with AI assistance using Python's built-in sqlite3; no SQLite CLI installation is needed.
 
-## Original predictions — recorded before this run
+## Original predictions - recorded before this run
 
 | Query | Before-index prediction |
 | --- | --- |

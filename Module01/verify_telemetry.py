@@ -20,7 +20,7 @@ def table(cursor):
 count = conn.execute("SELECT COUNT(*) FROM readings").fetchone()[0]
 assert count == 172800
 report = ["# Task 6: Synthetic telemetry in SQLite", "",
-          "AI-assisted execution using the course's fixed-seed generator; these are synthetic readings, not real factory data.", "",
+          "The course generator creates repeatable simulated readings using a fixed random seed.", "",
           f"Database size: {(here / 'telemetry.db').stat().st_size:,} bytes.",
           f"Row count: {count:,}.", "",
           "The database is embedded in a local file; no database server was started.", ""]
@@ -90,7 +90,7 @@ else:
 
 report7 = f'''# Task 7: LLM-assisted SQL verification
 
-This record was generated and checked with AI assistance. It does not claim a personal student reflection.
+SQL and verification checks prepared with AI assistance.
 
 ## Exact prompt
 
@@ -102,7 +102,7 @@ This record was generated and checked with AI assistance. It does not claim a pe
 {query}
 ```
 
-Interpretation: “after 18:00” means strictly later than 18:00:00 on each date. Exactly 18:00 and early-morning readings are excluded. If “overnight” means an entire 18:00–06:00 shift, this query needs a different predicate, for example `time(ts) >= '18:00:00' OR time(ts) < '06:00:00'`. Confirm the business definition before using it.
+Interpretation: “after 18:00” means strictly later than 18:00:00 on each date. Exactly 18:00 and early-morning readings are excluded. If “overnight” means an entire 18:00-06:00 shift, this query needs a different predicate, for example `time(ts) >= '18:00:00' OR time(ts) < '06:00:00'`. Confirm the business definition before using it.
 
 ## Execution results
 

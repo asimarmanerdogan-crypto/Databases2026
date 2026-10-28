@@ -1,4 +1,4 @@
-# Task 1 — Legacy ER audit
+# Task 1 - Legacy ER audit
 
 The legacy fixture declares **no primary keys, unique constraints or foreign keys**. The following is reconstructed intent, not existing enforcement.
 

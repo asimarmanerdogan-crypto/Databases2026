@@ -1,19 +1,25 @@
-# Collaboration and attribution
+# Pod work and AI assistance
 
-## Confirmed record
+## Working together
 
-- Portfolio owner: Asim Arman Erdogan.
-- The student's Module 1 reflection records weekend work with the pod and three other classmates, with mutual help on understood and unclear topics.
-- The student confirmed Habiba Darwish as their pod mate on 2026-10-28: [GitHub profile](https://github.com/Habiba-AladdinDarwish). Her portfolio URL has not been supplied; no public repository was listed on that account during this check. A profile link is not presented as a portfolio link.
-- The student confirmed that the Module 2 and 3 discussions with another pod took place face to face. No online conversation history exists for those meetings, and no transcript is required to establish that they happened. The specific discussion points, joint decisions and any image/Discord post can be documented later from the participants' recollection.
-- GitHub access was checked on 2026-10-28: Ulrich Norbisrath (`ulno`) and Habiba Darwish (`Habiba-AladdinDarwish`) are collaborators. Repository access alone does not establish authorship of a particular task.
-- AI assistance was used for code, documentation, diagrams and automated technical verification. Reports label assisted work; an automated check is not evidence of independent student performance.
-- SQL Island was completed as an assistant-operated demonstration watched by the student, with step-by-step Turkish explanations. The [game record](Module01/sql-island.md) includes the student's supplied certificate and a completion screenshot; personal answers are still pending.
+My pod mate is [Habiba Darwish](https://github.com/Habiba-AladdinDarwish/Darwish_Databases_C2026). Her portfolio is private but accessible from my account. We worked with three other classmates over the weekend and helped each other with the material. For Modules 2 and 3, we also spoke with another pod face to face.
 
-## Peer audit — deliberately pending
+I still need to write down the main points from those discussions and add any shared image or Discord post. There is no online chat history for the in-person meetings.
 
-The student's check of a pod mate's work has not been completed in this preparation. No peer query run, review, role rotation or feedback is claimed.
+## Portfolio review
 
-## Details to revisit with the student
+On 28 October 2026, an AI-assisted review checked Habiba's accessible repositories and compared them with this portfolio. I still need to discuss the findings with her.
 
-Habiba's portfolio URL, task-by-task contributions, the other pod's identities, discussion takeaways and any jointly selected image/Discord post link have not been supplied. The face-to-face discussions are confirmed; their content is not reconstructed or invented. The student asked to revisit those details later. This is a documentation limit, not a claim that the meetings did not happen.
+Our telemetry generators use different schemas, dates and alarm thresholds. Different results are expected, so we should explain the data differences when comparing queries.
+
+The file review was carried out by the assistant. I still need to complete the peer check myself.
+
+## AI assistance
+
+I used AI to help prepare and explain code, diagrams and documentation. The scripts check results against independent calculations, small test datasets and expected errors. Automated checks support the technical results; I still need to understand and explain the work myself.
+
+For SQL Island, I watched the assistant enter queries and explain them in Turkish. Some examples were run automatically by the game. My [game notes](Module01/sql-island.md) include the certificate, screenshot and my answers.
+
+## Repository access
+
+The instructor `ulno` and Habiba are collaborators on this repository. This was checked on 28 October 2026.

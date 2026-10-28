@@ -1,4 +1,4 @@
-# Checkpoint — Modules 1–3
+# Checkpoint - Modules 1-3
 
 Assessment targets the learning goals and the ability to explain/run the evidence. Task completion alone does not establish understanding. [Assessment rules](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md).
 
@@ -12,4 +12,4 @@ Assessment targets the learning goals and the ability to explain/run the evidenc
 
 Run `uv sync --locked` and `uv run python reproduce.py` on the presentation machine. This generates the ignored lab databases. Open one evidence page per module and be ready to run/explain a query yourself. Timings vary by machine; explain the plan and median methodology rather than promising identical milliseconds.
 
-[Reflection 1](Reflections/ref01.md) · [Reflection 2 (pending)](Reflections/ref02.md) · [Reflection 3 (pending)](Reflections/ref03.md) · [Collaboration record](COLLABORATION.md) · [SQL Island — guided completion; personal answers pending](Module01/sql-island.md)
+[Reflection 1](Reflections/ref01.md) · [Reflection 2 - draft](Reflections/ref02.md) · [Reflection 3 - draft](Reflections/ref03.md) · [Collaboration record](COLLABORATION.md) · [SQL Island - completed](Module01/sql-island.md)

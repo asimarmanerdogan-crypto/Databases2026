@@ -1,4 +1,4 @@
-# Task 3 — Contract enforcement decisions
+# Task 3 - Contract enforcement decisions
 
 [contract.py](contract.py) contains Pydantic models for Machine, Technician, Part and MaintenanceJob, plus SQLAlchemy tables for those entities and JobPart. [Emitted SQLite DDL](contract-ddl.sql) and [executed negative checks](verification.txt) accompany it.
 

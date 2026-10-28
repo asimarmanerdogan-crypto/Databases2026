@@ -1,5 +1,5 @@
 {
-  "attribution": "AI-assisted predictions for this run, not an unaided student attempt",
+  "attribution": "AI-assisted predictions saved before checking the query plans",
   "baseline_dashboard": "SCAN ol; SEARCH o,c,p by primary key; temporary B-trees for grouping, distinct counting and ordering",
   "date_only": "May leave dashboard unchanged; single-day lookup should SEARCH the date index",
   "line_order": "May change join order and may be slower for this broad aggregate",

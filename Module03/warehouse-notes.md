@@ -1,6 +1,6 @@
-# Tasks 1–4 — Query verification notes
+# Tasks 1-4 - Query verification notes
 
-Prepared with AI assistance on 2026-10-25. No independent student prediction, pod conversation or Discord post is claimed.
+Query explanations and checks prepared with AI assistance.
 
 ## Task 1: Request, SQL and correctness
 
@@ -8,7 +8,7 @@ Exact exercise prompt used as the specification:
 
 > SQLite schema: customer(customer_id, name, city), product(product_id, sku, price), orders(order_id, customer_id, ordered_on, status), order_line(order_id, product_id, qty). Write a query that returns, for each city, the number of distinct customers and the total revenue (sum of qty*price) of orders placed in 2025, ordered by revenue descending.
 
-[dashboard.sql](dashboard.sql) uses the module's reference query, the explicitly permitted alternative to a separate model response. There is no invented external model conversation. [Predictions](plan-predictions.json) were saved by the AI-assisted runner before requesting plans; they are not a student's unaided first attempt. [Actual results and plans](benchmark-results.md) record what happened.
+[dashboard.sql](dashboard.sql) uses the course's reference query. The benchmark script saves [AI-assisted predictions](plan-predictions.json) before checking the plans. [Results and plans](benchmark-results.md) show what happened.
 
 Correctness interpretation: count distinct customers with at least one qualifying order line, and sum all qualifying lines regardless of order status. This is booked order revenue; excluding open/late orders would be a different business rule. Customers without qualifying lines are excluded by the inner joins; cities with no qualifying lines have no row. If the manager means every registered customer, calculate that count separately and left join the revenue aggregate.
 
@@ -20,7 +20,7 @@ Baseline: SCAN order_line (ol); primary-key SEARCH lookups for orders, customer 
 
 AI optimization question for this exercise: Which indexes on ordered_on, order_line.order_id and order_line.product_id might help this city revenue query, and how can we establish whether they actually help?
 
-AI answer: try ix_orders_ordered_on, ix_orderline_order and ix_orderline_product; test isolated effects and the cumulative course sequence, without assuming a speedup. This is advice from the assistant preparing these files, not an independent external transcript.
+AI answer: try ix_orders_ordered_on, ix_orderline_order and ix_orderline_product; test isolated effects and the cumulative course sequence, without assuming a speedup. These suggestions came from the assistant used to prepare the exercise.
 
 [bench.py](bench.py) captures a plan before each timed variant, performs an untimed warmup, and reports three samples and their median. All measurements run in the same process and connection. Short lookups use repeated batches to amortize timer overhead. Isolated tests reset to the baseline; cumulative tests also reproduce the course sequence. Source warehouse.db is read-only; index changes occur on a temporary disk fixture built from setup.sql.
 
@@ -68,8 +68,8 @@ Source: [Module 3 setup and pod-study section](https://github.com/iotempire/iote
 - SQL logical order is FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY. SQLite permits some alias references as an extension, so “a SELECT alias always fails in WHERE” is an overgeneralization. An aggregate such as COUNT(*) in WHERE is a clearer invalid stage example.
 - A covering index contains every requested value; asking for an unindexed payload column requires visiting the table. A full index scan can still be covering.
 
-Pod mate Habiba Darwish and face-to-face discussions for Modules 2–3 are confirmed by the student. Specific exchanged curiosities, the other pod's SQLite version and any questions posted to #sql-questions will be revisited later; see [collaboration record](../COLLABORATION.md).
+Habiba is my pod mate. We discussed Modules 2 and 3 with another pod in person. The specific takeaways, the other pod's SQLite version and any shared questions still need to be recorded in the [pod notes](../COLLABORATION.md).
 
-References: [SQLite plan vocabulary](https://www.sqlite.org/eqp.html), [optimizer behavior](https://www.sqlite.org/optoverview.html), [Python sqlite3 parameter binding](https://docs.python.org/3/library/sqlite3.html#sqlite3-placeholders). No personal web-search history is claimed.
+References: [SQLite plan vocabulary](https://www.sqlite.org/eqp.html), [optimizer behavior](https://www.sqlite.org/optoverview.html), [Python sqlite3 parameter binding](https://docs.python.org/3/library/sqlite3.html#sqlite3-placeholders).
 
 [Executed covering-index and clause-order checks](concept-checks.txt).

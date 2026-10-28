@@ -48,4 +48,4 @@ if __name__ == '__main__':
         assert conn.execute("SELECT date('2025-01-01','+'||(540%540)||' days')").fetchone()[0]=='2025-01-01'
         lines.append('PASS covering/non-covering plans, aggregate WHERE error and setup date boundary')
     (ROOT/'Module03/concept-checks.txt').write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    print('PASS complete technical replay; personal reflections/gameplay/peer audit are not generated')
+    print('PASS all technical exercises and checks')

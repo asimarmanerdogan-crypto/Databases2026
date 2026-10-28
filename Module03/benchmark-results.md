@@ -1,4 +1,4 @@
-# Task 1–2 — Measured warehouse query plans
+# Task 1-2 - Measured warehouse query plans
 
 SQLite 3.53.1; Python 3.14.10.
 perf_counter; same process/connection; one untimed warmup; 3 batches; execute+fetch; ms/query
@@ -33,7 +33,7 @@ Fresh fixture in a temporary disk database; the existing warehouse.db is opened 
 
 ## Exact plans captured before timing
 
-### baseline — dashboard
+### baseline - dashboard
 ```text
 (12, 0, 216, 'SCAN ol')
 (14, 0, 45, 'SEARCH o USING INTEGER PRIMARY KEY (rowid=?)')
@@ -44,7 +44,7 @@ Fresh fixture in a temporary disk database; the existing warehouse.db is opened 
 (79, 0, 0, 'USE TEMP B-TREE FOR ORDER BY')
 ```
 
-### only ix_orders_ordered_on — dashboard
+### only ix_orders_ordered_on - dashboard
 ```text
 (12, 0, 216, 'SCAN ol')
 (14, 0, 45, 'SEARCH o USING INTEGER PRIMARY KEY (rowid=?)')
@@ -55,7 +55,7 @@ Fresh fixture in a temporary disk database; the existing warehouse.db is opened 
 (79, 0, 0, 'USE TEMP B-TREE FOR ORDER BY')
 ```
 
-### only ix_orderline_order — dashboard
+### only ix_orderline_order - dashboard
 ```text
 (12, 0, 216, 'SCAN ol')
 (14, 0, 45, 'SEARCH o USING INTEGER PRIMARY KEY (rowid=?)')
@@ -66,7 +66,7 @@ Fresh fixture in a temporary disk database; the existing warehouse.db is opened 
 (79, 0, 0, 'USE TEMP B-TREE FOR ORDER BY')
 ```
 
-### only ix_orderline_product — dashboard
+### only ix_orderline_product - dashboard
 ```text
 (12, 0, 216, 'SCAN ol')
 (14, 0, 45, 'SEARCH o USING INTEGER PRIMARY KEY (rowid=?)')
@@ -77,7 +77,7 @@ Fresh fixture in a temporary disk database; the existing warehouse.db is opened 
 (79, 0, 0, 'USE TEMP B-TREE FOR ORDER BY')
 ```
 
-### cumulative through ix_orders_ordered_on — dashboard
+### cumulative through ix_orders_ordered_on - dashboard
 ```text
 (12, 0, 216, 'SCAN ol')
 (14, 0, 45, 'SEARCH o USING INTEGER PRIMARY KEY (rowid=?)')
@@ -88,7 +88,7 @@ Fresh fixture in a temporary disk database; the existing warehouse.db is opened 
 (79, 0, 0, 'USE TEMP B-TREE FOR ORDER BY')
 ```
 
-### cumulative through ix_orderline_order — dashboard
+### cumulative through ix_orderline_order - dashboard
 ```text
 (14, 0, 165, 'SEARCH o USING INDEX ix_orders_ordered_on (ordered_on>? AND ordered_on<?)')
 (20, 0, 45, 'SEARCH c USING INTEGER PRIMARY KEY (rowid=?)')
@@ -99,7 +99,7 @@ Fresh fixture in a temporary disk database; the existing warehouse.db is opened 
 (84, 0, 0, 'USE TEMP B-TREE FOR ORDER BY')
 ```
 
-### cumulative through ix_orderline_product — dashboard
+### cumulative through ix_orderline_product - dashboard
 ```text
 (14, 0, 165, 'SEARCH o USING INDEX ix_orders_ordered_on (ordered_on>? AND ordered_on<?)')
 (20, 0, 45, 'SEARCH c USING INTEGER PRIMARY KEY (rowid=?)')
@@ -110,30 +110,30 @@ Fresh fixture in a temporary disk database; the existing warehouse.db is opened 
 (84, 0, 0, 'USE TEMP B-TREE FOR ORDER BY')
 ```
 
-### baseline — single day
+### baseline - single day
 ```text
 (3, 0, 216, 'SCAN o')
 (7, 0, 45, 'SEARCH c USING INTEGER PRIMARY KEY (rowid=?)')
 ```
 
-### date index — single day
+### date index - single day
 ```text
 (4, 0, 62, 'SEARCH o USING INDEX ix_orders_ordered_on (ordered_on=?)')
 (9, 0, 45, 'SEARCH c USING INTEGER PRIMARY KEY (rowid=?)')
 ```
 
-### date index — wrapped date
+### date index - wrapped date
 ```text
 (3, 0, 216, 'SCAN o')
 (8, 0, 45, 'SEARCH c USING INTEGER PRIMARY KEY (rowid=?)')
 ```
 
-### baseline — product lookup
+### baseline - product lookup
 ```text
 (2, 0, 216, 'SCAN order_line')
 ```
 
-### product index — product lookup
+### product index - product lookup
 ```text
 (3, 0, 62, 'SEARCH order_line USING INDEX ix_orderline_product (product_id=?)')
 ```

@@ -65,11 +65,11 @@ INSERT INTO orders VALUES(1,1,'late'),(2,1,'late'),(3,1,'shipped'),(4,2,'shipped
     raw_window = fixture.execute('''SELECT customer_id,COUNT(*) OVER(PARTITION BY customer_id)
       FROM orders WHERE status='late' ORDER BY customer_id''').fetchall()
     assert raw_window == [(1,2),(1,2),(4,1)]
-    out = ['# Query rewrites — subqueries, windows and HAVING', '',
-           'AI-assisted executable examples; no unaided student attempt or external model transcript is claimed.',
+    out = ['# Query rewrites - subqueries, windows and HAVING', '',
+           'These query rewrites were prepared and checked with AI assistance.',
            f'SQLite {sqlite3.sqlite_version}. Reproduce: `uv run python Module03/query_rewrites.py`.', '',
            '## Query and plan comparison', '',
-           'The original course report is the grouped baseline; the rewrites were prepared by the assistant. '
+           'The course report is the grouped baseline. The rewrites were prepared with AI assistance. '
            'For this report, GROUP BY is the clearest form. The correlated form repeats an indexed count '
            'per customer and uses EXISTS to retain exactly the customers present in the original inner join. '
            'The window form preserves each late-order row; DISTINCT reduces repeated customer/count pairs '
