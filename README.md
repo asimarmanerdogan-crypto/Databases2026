@@ -29,6 +29,6 @@ I work with [Habiba Darwish](https://github.com/Habiba-AladdinDarwish/Darwish_Da
 
 - Reflection 2 and Reflection 3.
 - A follow-up discussion with Habiba about the portfolio review.
-- A short record of the main points from our face-to-face pod discussions and any shared image or Discord post.
+- A short record of the main points from the Module 3 pod discussion. The [Module 2 discussion and shared diagram](Module02/study-log.md#agreed-learning-pod-discussion) are documented.
 
 SQL Island is completed, with [answers, certificate and a completion screenshot](Module01/sql-island.md).

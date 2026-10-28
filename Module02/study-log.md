@@ -91,24 +91,70 @@ Lesson from this example: a relationship line needs executable constraints. The 
 
 ## Agreed learning (pod discussion)
 
-We discussed the module with another pod in person. I still need to write down the main conclusions and any disagreements. See [pod notes](../COLLABORATION.md).
+### What we discussed in class
 
-Candidate discussion points:
+Habiba and I discussed database keys with other classmates:
 
-- Natural-key meaning needs an enforced uniqueness rule.
-- Foreign keys belong on the many side for an ordinary 1:n mapping.
-- Nullable references change minimum participation.
-- Composite keys can identify an association or owner-dependent record.
-- Sample counts and enforced cardinality are different kinds of evidence.
+- [Arshia Ziaee](https://github.com/Arshia-zi)
+- Adam Soliman
+- [Mohamed Elsayed](https://github.com/mbahnasy426/Mohamed-Hamed)
+- [Mohamed Nassar](https://github.com/nassarrrrr/M.Nassar-HSBI-Database-Portofolio)
+- Mahmoud Hussein
 
-Open question: when should a nameplate have its own lifecycle/entity rather than be represented by required machine attributes?
+We compared four types of keys:
 
-## Remaining assignment evidence
+| Key | Meaning | Example |
+| --- | --- | --- |
+| Primary key | Identifies each row uniquely. | user_id in Users |
+| Foreign key | References a key in another table. | user_id in UserProfiles |
+| Natural key | Uses information from the real world. | A machine's serial number |
+| Surrogate key | Uses an artificial identifier. | machine_id |
 
-- Completed with AI assistance: [four workshop sketches and CREATE TABLE + COUNT proof](er-examples.md).
-- Write down the main points and disagreements from our face-to-face discussion.
-- One image selected by the pods and shared to the course Discord channel.
-- Completed and verified: the deliberately flawed legacy.db rebuilt from [legacy-setup.sql](legacy-setup.sql); the original .db was SQL text and has been preserved locally as legacy-original-text.sql.
+### Our main takeaway: one column can be both PK and FK
+
+We used Users and UserProfiles as an example. In Users, user_id is the primary key. In UserProfiles, user_id is both the primary key and a foreign key referencing Users.
+
+```mermaid
+erDiagram
+    USERS ||--o| USER_PROFILES : has
+    USERS {
+        int user_id PK
+        string email
+    }
+    USER_PROFILES {
+        int user_id PK,FK
+        string display_name
+    }
+```
+
+The primary key prevents two profiles for the same user. The foreign key prevents a profile from referring to a user who does not exist. This gives each profile exactly one user and allows each user at most one profile. It does not require every user to have a profile.
+
+Habiba's log also links this [video used as a reference](https://youtu.be/fuXeD0gVO2Q). The shared discussion is recorded in [her Module 2 study log](https://github.com/Habiba-AladdinDarwish/Darwish_Databases_C2026/blob/main/Module02/study-log.md). Her repository is private and requires access.
+
+### Shared diagram and Discord post
+
+We selected a diagram comparing Car Company-Car Model, Doctor-Patient and Student-Subject relationships. The diagram helped us talk about one-to-many and many-to-many relationships. These simple examples are redrawn below:
+
+```mermaid
+erDiagram
+    CAR_COMPANY ||--o{ CAR_MODEL : produces
+    DOCTOR }o--o{ PATIENT : treats
+    STUDENT }o--o{ SUBJECT : studies
+```
+
+In this redraw, a company may have several car models and each model belongs to one company. A doctor may treat several patients, and a patient may see several doctors. Students and subjects can also have a many-to-many relationship. The zero lower bounds are assumptions for this redraw, not extra conclusions from the class discussion.
+
+The selected diagram came from [this relationship-types page](https://i2tutorials.com/what-is-the-difference-between-one-to-one-one-to-many-many-to-one-many-to-many-in-neural-network/), also credited in Habiba's log. The page mixes database and neural-network terminology, so I would use the database references above for precise definitions. A relationship's cardinality tells us how many records can be linked; ownership, deletion rules and whether a record may exist on its own are separate design decisions.
+
+[Shared diagram post in the course Discord](https://discord.com/channels/1064132619735928932/1560197797364502559/1560198559557750834). This is the message link recorded in Habiba's study log; it requires access to the class channel.
+
+No disagreement was recorded in the shared notes.
+
+## Module 2 evidence
+
+- [Four workshop sketches and CREATE TABLE + COUNT proof](er-examples.md).
+- The key discussion, shared diagram and Discord link are recorded above.
+- [Legacy database setup](legacy-setup.sql), with the original defects kept for the audit.
 
 ## Verified technical continuation - 2026-10-25
 

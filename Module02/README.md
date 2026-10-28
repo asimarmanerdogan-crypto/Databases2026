@@ -16,7 +16,7 @@
 | --- | --- | --- |
 | A - Study | [Study log](study-log.md), two attributed example redraws and verified Q&A | References, examples and query checks recorded |
 | B - Four sketches | [ER examples and proof](er-examples.md), [SQL](cardinality.sql) | Completed with AI assistance and executed proof |
-| C - Explain and share | [Collaboration record](../COLLABORATION.md), agreed-learning section in study log | Discussed in person; notes and any shared post still to add |
+| C - Explain and share | [Collaboration record](../COLLABORATION.md), agreed-learning section in study log | Key discussion, shared diagram and Discord link recorded |
 | Setup | [Fixture](legacy-setup.sql) | Fixed: legacy.db was SQL text, now rebuilt as a real SQLite database |
 | 1 - ER reconstruction | [ER audit](er-audit.md), [counts](cardinality-results.md) | Completed and checked |
 | 2 - Integrity defects | [Queries](defect-queries.sql), [results and impact](defect-results.md) | All five demonstrated |

@@ -4,7 +4,7 @@
 
 My pod mate is [Habiba Darwish](https://github.com/Habiba-AladdinDarwish/Darwish_Databases_C2026). Her portfolio is private but accessible from my account. We worked with three other classmates over the weekend and helped each other with the material. For Modules 2 and 3, we also spoke with another pod face to face.
 
-I still need to write down the main points from those discussions and add any shared image or Discord post. There is no online chat history for the in-person meetings.
+The [Module 2 study log](Module02/study-log.md#agreed-learning-pod-discussion) records our discussion of key types, the shared PK/FK example, the classmates involved and the Discord diagram post. It was updated using Habiba's class notes. I still need to add the main points from the Module 3 discussion.
 
 ## Portfolio review
 
