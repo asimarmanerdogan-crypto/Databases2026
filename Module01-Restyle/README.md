@@ -2,9 +2,9 @@
 
 <p align="center"><sub>DATABASES 2026 &nbsp; / &nbsp; MODULE 01 &nbsp; / &nbsp; OVERVIEW</sub></p>
 
-# Introduction and Local-First Foundations
+<h1 align="center">Introduction and Local-First Foundations</h1>
 
-<table>
+<table align="center">
 <tr>
 <td align="center"><strong>172,800</strong><br><sub>SIMULATED READINGS</sub></td>
 <td align="center"><strong>3</strong><br><sub>CNC MACHINES</sub></td>
@@ -28,7 +28,7 @@ Exploration plan: generate machine telemetry, measure local SQLite queries, and 
 
 <a id="learning-goals"></a>
 
-## ◈ 01 / Learning goals
+<h2 align="center">◈ 01 / Learning goals</h2>
 
 1. Explain how this class works - the CBL/PBL philosophy, the portfolio-based project work assessment, and the "moving bar" of a first-time course.
 2. Set up your personal GitHub portfolio from the course template, with a clean first commit and a `.gitignore` that keeps databases and secrets out of Git.
@@ -39,7 +39,7 @@ Exploration plan: generate machine telemetry, measure local SQLite queries, and 
 
 <a id="course-and-evidence-links"></a>
 
-## ◈ 02 / Course and evidence links
+<h2 align="center">◈ 02 / Course and evidence links</h2>
 
 - [Module instructions](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/01-introduction-and-local-first.md)
 - [Syllabus](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md)
@@ -52,13 +52,13 @@ Run commands from the repository root. Technical evidence is indexed below.
 
 <a id="course-model"></a>
 
-## ◈ 03 / Course model
+<h2 align="center">◈ 03 / Course model</h2>
 
 Learning goals define the contract. Challenge- and project-based learning uses practical problems and portfolio evidence; assessment includes module points, a final project and reflections. The course is a first iteration, so task wording can evolve while learning goals remain the basis for assessment. A pod contains two or three students; two pods form the final project team.
 
 <a id="embedded-versus-clientserver"></a>
 
-## ◈ 04 / Embedded versus client/server
+<h2 align="center">◈ 04 / Embedded versus client/server</h2>
 
 SQLite executes inside the Python process and stores data in a local file. This experiment holds 172,800 readings in 10,526,720 bytes; measured query times are recorded in the linked telemetry results. No database server was needed. This proves the local workload runs without a server; it does not benchmark a remote database.
 
@@ -66,13 +66,13 @@ An embedded database simplifies deployment and offline operation, but SQLite per
 
 <a id="participation-and-attribution"></a>
 
-## ◈ 05 / Participation and attribution
+<h2 align="center">◈ 05 / Participation and attribution</h2>
 
 I worked with Habiba and three other classmates over the weekend. My [reflection](../Reflections/ref01.md) describes that experience. See [collaboration notes](../COLLABORATION.md) for the portfolio review and how AI was used.
 
 <a id="task-3-reproducible-toolchain"></a>
 
-## ◈ 06 / Task 3: Reproducible toolchain
+<h2 align="center">◈ 06 / Task 3: Reproducible toolchain</h2>
 
 Run from the repository root:
 
@@ -87,7 +87,7 @@ uv run python Module01-Restyle/uv-check.py
 
 <a id="task-4-sqlite-shell-tour"></a>
 
-## ◈ 07 / Task 4: SQLite shell tour
+<h2 align="center">◈ 07 / Task 4: SQLite shell tour</h2>
 
 - [Replayable shell commands](tour-commands.sql)
 - [Captured session, including query timing](shell-tour.txt)
@@ -100,13 +100,13 @@ AI-assisted observation: `.schema` was useful because it displayed the exact tab
 
 <a id="task-5-sql-island"></a>
 
-## ◈ 08 / Task 5: SQL Island
+<h2 align="center">◈ 08 / Task 5: SQL Island</h2>
 
 [Completed guided demonstration](sql-island.md), with the original certificate, completion screenshot and SQL examples. I watched the assistant enter and explain the queries, and added my answers below the game notes.
 
 <a id="task-6-telemetry-pipeline"></a>
 
-## ◈ 09 / Task 6: Telemetry pipeline
+<h2 align="center">◈ 09 / Task 6: Telemetry pipeline</h2>
 
 - [Generator](generate_telemetry.py)
 - [SQLite loader](load_telemetry.py)
@@ -119,7 +119,7 @@ Generated CSV and database files stay local and can be reproduced from the scrip
 
 <a id="task-7-ai-assisted-sql-verification"></a>
 
-## ◈ 10 / Task 7: AI-assisted SQL verification
+<h2 align="center">◈ 10 / Task 7: AI-assisted SQL verification</h2>
 
 - [Generated query](overnight.sql)
 - [Prompt, execution, query plan and verification report](ai-sql-verification.md)
