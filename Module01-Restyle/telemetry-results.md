@@ -11,6 +11,36 @@ The course generator creates **repeatable simulated readings** using a *fixed ra
 
 The database is **embedded in a local file**; *no database server was started*.
 
+<a id="vibration-chart"></a>
+
+## Vibration over time
+
+![Vibration over 48 hours for CNC-01, CNC-02 and CNC-03, with an alarm threshold at 2.0](assets/telemetry-vibration.png)
+
+The chart uses the **172,800 simulated readings** recreated by [the module generator](generate_telemetry.py), with its fixed seed of `42`.
+
+- **Solid lines:** 15-minute averages of `vib_rms`.
+- **Shaded bands:** the minimum and maximum within each interval, including brief spikes.
+- **Dashed line:** the boundary for the SQL alarm condition, `vib_rms > 2.0`.
+- **Counts and peaks:** calculated from all original readings, before aggregation; they match the SQL results below.
+
+**CNC-02 accounts for 11,675 of the 11,714 alarm readings.** Its rising baseline is deliberately built into the simulation. These are simulated signals, not measurements from physical machines. The dataset does not specify a physical unit for `vib_rms`.
+
+<details>
+<summary>Recreate the chart</summary>
+
+Run from the repository root:
+
+```bash
+uv run --no-project --script Module01-Restyle/plot_telemetry.py
+```
+
+The [plotting script](plot_telemetry.py) generates the CSV if needed, checks the row count, alarm total and all three peaks against the recorded results, then writes PNG and SVG versions to `assets/`. It does not rerun or overwrite the SQL reports.
+
+</details>
+
+## SQL results
+
 ### 01 / Readings per machine
 
 ```sql

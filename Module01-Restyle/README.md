@@ -124,6 +124,10 @@ The local database is excluded from Git by `.gitignore`.
 
 Generated CSV and database files **stay local** and can be reproduced from the scripts.
 
+![Three-machine vibration chart with 15-minute means, minimum–maximum bands and the alarm threshold](assets/telemetry-vibration.png)
+
+*Simulated telemetry, 5–7 January 2026. Lines show 15-minute averages; shaded bands retain the minimum and maximum in each interval.* [Measurements and chart details](telemetry-results.md#vibration-chart).
+
 <a id="task-7-ai-assisted-sql-verification"></a>
 
 <h2 align="center">◈ <code>10</code> / Task 7: AI-assisted SQL verification</h2>
