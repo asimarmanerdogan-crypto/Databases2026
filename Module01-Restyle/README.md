@@ -27,6 +27,9 @@
 
 </tr>
 
+
+
+
 **Exploration plan:** generate *machine telemetry*, measure local `SQLite` queries, and **independently verify** an AI-generated time-filtered aggregate.
 </tr>
 
