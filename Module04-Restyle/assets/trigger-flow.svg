@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="635" viewBox="0 0 1200 635" role="img" aria-labelledby="title desc">
+<title id="title">Alarm and audit: two different events</title><desc id="desc">Verified against triggers.sql in a fresh in-memory database.</desc>
+<rect width="1200" height="635" rx="16" fill="#0b1420"/>
+<text x="40" y="45" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="27" font-weight="700">Alarm and audit: two different events</text>
+<text x="40" y="78" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">Verified against triggers.sql in a fresh in-memory database.</text>
+<rect x="40" y="120" width="330" height="125" rx="8" fill="#101e2e" stroke="#31516a"/>
+<rect x="430" y="120" width="365" height="125" rx="8" fill="#101e2e" stroke="#31516a"/>
+<rect x="855" y="120" width="305" height="125" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="60" y="160" fill="#5eead4" font-family="Arial,sans-serif" font-size="21" font-weight="700">INSERT reading</text>
+<text x="60" y="203" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">AFTER / FOR EACH ROW</text>
+<text x="450" y="159" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="18" font-weight="700">Trigger condition</text>
+<text x="450" y="203" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">metric = vib_rms AND value &gt; 2.0</text>
+<text x="875" y="160" fill="#38bdf8" font-family="Arial,sans-serif" font-size="21" font-weight="700">ALARM</text>
+<text x="40" y="273" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">Example: insert 2.7 -&gt; alarm 2.7</text>
+<path d="M380 182h40m-8-7 8 7-8 7" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<path d="M805 182h40m-8-7 8 7-8 7" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<rect x="40" y="290" width="330" height="125" rx="8" fill="#101e2e" stroke="#31516a"/>
+<rect x="430" y="290" width="365" height="125" rx="8" fill="#101e2e" stroke="#31516a"/>
+<rect x="855" y="290" width="305" height="125" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="60" y="330" fill="#5eead4" font-family="Arial,sans-serif" font-size="21" font-weight="700">UPDATE OF value</text>
+<text x="60" y="373" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">AFTER / FOR EACH ROW</text>
+<text x="450" y="329" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="18" font-weight="700">Trigger condition</text>
+<text x="450" y="373" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">Runs even if the value stays equal</text>
+<text x="875" y="330" fill="#38bdf8" font-family="Arial,sans-serif" font-size="21" font-weight="700">AUDIT</text>
+<text x="40" y="443" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">Example: 2.7 -&gt; 1.4 records both</text>
+<path d="M380 352h40m-8-7 8 7-8 7" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<path d="M805 352h40m-8-7 8 7-8 7" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<text x="40" y="505" fill="#fbbf24" font-family="Arial,sans-serif" font-size="18">UPDATE above 2.0 does not create an alarm: the alarm trigger handles INSERT only.</text>
+<text x="40" y="547" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">The statement and its trigger effects roll back together if the statement fails.</text>
+<text x="40" y="589" fill="#94a3b8" font-family="Arial,sans-serif" font-size="17">Audit rows remain editable by a writer. Recording a change does not make history immutable.</text>
+</svg>

@@ -1,0 +1,77 @@
+Python: 3.14.8; SQLite: 3.53.1
+
+Task A: unconstrained rows: [(1, 'temp_c', 9000.0), (1, 'temp_c', 'hot'), (2, 'bogus', -500.0), (None, None, None)]
+
+[Domain CHECK] INSERT INTO guarded VALUES(?,?,?) parameters=(1, 'temp_c', 9000)
+IntegrityError: CHECK constraint failed: value BETWEEN -273.15 AND 5000
+
+[STRICT typing] INSERT INTO guarded VALUES(?,?,?) parameters=(1, 'temp_c', 'hot')
+IntegrityError: cannot store TEXT value in REAL column guarded.value
+
+[Metric domain CHECK] INSERT INTO guarded VALUES(?,?,?) parameters=(2, 'bogus', -500)
+IntegrityError: CHECK constraint failed: metric IN ('temp_c','vib_rms','spindle_load')
+
+[Entity PRIMARY KEY] INSERT INTO guarded VALUES(1,'temp_c',42) parameters=()
+IntegrityError: UNIQUE constraint failed: guarded.sensor_id
+
+[NOT NULL] INSERT INTO guarded VALUES(2,'temp_c',NULL) parameters=()
+IntegrityError: NOT NULL constraint failed: guarded.value
+CHECK(v>0) accepted NULL; NOT NULL is a separate requirement.
+INTEGER PRIMARY KEY NULL auto-assigned an ID; STRICT converted numeric text to REAL: [(1, 'temp_c', 41.5, 'real'), (2, 'temp_c', 42.0, 'real')]
+Explicit foreign_keys=OFF allowed an orphan; foreign_key_check found it.
+
+[Foreign keys ON] INSERT INTO ch VALUES(99) parameters=()
+IntegrityError: FOREIGN KEY constraint failed
+Existing edge.db preserved; lab verified in a temporary database.
+
+Task 1 generated energy_j = 41.5 (course expression; see physical-units caveat).
+
+[Domain CHECK] INSERT INTO reading(sensor_id,ts,value,interval_s) VALUES(?,?,?,?) parameters=(1, 'bad-9000', 9000, 1)
+IntegrityError: CHECK constraint failed: value BETWEEN -273.15 AND 5000
+
+[STRICT] INSERT INTO reading(sensor_id,ts,value,interval_s) VALUES(?,?,?,?) parameters=(1, 'bad-text', 'hot', 1)
+IntegrityError: cannot store TEXT value in REAL column reading.value
+
+[Referential FOREIGN KEY] INSERT INTO reading(sensor_id,ts,value,interval_s) VALUES(?,?,?,?) parameters=(99, 'bad-fk', 40, 1)
+IntegrityError: FOREIGN KEY constraint failed
+
+[NOT NULL] INSERT INTO reading(sensor_id,ts,value,interval_s) VALUES(?,?,?,?) parameters=(1, 'bad-null', None, 1)
+IntegrityError: NOT NULL constraint failed: reading.value
+
+[Interval CHECK] INSERT INTO reading(sensor_id,ts,value,interval_s) VALUES(?,?,?,?) parameters=(1, 'bad-interval', 40, 0)
+IntegrityError: CHECK constraint failed: interval_s>0
+
+[Composite UNIQUE] INSERT INTO sensor VALUES(3,'cnc-01','temp_c','degC') parameters=()
+IntegrityError: UNIQUE constraint failed: sensor.machine_id, sensor.metric
+
+[PRIMARY KEY] INSERT INTO sensor VALUES(1,'cnc-02','temp_c','degC') parameters=()
+IntegrityError: UNIQUE constraint failed: sensor.sensor_id
+
+[Metric CHECK] INSERT INTO sensor VALUES(3,'cnc-02','bogus','x') parameters=()
+IntegrityError: CHECK constraint failed: metric IN ('temp_c','vib_rms','spindle_load')
+
+Task 2 CSV replay: before=1, first=4, second=4; corrected value=41.7.
+
+Task 3 alarm: [(1, 2, '2026-03-01 09:00:00', 2.7, 'vibration over 2.0 mm/s')]
+Task 3 audit: [(1, 5, 2.7, 1.4, '2026-11-03 11:42:25')]
+Verified limitations: UPDATE above threshold creates no alarm; audit rows are deletable by a writer. Rolled back both probes.
+
+Task 4 machine_health: [('cnc-01', 'temp_c', 42.0, 2), ('cnc-01', 'vib_rms', 1.8, 3)]
+
+[mode=ro] DELETE FROM reading parameters=()
+OperationalError: attempt to write a readonly database
+
+[query_only] DELETE FROM reading parameters=()
+OperationalError: attempt to write a readonly database
+File read-only probe: OperationalError: attempt to write a readonly database
+Original file mode restored in finally; Windows attribute test is not proof of Unix chmod/ACL security.
+
+Task 3 benchmark: {"without_alarm_trigger": {"seconds": [0.03894669999999678, 0.040772199999992154, 0.04446930000000293, 0.03651549999995041, 0.035980800000004365], "median_seconds": 0.03894669999999678}, "with_alarm_trigger": {"seconds": [0.07585050000000138, 0.08732359999999062, 0.06600689999999076, 0.06013860000001614, 0.058435999999971955], "median_seconds": 0.06600689999999076}, "method": "Five disk-backed fresh databases per variant; alternating order; 10,000 rows; 50% alarm-producing; timing includes INSERT and COMMIT, excludes setup."}
+
+Optional Task 5: BEFORE INSERT also produced one alarm for a successful insert.
+
+[BEFORE trigger + rejected parent statement] INSERT INTO reading(sensor_id,ts,value,interval_s) VALUES(2,'invalid',9000,1) parameters=()
+IntegrityError: CHECK constraint failed: value BETWEEN -273.15 AND 5000
+The rejected reading left no additional alarm: trigger effects are part of the statement transaction.
+
+PASS: all assertions completed. No earlier module database was opened.
