@@ -1,12 +1,20 @@
-# Access control — Windows and SQLite
+# Task 4 - Access control without a server
 
-The [view](view.sql) is created while the database is writable. The verifier reads its aggregated results, opens an independent URI connection with `mode=ro`, confirms SELECT works and records the exact DELETE error. A second connection tests `PRAGMA query_only=ON`. All outcomes are in [verification.txt](verification.txt).
+The access checks were prepared and run with AI assistance. [view.sql](view.sql) defines the machine-health summary; [verification.txt](verification.txt) records the actual results.
 
-## File protection on this machine
+## View and read-only connection
 
-This computer runs Windows, so Unix `chmod 444/644` is not an equivalent Windows ACL demonstration. The verifier temporarily applies Python `os.chmod(path, 0o444)` to its Module04 database, tests a write and restores the original file mode in a finally block. On this run the write was rejected as read-only. Windows' read-only attribute is weaker than a complete NTFS access-control policy; this test must not be represented as proof of Unix permissions.
+The view groups readings by machine and metric, showing the peak value and reading count. It is created while the database is writable.
 
-The course's Unix sequence, for reference (not claimed to have run on Windows):
+A separate connection opened with `mode=ro` could read all five readings. DELETE failed with `attempt to write a readonly database`. Another connection using `PRAGMA query_only=ON` rejected DELETE with the same error.
+
+A view makes a report easier to read, but it does not stop someone with direct file access from querying the original tables. A connection owner can also turn query_only off.
+
+## File permissions on Windows
+
+The course uses Unix `chmod`. On this Windows machine, the verifier temporarily set the database's read-only attribute through `os.chmod(path, 0o444)`. The write was rejected, and the original mode was restored in a finally block.
+
+This demonstrates the Windows read-only attribute, not a complete NTFS permissions policy. The following is the course's Unix sequence for comparison; it was not run as a Unix permissions test here:
 
 ```sh
 chmod 444 Module04/edge.db
@@ -15,6 +23,6 @@ sqlite3 'file:Module04/edge.db?mode=ro' 'DELETE FROM reading;'
 chmod 644 Module04/edge.db
 ```
 
-## Server comparison
+## Comparison with PostgreSQL
 
-PostgreSQL authenticates users and can grant distinct table/view privileges to roles through a server. SQLite trusts the application's connection and the operating system's access to its database file. A trusted local reporting application can use read-only access, but a multi-tenant service needs an authenticated application boundary and tenant authorization rather than distributing the database file. A view shapes results but does not by itself prevent a file reader from querying underlying tables, and query_only can be disabled by the connection owner.
+PostgreSQL authenticates users and grants permissions to roles through a server. SQLite relies on the application's connection and the operating system's control of the database file. Read-only access is useful for a trusted local reporting tool. A multi-tenant application needs authentication and tenant-specific authorization; handing out a database file does not provide that separation.

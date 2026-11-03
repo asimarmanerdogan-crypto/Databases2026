@@ -1,56 +1,48 @@
-# Module 04 — Data Integrity, Constraints & Edge Triggers
+# Module 04 - Data Integrity, Constraints and Triggers
 
-Owner: Asim Arman Erdogan. Technical implementation and verification prepared and run with AI assistance on 2026-11-03. Peer discussion and personal reflection require the student's own input.
-
-[Course instructions](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/04-integrity-constraints-and-triggers.md) · [Portfolio](../README.md) · [Reflection draft](../Reflections/ref04.md)
+[Course module](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/04-integrity-constraints-and-triggers.md) · [Portfolio](../README.md)
 
 ## Learning goals
 
 1. Create tables with NOT NULL, UNIQUE, CHECK, PRIMARY KEY, FOREIGN KEY and STRICT typing.
-2. Derive values with generated columns.
-3. Write triggers for domain rules and audit/rollup maintenance.
-4. Use DML and UPSERT for idempotent ingestion.
-5. Explain access control in embedded and server databases.
+2. Use generated columns to calculate values in the database.
+3. Write triggers for domain rules and automatic audit records.
+4. Use UPSERT to load repeated readings without creating duplicates.
+5. Explain access control in SQLite and compare it with a database server.
 
-## Work and evidence
+## Task status and evidence
 
 | Task | Evidence | Status |
 | --- | --- | --- |
-| A: acceptance experiments | [Study notes](integrity-notes.md), [exact errors](verification.txt) | Executed, including NULL and numeric-text cases |
-| B: another pod | [Discussion prompts](integrity-notes.md#pod-discussion--pending) | Pending actual conversation; no participation invented |
-| 1: constrained schema | [Setup SQL](setup.sql), [verification](verification.txt) | Rejections and generated column checked |
-| 2: replay-safe ingestion | [CSV](readings.csv), [Python and UPSERT SQL](ingest.py) | First load: 4 rows; second load: 4; corrected value 41.7 |
-| 3: alarm and audit | [Triggers](triggers.sql), [verification](verification.txt), [benchmark](benchmark-results.json) | Alarm/audit rows and 10,000-row timings checked |
-| 4: access control | [View](view.sql), [access notes](access-control.md), [verification](verification.txt) | Read-only DELETE rejected; Windows adaptation documented |
-| 5: optional BEFORE experiment | [Verifier](verify_module04.py), [verification](verification.txt) | Successful insert alarms; rejected statement leaves no alarm |
+| A - Study | [Integrity notes](integrity-notes.md), [query checks](verification.txt) | Loose and constrained tables compared, including NULL and numeric text |
+| B - Pod discussion | [Questions](integrity-notes.md#pod-discussion) | Discussion and agreed points still to record |
+| 1 - Constraints | [Setup](setup.sql), [results](verification.txt) | Invalid values, types, references and duplicates rejected |
+| 2 - CSV ingestion | [Python and UPSERT](ingest.py), [sample data](readings.csv), [checks](verification.txt) | Two runs kept four readings; corrected value checked |
+| 3 - Alarm and audit | [Triggers](triggers.sql), [results](verification.txt), [timings](benchmark-results.json) | Alarm, value-change record and 10,000-row benchmark checked |
+| 4 - Access control | [View](view.sql), [comparison](access-control.md) | Read-only access tested on Windows |
+| 5 - BEFORE trigger | [Runner](verify_module04.py), [results](verification.txt) | Successful and rejected inserts compared |
+| Reflection | [Reflection 4](../Reflections/ref04.md) | Technical draft; personal comments still to add |
 
-## Reproduce
+The technical work was prepared and checked with AI assistance. The [study notes](integrity-notes.md) explain the limits of the course schema, including the generated column's units and the INSERT-only alarm.
 
-From the repository root, using the existing environment:
+## Reproduce from the repository root
+
+```sh
+uv run --locked python Module04/verify_module04.py
+```
+
+With the existing Windows environment, the same check can be run directly:
 
 ```powershell
 .\.venv\Scripts\python.exe Module04\verify_module04.py
 ```
 
-Alternatively use `uv run --locked python Module04/verify_module04.py` with a working uv environment. No new packages are required. The verifier creates `Module04/edge.db` only when absent; if present it preserves it and runs the lab in an isolated temporary database. It rewrites only Module04's generated reports. Earlier module files and databases are not opened. Generated databases and temporary files are ignored by Git.
+The verifier creates `Module04/edge.db` if it is missing. If it already exists, the checks use a temporary database and leave it unchanged. The runner updates only this module's verification and benchmark reports. Database files stay local.
 
-To replay the CSV into the prepared Module04 database:
+To load the sample CSV into the prepared database:
 
-```powershell
-.\.venv\Scripts\python.exe Module04\ingest.py Module04\readings.csv --db Module04\edge.db
+```sh
+uv run --locked python Module04/ingest.py Module04/readings.csv --db Module04/edge.db
 ```
 
-This UPSERT intentionally matches the course: on conflict it updates value only. A corrected interval_s would therefore need an explicit policy/change. Replaying after triggers exist can add audit records even for unchanged values; reading-row idempotence does not imply side-effect idempotence.
-
-## Interpreting the benchmark
-
-Five fresh disk-backed databases per variant, alternating order; each batch has 10,000 readings and 5,000 above-threshold vibrations. The timer includes insertion and commit, but excludes setup. The audit trigger exists in both variants and does not fire on these inserts. Compare medians in the JSON report; these are local measurements, not a universal performance guarantee.
-
-## Verified limits of the teaching schema
-
-- `energy_j = value * interval_s` is retained to reproduce the example. Temperature, vibration and spindle-load values multiplied by seconds do **not** represent joules. Real energy requires power in watts multiplied by seconds.
-- The generic CHECK range does not validate each metric's actual physical domain, timestamp format or unit consistency. Plausible but incorrect readings can pass.
-- The alarm trigger handles INSERT only; UPDATE/UPSERT can cross the threshold without an alarm. It records every high inserted reading, not only a transition from low to high.
-- The audit trigger records updates but does not stop an authorized writer from editing/deleting audit records. The course's word “immutable” is not enforced by this DDL.
-- BEFORE and AFTER triggers both participate in the statement transaction. AFTER is suitable for recording a successfully inserted reading; BEFORE is not automatically an independent durable alarm.
-- `CHECK` accepts NULL unless NOT NULL rejects it; STRICT permits lossless conversions such as numeric text to REAL. Foreign-key enforcement must be enabled on each connection.
+The UPSERT updates `value` only, as in the course example. Repeated loads preserve the number of readings, but can still create audit entries after the triggers have been installed.

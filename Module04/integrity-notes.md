@@ -1,42 +1,76 @@
-# Integrity study — AI-assisted, verified locally
+# Module 04 study notes
 
-## Three layers
+These explanations and experiments were prepared and checked with AI assistance. The exact SQL, input values and error messages are in [verification.txt](verification.txt).
 
-| Layer | Purpose | Executed example |
+## Task A: Three layers of integrity
+
+| Layer | What it protects | Example from the checks |
 | --- | --- | --- |
-| Entity | Identify rows and prevent duplicate identities | Duplicate sensor_id and duplicate (machine_id, metric) rejected |
-| Referential | Child references an existing parent | Reading for sensor 99 rejected with foreign_keys=ON |
-| Domain | Values obey the declared rules | 9000, unknown metric, zero interval and text 'hot' rejected |
+| Entity | The identity and required fields of a record | Duplicate sensor IDs and machine/metric pairs rejected |
+| Referential | Relationships between records | Reading for missing sensor 99 rejected |
+| Domain | The allowed values and types | 9000, 'hot', an unknown metric and a zero interval rejected |
 
-NOT NULL prevents missing required values. STRICT is a typing guard; it is not a check of physical truth. PRIMARY KEY/UNIQUE alone do not establish that a value is meaningful.
+A key identifies a record; it does not prove that the reading is true. NOT NULL makes a value required. STRICT checks types, while CHECK expresses rules about the values.
 
-## Acceptance experiment
+### What the loose table accepted
 
-The loose table accepted 9000, 'hot' in a REAL-declared column, the bogus metric with -500, and a fully NULL row. The constrained version rejected the corresponding bad rows one at a time. Exact SQL, parameter values and SQLite errors are in [verification.txt](verification.txt).
+The table without constraints accepted a temperature of 9000, the text 'hot' in the value column, an unknown metric with -500, and a row containing only NULL values. The constrained table rejected the bad examples one at a time.
 
-Surprises verified by execution:
+The most useful differences were:
 
-- CHECK(v>0) allowed NULL. Add NOT NULL when missing data must be rejected.
-- STRICT accepted '42.0' in REAL after lossless conversion.
-- NULL in INTEGER PRIMARY KEY allocated a new ID instead of failing.
-- Explicitly disabling foreign keys allowed an orphan, found by foreign_key_check; enabling enforcement rejected it.
-- A valid-looking temperature from the wrong real sensor can still pass. Constraints enforce declared rules, not the truth of the source.
+- `CHECK(v > 0)` still allowed NULL. A required value also needs NOT NULL.
+- STRICT accepted '42.0' because it could convert it to REAL without losing information. It rejected 'hot'.
+- NULL in an INTEGER PRIMARY KEY generated a new ID.
+- With foreign keys explicitly disabled, an orphan row was accepted. Enabling foreign keys rejected it, and `foreign_key_check` found the orphan in the unguarded example.
 
-## LLM claims and checks
+## Task 1: Constraints and the generated column
 
-The assistant was asked to implement and verify the linked module while preserving existing files. Claims were checked with actual inserts, expected failures and assertions, not accepted from prose alone.
+[setup.sql](setup.sql) defines the sensor and reading tables. The checks reject duplicate identities, missing required values, invalid types, missing sensor references and values outside the allowed range.
 
-A CHECK cannot contain the parent-table lookup needed to enforce a relationship to an existing sensor; use a foreign key. A trigger can consult another table and insert an alarm, which a row-local CHECK cannot do. BEFORE and AFTER triggers can both reject a statement using RAISE(ABORT,...); neither makes side effects survive a failed statement. This lab directly tests failed-statement rollback for BEFORE and checks foreign-key enforcement on independent connections.
+For the valid reading, `value = 41.5` and `interval_s = 1` produced a generated value of 41.5. This proves that the expression runs in SQLite. However, the course name `energy_j` is misleading: temperature, vibration or spindle load multiplied by seconds is not energy in joules. That calculation would need power in watts.
 
-## Pod discussion — pending
+The broad range check does not validate the timestamp, match the unit to the metric, or prove that a plausible value came from the right physical sensor.
 
-No pod meeting or agreed conclusions are claimed. Use these questions in the real meeting:
+## Task 2: Repeated CSV ingestion
 
-1. Which surprising row did your unconstrained table accept?
-2. Did CHECK reject NULL? Which additional rule was necessary?
-3. Why did STRICT accept numeric text but reject 'hot'?
-4. Why must (machine_id, metric) be unique together?
-5. What happens when UPSERT updates a vibration from below 2.0 to above it?
-6. Is the audit table actually immutable? What is missing?
+[ingest.py](ingest.py) uses a unique `(sensor_id, ts)` key and bound parameters. A new key inserts a reading; an existing key updates its value. The CSV was loaded twice, and the counts were four after the first run and four after the second. The original 41.5 reading was corrected to 41.7.
 
-After discussing, add the date, participating pod, agreed points and unresolved questions here. Questions for #sql-questions are prepared above; nothing was posted externally.
+The course UPSERT updates only `value`. A corrected interval needs a separate decision. Once the audit trigger exists, replaying an unchanged value can still create a history row, so an unchanged reading count does not mean every side effect is unchanged.
+
+## Task 3: Alarm, audit and performance
+
+[triggers.sql](triggers.sql) adds an alarm after a new vibration reading above 2.0. Inserting 2.7 produced an alarm. Updating that reading to 1.4 produced an audit record containing the old and new values and the change time.
+
+Two limitations were checked and then rolled back:
+
+- Updating a reading from below the threshold to above it did not create another alarm. The trigger handles INSERT, not UPDATE.
+- A writer could delete audit records. The trigger records history but does not make it immutable.
+
+### Trigger-cost measurement
+
+The [benchmark results](benchmark-results.json) contain five samples with the alarm trigger and five without it. Each sample uses a fresh disk database and 10,000 readings; half produce alarms when the trigger is enabled. The run order alternates to reduce ordering bias.
+
+Timing includes the inserts and commit, but excludes database setup. The audit trigger exists in both variants and does not fire on these inserts. These measurements describe this local workload; they do not establish a universal trigger cost.
+
+## Task 4: Access control
+
+The [access-control notes](access-control.md) compare SQLite file/connection access with PostgreSQL roles. The view, read-only connection and rejected DELETE are recorded in the [checks](verification.txt).
+
+## Task 5: BEFORE and AFTER
+
+The optional experiment changed the alarm to BEFORE INSERT in an isolated database. A valid high reading still produced an alarm. An invalid reading of 9000 was rejected, and no additional alarm remained.
+
+Trigger effects belong to the same statement transaction. AFTER fits this example because the alarm describes a reading that has been inserted. BEFORE does not create an independent alarm that survives a failed insert. Both kinds can reject a statement using `RAISE(ABORT, ...)`; this lab specifically checked the BEFORE rollback behaviour.
+
+## Pod discussion
+
+The discussion is still to be recorded. Questions to compare with another pod:
+
+1. Which surprising row did your loose table accept?
+2. Why did CHECK allow NULL, and what rejected it instead?
+3. Why did STRICT accept '42.0' but reject 'hot'?
+4. Why are machine_id and metric unique together?
+5. What happens when an UPSERT changes vibration from below 2.0 to above it?
+6. What would make the audit history harder to change or delete?
+
+Add the participating pod, date, agreed points and unresolved questions after the conversation.
