@@ -1,6 +1,5 @@
 # Reflection 04 - Data integrity and triggers
 
-Technical draft prepared with AI assistance. Personal comments and the pod discussion are still to add.
 
 ## Take-away
 
