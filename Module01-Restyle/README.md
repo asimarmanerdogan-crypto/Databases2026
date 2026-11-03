@@ -18,11 +18,11 @@
 <a href="audit.md">Evidence index</a> &nbsp; · &nbsp;
 <a href="telemetry-results.md">Measurements</a> &nbsp; · &nbsp;
 <a href="ai-sql-verification.md">SQL verification</a>
+**Creator:** Asim Arman Erdogan.
 </p>
 
 ---
 
-**Owner:** Asim Arman Erdogan.
 
 **Exploration plan:** generate *machine telemetry*, measure local `SQLite` queries, and **independently verify** an AI-generated time-filtered aggregate.
 
