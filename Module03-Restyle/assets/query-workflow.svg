@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+<title id="title">Query profiling workflow</title><desc id="desc">The same result is checked before interpreting execution time.</desc>
+<rect width="1200" height="300" rx="16" fill="#0b1420"/>
+<text x="40" y="44" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="27" font-weight="700">Query profiling workflow</text>
+<text x="40" y="75" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">The same result is checked before interpreting execution time.</text>
+<rect x="30" y="120" width="255" height="115" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="48" y="154" fill="#5eead4" font-family="Arial,sans-serif" font-size="17" font-weight="700">01 / SQL</text>
+<text x="48" y="198" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">Define the result</text>
+<path d="M295 178h19m-7-7 7 7-7 7" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<rect x="325" y="120" width="255" height="115" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="343" y="154" fill="#5eead4" font-family="Arial,sans-serif" font-size="17" font-weight="700">02 / PLAN</text>
+<text x="343" y="198" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">Read SCAN / SEARCH</text>
+<path d="M590 178h19m-7-7 7 7-7 7" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<rect x="620" y="120" width="255" height="115" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="638" y="154" fill="#5eead4" font-family="Arial,sans-serif" font-size="17" font-weight="700">03 / MEASURE</text>
+<text x="638" y="198" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">Warm up + 3 batches</text>
+<path d="M885 178h19m-7-7 7 7-7 7" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<rect x="915" y="120" width="255" height="115" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="933" y="154" fill="#5eead4" font-family="Arial,sans-serif" font-size="17" font-weight="700">04 / VERIFY</text>
+<text x="933" y="198" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">Check rows + edge cases</text>
+</svg>

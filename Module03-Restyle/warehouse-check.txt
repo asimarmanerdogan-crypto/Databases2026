@@ -1,0 +1,5 @@
+customer: 2000
+product: 500
+orders: 60000
+order_line: 240000
+Integrity check: ok

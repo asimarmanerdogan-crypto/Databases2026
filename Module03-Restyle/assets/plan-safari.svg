@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+<title id="title">Recorded plan safari: technician index</title><desc id="desc">Plans are access strategies. This four-row fixture does not establish a meaningful speedup.</desc>
+<rect width="1200" height="500" rx="16" fill="#0b1420"/>
+<text x="40" y="44" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="27" font-weight="700">Recorded plan safari: technician index</text>
+<text x="40" y="75" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">Plans are access strategies. This four-row fixture does not establish a meaningful speedup.</text>
+<rect x="40" y="115" width="1120" height="88" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="62" y="145" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="18" font-weight="700">Technician equality</text>
+<text x="62" y="176" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">technician = Beier</text>
+<text x="635" y="163" fill="#94a3b8" font-family="Arial,sans-serif" font-size="20" font-weight="700">SCAN</text>
+<path d="M775 155h65m-10-9 10 9-10 9" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<text x="910" y="163" fill="#5eead4" font-family="Arial,sans-serif" font-size="20" font-weight="700">SEARCH</text>
+<rect x="40" y="220" width="1120" height="88" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="62" y="250" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="18" font-weight="700">Different table</text>
+<text x="62" y="281" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">machine_name filter</text>
+<text x="635" y="268" fill="#94a3b8" font-family="Arial,sans-serif" font-size="20" font-weight="700">SCAN</text>
+<path d="M775 260h65m-10-9 10 9-10 9" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<text x="910" y="268" fill="#94a3b8" font-family="Arial,sans-serif" font-size="20" font-weight="700">SCAN</text>
+<rect x="40" y="325" width="1120" height="88" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="62" y="355" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="18" font-weight="700">Leading wildcard</text>
+<text x="62" y="386" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">technician LIKE &#x27;%ei%&#x27;</text>
+<text x="635" y="373" fill="#94a3b8" font-family="Arial,sans-serif" font-size="20" font-weight="700">SCAN</text>
+<path d="M775 365h65m-10-9 10 9-10 9" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<text x="910" y="373" fill="#94a3b8" font-family="Arial,sans-serif" font-size="20" font-weight="700">SCAN</text>
+<text x="40" y="465" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">The ordinary technician index also does not narrow LOWER(technician) in the recorded negative test.</text>
+</svg>

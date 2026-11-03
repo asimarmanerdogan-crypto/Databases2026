@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="770" viewBox="0 0 1200 770" role="img" aria-labelledby="title desc">
+<title id="title">Warehouse tables used by the dashboard</title><desc id="desc">Join columns from dashboard.sql. setup.sql does not declare foreign keys.</desc>
+<rect width="1200" height="770" rx="16" fill="#0b1420"/>
+<text x="40" y="44" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="27" font-weight="700">Warehouse tables used by the dashboard</text>
+<text x="40" y="75" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">Join columns from dashboard.sql. setup.sql does not declare foreign keys.</text>
+<path d="M510 225H690" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<path d="M915 330V450" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<path d="M510 555H690" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<text x="550" y="210" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">customer_id</text>
+<text x="930" y="400" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">order_id</text>
+<text x="550" y="540" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">product_id</text>
+<rect x="60" y="120" width="450" height="220" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="82" y="154" fill="#5eead4" font-family="Arial,sans-serif" font-size="20" font-weight="700">CUSTOMER</text>
+<text x="370" y="154" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">2,000 rows</text>
+<text x="82" y="194" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">customer_id (PRIMARY KEY)</text>
+<text x="82" y="225" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">name</text>
+<text x="82" y="256" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">city</text>
+<rect x="690" y="120" width="450" height="220" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="712" y="154" fill="#5eead4" font-family="Arial,sans-serif" font-size="20" font-weight="700">ORDERS</text>
+<text x="1000" y="154" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">60,000 rows</text>
+<text x="712" y="194" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">order_id (PRIMARY KEY)</text>
+<text x="712" y="225" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">customer_id</text>
+<text x="712" y="256" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">ordered_on</text>
+<text x="712" y="287" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">status</text>
+<rect x="60" y="450" width="450" height="220" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="82" y="484" fill="#5eead4" font-family="Arial,sans-serif" font-size="20" font-weight="700">PRODUCT</text>
+<text x="370" y="484" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">500 rows</text>
+<text x="82" y="524" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">product_id (PRIMARY KEY)</text>
+<text x="82" y="555" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">sku</text>
+<text x="82" y="586" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">price</text>
+<rect x="690" y="450" width="450" height="220" rx="8" fill="#101e2e" stroke="#31516a"/>
+<text x="712" y="484" fill="#5eead4" font-family="Arial,sans-serif" font-size="20" font-weight="700">ORDER_LINE</text>
+<text x="1000" y="484" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">240,000 rows</text>
+<text x="712" y="524" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">order_id</text>
+<text x="712" y="555" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">product_id</text>
+<text x="712" y="586" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="18">qty</text>
+<text x="40" y="730" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">Logical joins are verified against the SQL query; a join diagram alone does not enforce referential integrity.</text>
+</svg>

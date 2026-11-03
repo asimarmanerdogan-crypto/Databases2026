@@ -1,0 +1,563 @@
+{
+  "sqlite": "3.53.1",
+  "python": "3.14.10",
+  "timer": "perf_counter; same process/connection; one untimed warmup; 3 batches; execute+fetch; ms/query",
+  "counts": {
+    "customer": 2000,
+    "product": 500,
+    "orders": 60000,
+    "order_line": 240000
+  },
+  "dashboard_results": [
+    [
+      "Bielefeld",
+      500,
+      11242176.0
+    ],
+    [
+      "Gütersloh",
+      500,
+      8422344.0
+    ],
+    [
+      "Münster",
+      500,
+      5493504.0
+    ],
+    [
+      "Paderborn",
+      500,
+      2815656.0
+    ]
+  ],
+  "measurements": [
+    {
+      "stage": "baseline",
+      "query": "dashboard",
+      "sql": "SELECT c.city, COUNT(DISTINCT c.customer_id) AS customers,\n       SUM(ol.qty * p.price) AS revenue\nFROM customer c\nJOIN orders o ON o.customer_id = c.customer_id\nJOIN order_line ol ON ol.order_id = o.order_id\nJOIN product p ON p.product_id = ol.product_id\nWHERE o.ordered_on >= '2025-01-01' AND o.ordered_on < '2026-01-01'\nGROUP BY c.city\nORDER BY revenue DESC;\n",
+      "plan": [
+        [
+          12,
+          0,
+          216,
+          "SCAN ol"
+        ],
+        [
+          14,
+          0,
+          45,
+          "SEARCH o USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          21,
+          0,
+          45,
+          "SEARCH c USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          24,
+          0,
+          45,
+          "SEARCH p USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          27,
+          0,
+          0,
+          "USE TEMP B-TREE FOR GROUP BY"
+        ],
+        [
+          76,
+          0,
+          0,
+          "USE TEMP B-TREE FOR count(DISTINCT)"
+        ],
+        [
+          79,
+          0,
+          0,
+          "USE TEMP B-TREE FOR ORDER BY"
+        ]
+      ],
+      "samples_ms": [
+        98.3459999988554,
+        99.80310000537429,
+        100.86389999196399
+      ],
+      "median_ms": 99.80310000537429,
+      "batch": 1,
+      "rows": 4
+    },
+    {
+      "stage": "only ix_orders_ordered_on",
+      "query": "dashboard",
+      "sql": "SELECT c.city, COUNT(DISTINCT c.customer_id) AS customers,\n       SUM(ol.qty * p.price) AS revenue\nFROM customer c\nJOIN orders o ON o.customer_id = c.customer_id\nJOIN order_line ol ON ol.order_id = o.order_id\nJOIN product p ON p.product_id = ol.product_id\nWHERE o.ordered_on >= '2025-01-01' AND o.ordered_on < '2026-01-01'\nGROUP BY c.city\nORDER BY revenue DESC;\n",
+      "plan": [
+        [
+          12,
+          0,
+          216,
+          "SCAN ol"
+        ],
+        [
+          14,
+          0,
+          45,
+          "SEARCH o USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          21,
+          0,
+          45,
+          "SEARCH c USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          24,
+          0,
+          45,
+          "SEARCH p USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          27,
+          0,
+          0,
+          "USE TEMP B-TREE FOR GROUP BY"
+        ],
+        [
+          76,
+          0,
+          0,
+          "USE TEMP B-TREE FOR count(DISTINCT)"
+        ],
+        [
+          79,
+          0,
+          0,
+          "USE TEMP B-TREE FOR ORDER BY"
+        ]
+      ],
+      "samples_ms": [
+        99.44979999272618,
+        98.92360000230838,
+        101.73799999756739
+      ],
+      "median_ms": 99.44979999272618,
+      "batch": 1,
+      "rows": 4
+    },
+    {
+      "stage": "only ix_orderline_order",
+      "query": "dashboard",
+      "sql": "SELECT c.city, COUNT(DISTINCT c.customer_id) AS customers,\n       SUM(ol.qty * p.price) AS revenue\nFROM customer c\nJOIN orders o ON o.customer_id = c.customer_id\nJOIN order_line ol ON ol.order_id = o.order_id\nJOIN product p ON p.product_id = ol.product_id\nWHERE o.ordered_on >= '2025-01-01' AND o.ordered_on < '2026-01-01'\nGROUP BY c.city\nORDER BY revenue DESC;\n",
+      "plan": [
+        [
+          12,
+          0,
+          216,
+          "SCAN ol"
+        ],
+        [
+          14,
+          0,
+          45,
+          "SEARCH o USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          21,
+          0,
+          45,
+          "SEARCH c USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          24,
+          0,
+          45,
+          "SEARCH p USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          27,
+          0,
+          0,
+          "USE TEMP B-TREE FOR GROUP BY"
+        ],
+        [
+          76,
+          0,
+          0,
+          "USE TEMP B-TREE FOR count(DISTINCT)"
+        ],
+        [
+          79,
+          0,
+          0,
+          "USE TEMP B-TREE FOR ORDER BY"
+        ]
+      ],
+      "samples_ms": [
+        103.98369999893475,
+        101.01519999443553,
+        100.1408000010997
+      ],
+      "median_ms": 101.01519999443553,
+      "batch": 1,
+      "rows": 4
+    },
+    {
+      "stage": "only ix_orderline_product",
+      "query": "dashboard",
+      "sql": "SELECT c.city, COUNT(DISTINCT c.customer_id) AS customers,\n       SUM(ol.qty * p.price) AS revenue\nFROM customer c\nJOIN orders o ON o.customer_id = c.customer_id\nJOIN order_line ol ON ol.order_id = o.order_id\nJOIN product p ON p.product_id = ol.product_id\nWHERE o.ordered_on >= '2025-01-01' AND o.ordered_on < '2026-01-01'\nGROUP BY c.city\nORDER BY revenue DESC;\n",
+      "plan": [
+        [
+          12,
+          0,
+          216,
+          "SCAN ol"
+        ],
+        [
+          14,
+          0,
+          45,
+          "SEARCH o USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          21,
+          0,
+          45,
+          "SEARCH c USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          24,
+          0,
+          45,
+          "SEARCH p USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          27,
+          0,
+          0,
+          "USE TEMP B-TREE FOR GROUP BY"
+        ],
+        [
+          76,
+          0,
+          0,
+          "USE TEMP B-TREE FOR count(DISTINCT)"
+        ],
+        [
+          79,
+          0,
+          0,
+          "USE TEMP B-TREE FOR ORDER BY"
+        ]
+      ],
+      "samples_ms": [
+        107.03600000124425,
+        95.12749999703374,
+        99.51749999891035
+      ],
+      "median_ms": 99.51749999891035,
+      "batch": 1,
+      "rows": 4
+    },
+    {
+      "stage": "cumulative through ix_orders_ordered_on",
+      "query": "dashboard",
+      "sql": "SELECT c.city, COUNT(DISTINCT c.customer_id) AS customers,\n       SUM(ol.qty * p.price) AS revenue\nFROM customer c\nJOIN orders o ON o.customer_id = c.customer_id\nJOIN order_line ol ON ol.order_id = o.order_id\nJOIN product p ON p.product_id = ol.product_id\nWHERE o.ordered_on >= '2025-01-01' AND o.ordered_on < '2026-01-01'\nGROUP BY c.city\nORDER BY revenue DESC;\n",
+      "plan": [
+        [
+          12,
+          0,
+          216,
+          "SCAN ol"
+        ],
+        [
+          14,
+          0,
+          45,
+          "SEARCH o USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          21,
+          0,
+          45,
+          "SEARCH c USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          24,
+          0,
+          45,
+          "SEARCH p USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          27,
+          0,
+          0,
+          "USE TEMP B-TREE FOR GROUP BY"
+        ],
+        [
+          76,
+          0,
+          0,
+          "USE TEMP B-TREE FOR count(DISTINCT)"
+        ],
+        [
+          79,
+          0,
+          0,
+          "USE TEMP B-TREE FOR ORDER BY"
+        ]
+      ],
+      "samples_ms": [
+        102.07449999870732,
+        102.76329999032896,
+        101.25589999370277
+      ],
+      "median_ms": 102.07449999870732,
+      "batch": 1,
+      "rows": 4
+    },
+    {
+      "stage": "cumulative through ix_orderline_order",
+      "query": "dashboard",
+      "sql": "SELECT c.city, COUNT(DISTINCT c.customer_id) AS customers,\n       SUM(ol.qty * p.price) AS revenue\nFROM customer c\nJOIN orders o ON o.customer_id = c.customer_id\nJOIN order_line ol ON ol.order_id = o.order_id\nJOIN product p ON p.product_id = ol.product_id\nWHERE o.ordered_on >= '2025-01-01' AND o.ordered_on < '2026-01-01'\nGROUP BY c.city\nORDER BY revenue DESC;\n",
+      "plan": [
+        [
+          14,
+          0,
+          165,
+          "SEARCH o USING INDEX ix_orders_ordered_on (ordered_on>? AND ordered_on<?)"
+        ],
+        [
+          20,
+          0,
+          45,
+          "SEARCH c USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          23,
+          0,
+          62,
+          "SEARCH ol USING INDEX ix_orderline_order (order_id=?)"
+        ],
+        [
+          28,
+          0,
+          45,
+          "SEARCH p USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          31,
+          0,
+          0,
+          "USE TEMP B-TREE FOR GROUP BY"
+        ],
+        [
+          81,
+          0,
+          0,
+          "USE TEMP B-TREE FOR count(DISTINCT)"
+        ],
+        [
+          84,
+          0,
+          0,
+          "USE TEMP B-TREE FOR ORDER BY"
+        ]
+      ],
+      "samples_ms": [
+        1266.2695000035455,
+        1142.2624999977415,
+        1227.6889000058873
+      ],
+      "median_ms": 1227.6889000058873,
+      "batch": 1,
+      "rows": 4
+    },
+    {
+      "stage": "cumulative through ix_orderline_product",
+      "query": "dashboard",
+      "sql": "SELECT c.city, COUNT(DISTINCT c.customer_id) AS customers,\n       SUM(ol.qty * p.price) AS revenue\nFROM customer c\nJOIN orders o ON o.customer_id = c.customer_id\nJOIN order_line ol ON ol.order_id = o.order_id\nJOIN product p ON p.product_id = ol.product_id\nWHERE o.ordered_on >= '2025-01-01' AND o.ordered_on < '2026-01-01'\nGROUP BY c.city\nORDER BY revenue DESC;\n",
+      "plan": [
+        [
+          14,
+          0,
+          165,
+          "SEARCH o USING INDEX ix_orders_ordered_on (ordered_on>? AND ordered_on<?)"
+        ],
+        [
+          20,
+          0,
+          45,
+          "SEARCH c USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          23,
+          0,
+          62,
+          "SEARCH ol USING INDEX ix_orderline_order (order_id=?)"
+        ],
+        [
+          28,
+          0,
+          45,
+          "SEARCH p USING INTEGER PRIMARY KEY (rowid=?)"
+        ],
+        [
+          31,
+          0,
+          0,
+          "USE TEMP B-TREE FOR GROUP BY"
+        ],
+        [
+          81,
+          0,
+          0,
+          "USE TEMP B-TREE FOR count(DISTINCT)"
+        ],
+        [
+          84,
+          0,
+          0,
+          "USE TEMP B-TREE FOR ORDER BY"
+        ]
+      ],
+      "samples_ms": [
+        1237.3264000052586,
+        1363.8969000021461,
+        1219.7808000055375
+      ],
+      "median_ms": 1237.3264000052586,
+      "batch": 1,
+      "rows": 4
+    },
+    {
+      "stage": "baseline",
+      "query": "single day",
+      "sql": "SELECT o.order_id, o.ordered_on, c.name FROM orders o JOIN customer c ON c.customer_id=o.customer_id WHERE o.ordered_on='2026-02-14'",
+      "plan": [
+        [
+          3,
+          0,
+          216,
+          "SCAN o"
+        ],
+        [
+          7,
+          0,
+          45,
+          "SEARCH c USING INTEGER PRIMARY KEY (rowid=?)"
+        ]
+      ],
+      "samples_ms": [
+        3.154604000155814,
+        2.672963999793865,
+        2.6177699997788295
+      ],
+      "median_ms": 2.672963999793865,
+      "batch": 50,
+      "rows": 111
+    },
+    {
+      "stage": "date index",
+      "query": "single day",
+      "sql": "SELECT o.order_id, o.ordered_on, c.name FROM orders o JOIN customer c ON c.customer_id=o.customer_id WHERE o.ordered_on='2026-02-14'",
+      "plan": [
+        [
+          4,
+          0,
+          62,
+          "SEARCH o USING INDEX ix_orders_ordered_on (ordered_on=?)"
+        ],
+        [
+          9,
+          0,
+          45,
+          "SEARCH c USING INTEGER PRIMARY KEY (rowid=?)"
+        ]
+      ],
+      "samples_ms": [
+        0.268379999906756,
+        0.26599000004353,
+        0.26681199989980087
+      ],
+      "median_ms": 0.26681199989980087,
+      "batch": 50,
+      "rows": 111
+    },
+    {
+      "stage": "date index",
+      "query": "wrapped date",
+      "sql": "SELECT o.order_id, o.ordered_on, c.name FROM orders o JOIN customer c ON c.customer_id=o.customer_id WHERE date(o.ordered_on)='2026-02-14'",
+      "plan": [
+        [
+          3,
+          0,
+          216,
+          "SCAN o"
+        ],
+        [
+          8,
+          0,
+          45,
+          "SEARCH c USING INTEGER PRIMARY KEY (rowid=?)"
+        ]
+      ],
+      "samples_ms": [
+        6.595099999685772,
+        7.468530000187457,
+        4.934040000080131
+      ],
+      "median_ms": 6.595099999685772,
+      "batch": 10,
+      "rows": 111
+    },
+    {
+      "stage": "baseline",
+      "query": "product lookup",
+      "sql": "SELECT order_id, product_id, qty FROM order_line WHERE product_id=42",
+      "plan": [
+        [
+          2,
+          0,
+          216,
+          "SCAN order_line"
+        ]
+      ],
+      "samples_ms": [
+        11.930529998790007,
+        9.165100000973325,
+        10.146109999914188
+      ],
+      "median_ms": 10.146109999914188,
+      "batch": 10,
+      "rows": 480
+    },
+    {
+      "stage": "product index",
+      "query": "product lookup",
+      "sql": "SELECT order_id, product_id, qty FROM order_line WHERE product_id=42",
+      "plan": [
+        [
+          3,
+          0,
+          62,
+          "SEARCH order_line USING INDEX ix_orderline_product (product_id=?)"
+        ]
+      ],
+      "samples_ms": [
+        2.395529999921564,
+        1.6480799997225404,
+        2.0970400000805967
+      ],
+      "median_ms": 2.0970400000805967,
+      "batch": 10,
+      "rows": 480
+    }
+  ],
+  "checks": [
+    "Independent Python aggregate agrees",
+    "Year boundaries, DISTINCT, no-order fixture passed",
+    "All benchmark results preserved",
+    "Source warehouse file hash unchanged"
+  ]
+}

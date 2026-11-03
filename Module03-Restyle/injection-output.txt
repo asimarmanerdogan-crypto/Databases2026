@@ -1,0 +1,8 @@
+normal: [(1, 'Customer 1')]
+apostrophe input: O'Brien; vulnerable error: near "Brien": syntax error
+payload: ' OR '1'='1
+vulnerable payload result count: 2000
+safe payload result: []
+safe apostrophe lookup works in a fixture containing O'Brien
+PASS normal results, apostrophe failure, injection bypass, bound-parameter fix
+PASS source database opened read-only and hash unchanged
