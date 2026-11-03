@@ -18,6 +18,8 @@
 <a href="audit.md">Evidence index</a> &nbsp; · &nbsp;
 <a href="telemetry-results.md">Measurements</a> &nbsp; · &nbsp;
 <a href="ai-sql-verification.md">SQL verification</a>
+</tr>
+
 **Creator:** Asim Arman Erdogan.
 </p>
 
