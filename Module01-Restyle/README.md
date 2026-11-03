@@ -115,12 +115,7 @@ AI-assisted observation: `.schema` was useful because it displayed the exact tab
 - [Three SQL queries](queries.sql)
 - [Results, timings, database size and row count](telemetry-results.md)
 
-```mermaid
-flowchart LR
-    A["01 · Generate readings"] --> B["02 · Load local SQLite"]
-    B --> C["03 · Query and measure"]
-    C --> D["04 · Independently verify"]
-```
+![Telemetry workflow: generate readings, load local SQLite, query and measure, independently verify](assets/telemetry-flow.svg)
 
 Generated CSV and database files stay local and can be reproduced from the scripts.
 
