@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="715" viewBox="0 0 1200 715" role="img" aria-labelledby="title desc">
+<title id="title">Maintenance job and its required references</title><desc id="desc">Endpoint labels show allowed participation: 1 = exactly one; 0..N = zero or many; 0..1 = optional one.</desc>
+<rect width="1200" height="715" rx="16" fill="#0b1420"/>
+<text x="40" y="42" fill="#f1f5f9" font-family="Arial,sans-serif" font-weight="700" font-size="25">Maintenance job and its required references</text>
+<text x="40" y="72" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">Endpoint labels show allowed participation: 1 = exactly one; 0..N = zero or many; 0..1 = optional one.</text>
+<text x="258.0" y="275" text-anchor="end" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">1</text>
+<text x="527.0" y="426" text-anchor="start" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">0..N</text>
+<text x="392.5" y="333.0" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="13">receives</text>
+<path d="M270.0 250 V345.0 H515.0 V440" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<text x="918.0" y="275" text-anchor="end" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">1</text>
+<text x="697.0" y="426" text-anchor="start" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">0..N</text>
+<text x="807.5" y="333.0" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="13">performs</text>
+<path d="M930.0 250 V345.0 H685.0 V440" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<rect x="100" y="120" width="340" height="130" rx="9" fill="#101e2e" stroke="#31516a"/>
+<path d="M101 166 H439" stroke="#31516a"/>
+<text x="118" y="150" text-anchor="start" fill="#5eead4" font-family="Arial,sans-serif" font-size="17">MACHINE</text>
+<text x="118" y="192" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">machine_id</text>
+<text x="422" y="192" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">int PK</text>
+<text x="118" y="222" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">serial_no</text>
+<text x="422" y="222" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">string UK</text>
+<rect x="430" y="440" width="340" height="190" rx="9" fill="#101e2e" stroke="#31516a"/>
+<path d="M431 486 H769" stroke="#31516a"/>
+<text x="448" y="470" text-anchor="start" fill="#5eead4" font-family="Arial,sans-serif" font-size="17">MAINTENANCE_JOB</text>
+<text x="448" y="512" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">job_id</text>
+<text x="752" y="512" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">int PK</text>
+<text x="448" y="542" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">machine_id</text>
+<text x="752" y="542" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">int FK</text>
+<text x="448" y="572" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">technician_id</text>
+<text x="752" y="572" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">int FK</text>
+<text x="448" y="602" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">done_on</text>
+<text x="752" y="602" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">date</text>
+<rect x="760" y="120" width="340" height="130" rx="9" fill="#101e2e" stroke="#31516a"/>
+<path d="M761 166 H1099" stroke="#31516a"/>
+<text x="778" y="150" text-anchor="start" fill="#5eead4" font-family="Arial,sans-serif" font-size="17">TECHNICIAN</text>
+<text x="778" y="192" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">technician_id</text>
+<text x="1082" y="192" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">int PK</text>
+<text x="778" y="222" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">name</text>
+<text x="1082" y="222" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">string</text>
+<text x="40" y="689" text-anchor="start" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">PK = primary key   /   FK = foreign key   /   UK = unique key</text>
+</svg>

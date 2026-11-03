@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+<title id="title">Legacy fixture and corrected target</title><desc id="desc">Schema comparison derived from legacy-setup.sql and contract-ddl.sql.</desc>
+<rect width="1200" height="480" rx="16" fill="#0b1420"/>
+<text x="40" y="45" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="28" font-weight="700">Legacy fixture and corrected target</text>
+<text x="40" y="76" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">Schema comparison derived from legacy-setup.sql and contract-ddl.sql.</text>
+<rect x="40" y="110" width="500" height="300" rx="9" fill="#101e2e" stroke="#31516a"/>
+<rect x="660" y="110" width="500" height="300" rx="9" fill="#101e2e" stroke="#31516a"/>
+<text x="65" y="150" fill="#fbbf24" font-family="Arial,sans-serif" font-size="19" font-weight="700">LEGACY FIXTURE</text>
+<text x="685" y="150" fill="#5eead4" font-family="Arial,sans-serif" font-size="19" font-weight="700">CORRECTED TARGET</text>
+<text x="65" y="195" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">3 tables: machine, part, maint_job</text>
+<text x="65" y="234" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">No primary keys or foreign keys</text>
+<text x="65" y="273" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">Technician stored as a name</text>
+<text x="65" y="312" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">Part references stored as comma-separated text</text>
+<text x="65" y="351" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">Invalid legacy rows retained for the audit</text>
+<text x="685" y="195" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">5 entities, including technician and job_part</text>
+<text x="685" y="234" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">Primary keys, unique keys and 4 foreign keys</text>
+<text x="685" y="273" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">Technician identity stored as technician_id</text>
+<text x="685" y="312" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">One row per job/part association</text>
+<text x="685" y="351" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">Application validation + database constraints</text>
+<path d="M555 255h90m-12-10 12 10-12 10" stroke="#38bdf8" stroke-width="3" fill="none"/>
+<text x="40" y="450" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="17">Target design only. Orphans, duplicate identities and unknown dates require migration decisions.</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690" role="img" aria-labelledby="title desc">
+<title id="title">Five integrity defect categories</title><desc id="desc">Examples and query outcomes verified directly against the legacy fixture.</desc>
+<rect width="1200" height="690" rx="16" fill="#0b1420"/>
+<text x="40" y="45" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="28" font-weight="700">Five integrity defect categories</text>
+<text x="40" y="76" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">Examples and query outcomes verified directly against the legacy fixture.</text>
+<rect x="40" y="110" width="540" height="145" rx="9" fill="#101e2e" stroke="#31516a"/>
+<text x="62" y="145" fill="#5eead4" font-family="Arial,sans-serif" font-size="17" font-weight="700">01 / ORPHAN REFERENCE</text>
+<text x="62" y="186" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="19" font-weight="700">Job 3 points to cnc-05</text>
+<text x="62" y="220" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">No matching machine row exists.</text>
+<rect x="620" y="110" width="540" height="145" rx="9" fill="#101e2e" stroke="#31516a"/>
+<text x="642" y="145" fill="#5eead4" font-family="Arial,sans-serif" font-size="17" font-weight="700">02 / DUPLICATE IDENTITY</text>
+<text x="642" y="186" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="19" font-weight="700">P-1003 appears twice</text>
+<text x="642" y="220" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">A part number does not identify one row.</text>
+<rect x="40" y="285" width="540" height="145" rx="9" fill="#101e2e" stroke="#31516a"/>
+<text x="62" y="320" fill="#5eead4" font-family="Arial,sans-serif" font-size="17" font-weight="700">03 / TEXT PRICE COMPARISON</text>
+<text x="62" y="361" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="19" font-weight="700">Text &lt; &#x27;15&#x27;: 1 row</text>
+<text x="62" y="395" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">Numeric &lt; 15: 3 rows, including duplicates.</text>
+<rect x="620" y="285" width="540" height="145" rx="9" fill="#101e2e" stroke="#31516a"/>
+<text x="642" y="320" fill="#5eead4" font-family="Arial,sans-serif" font-size="17" font-weight="700">04 / UNKNOWN DATE</text>
+<text x="642" y="361" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="19" font-weight="700">RANDOM-NAME: installed = unknown</text>
+<text x="642" y="395" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">The format check flags this record.</text>
+<rect x="40" y="460" width="540" height="145" rx="9" fill="#101e2e" stroke="#31516a"/>
+<text x="62" y="495" fill="#5eead4" font-family="Arial,sans-serif" font-size="17" font-weight="700">05 / LIST-BASED JOIN</text>
+<text x="62" y="536" fill="#f1f5f9" font-family="Arial,sans-serif" font-size="19" font-weight="700">Naive join returns job IDs: 2, 2, 3</text>
+<text x="62" y="570" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">Multipart job 1 is lost; job 2 is duplicated.</text>
+<text x="40" y="665" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="16">Counts describe this deliberately flawed fixture; the original SQL and full results remain below.</text>
+</svg>

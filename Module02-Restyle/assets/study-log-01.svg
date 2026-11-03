@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="375" viewBox="0 0 1200 375" role="img" aria-labelledby="title desc">
+<title id="title">Employee and phone records</title><desc id="desc">Endpoint labels show allowed participation: 1 = exactly one; 0..N = zero or many; 0..1 = optional one.</desc>
+<rect width="1200" height="375" rx="16" fill="#0b1420"/>
+<text x="40" y="42" fill="#f1f5f9" font-family="Arial,sans-serif" font-weight="700" font-size="25">Employee and phone records</text>
+<text x="40" y="72" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">Endpoint labels show allowed participation: 1 = exactly one; 0..N = zero or many; 0..1 = optional one.</text>
+<text x="440" y="173.0" text-anchor="middle" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">1</text>
+<text x="754" y="173.0" text-anchor="middle" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">0..N</text>
+<text x="600.0" y="219.0" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="13">has</text>
+<path d="M420 185.0 H600.0 V185.0 H780" fill="none" stroke="#38bdf8" stroke-width="2"/>
+<rect x="80" y="120" width="340" height="130" rx="9" fill="#101e2e" stroke="#31516a"/>
+<path d="M81 166 H419" stroke="#31516a"/>
+<text x="98" y="150" text-anchor="start" fill="#5eead4" font-family="Arial,sans-serif" font-size="17">EMPLOYEE</text>
+<text x="98" y="192" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">employee_id</text>
+<text x="402" y="192" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">int PK</text>
+<text x="98" y="222" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">name</text>
+<text x="402" y="222" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">string</text>
+<rect x="780" y="120" width="340" height="130" rx="9" fill="#101e2e" stroke="#31516a"/>
+<path d="M781 166 H1119" stroke="#31516a"/>
+<text x="798" y="150" text-anchor="start" fill="#5eead4" font-family="Arial,sans-serif" font-size="17">EMPLOYEE_PHONE</text>
+<text x="798" y="192" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">employee_id</text>
+<text x="1102" y="192" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">int PK,FK</text>
+<text x="798" y="222" text-anchor="start" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15">phone</text>
+<text x="1102" y="222" text-anchor="end" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">string PK</text>
+<text x="40" y="349" text-anchor="start" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">PK = primary key   /   FK = foreign key   /   UK = unique key</text>
+</svg>
