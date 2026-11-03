@@ -3,7 +3,7 @@ import re
 
 def style_report(raw, name):
     if name == 'defect-results.md':
-        title, label = 'Integrity defects — actual query results', 'INTEGRITY RESULTS'
+        title, label = 'Integrity defects - actual query results', 'INTEGRITY RESULTS'
         headings = ['01 / Orphan job', '02 / Duplicate part identity',
                     '03a / Text price comparison', '03b / Numeric comparison',
                     '04 / Unknown installation date', '05 / List-based join']

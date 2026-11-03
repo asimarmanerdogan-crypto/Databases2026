@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="405" viewBox="0 0 1200 405" role="img" aria-labelledby="title desc">
-<title id="title">Machine and sensors — 1:many</title><desc id="desc">Endpoint labels show allowed participation: 1 = exactly one; 0..N = zero or many; 0..1 = optional one.</desc>
+<title id="title">Machine and sensors - 1:many</title><desc id="desc">Endpoint labels show allowed participation: 1 = exactly one; 0..N = zero or many; 0..1 = optional one.</desc>
 <rect width="1200" height="405" rx="16" fill="#0b1420"/>
-<text x="40" y="42" fill="#f1f5f9" font-family="Arial,sans-serif" font-weight="700" font-size="25">Machine and sensors — 1:many</text>
+<text x="40" y="42" fill="#f1f5f9" font-family="Arial,sans-serif" font-weight="700" font-size="25">Machine and sensors - 1:many</text>
 <text x="40" y="72" fill="#94a3b8" font-family="Arial,sans-serif" font-size="16">Endpoint labels show allowed participation: 1 = exactly one; 0..N = zero or many; 0..1 = optional one.</text>
 <text x="440" y="158.0" text-anchor="middle" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">1</text>
 <text x="754" y="188.0" text-anchor="middle" fill="#5eead4" font-family="Arial,sans-serif" font-size="14">0..N</text>

@@ -1,4 +1,4 @@
-![Module 02 — Data contracts and legacy schemas](assets/module02-banner.svg)
+![Module 02 - Data contracts and legacy schemas](assets/module02-banner.svg)
 
 <p align="center"><sub>DATABASES 2026 &nbsp; / &nbsp; MODULE 02 &nbsp; / &nbsp; OVERVIEW</sub></p>
 

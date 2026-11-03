@@ -92,7 +92,7 @@ Lesson from this example: an owner's key can also be part of a child's composite
 
 Source: SQLite's [foreign-key tutorial, section 1](https://www.sqlite.org/foreignkeys.html). Redraw adapts the example by explicitly requiring the artist reference and assigning a track primary key.
 
-![Artist and tracks — required artist reference](assets/study-log-02.svg)
+![Artist and tracks - required artist reference](assets/study-log-02.svg)
 
 <details>
 <summary>Diagram source (Mermaid)</summary>

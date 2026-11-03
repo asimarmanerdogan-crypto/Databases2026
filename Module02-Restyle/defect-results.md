@@ -1,6 +1,6 @@
 <p align="center"><sub>DATABASES 2026 &nbsp; / &nbsp; MODULE 02 &nbsp; / &nbsp; INTEGRITY RESULTS</sub></p>
 
-<h1 align="center">Integrity defects — actual query results</h1>
+<h1 align="center">Integrity defects - actual query results</h1>
 
 ![Five integrity defect categories verified against the legacy fixture](assets/integrity-defects.svg)
 

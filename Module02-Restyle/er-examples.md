@@ -8,7 +8,7 @@
 
 <h2 align="center">◈ <code>01</code> / Machine and nameplate - exactly 1:1</h2>
 
-![Machine and nameplate — intended 1:1](assets/er-examples-01.svg)
+![Machine and nameplate - intended 1:1](assets/er-examples-01.svg)
 
 <details>
 <summary>Diagram source (Mermaid)</summary>
@@ -35,7 +35,7 @@ A shared primary/foreign key enforces at most one nameplate per machine and exac
 
 <h2 align="center">◈ <code>02</code> / Machine and sensors - 1:n</h2>
 
-![Machine and sensors — 1:many](assets/er-examples-02.svg)
+![Machine and sensors - 1:many](assets/er-examples-02.svg)
 
 <details>
 <summary>Diagram source (Mermaid)</summary>
@@ -71,7 +71,7 @@ The verifier also inserts an orphan sensor deliberately and confirms a foreign-k
 
 <h2 align="center">◈ <code>03</code> / Work orders and parts - m:n</h2>
 
-![Work orders and parts — many:many](assets/er-examples-03.svg)
+![Work orders and parts - many:many](assets/er-examples-03.svg)
 
 <details>
 <summary>Diagram source (Mermaid)</summary>
