@@ -1,10 +1,8 @@
 ![Module 01 — Local-first foundations](assets/module01-banner.svg)
 
-<p align="center"><sub>DATABASES 2026 &nbsp; / &nbsp; MODULE 01 &nbsp; / &nbsp; FIELD NOTES</sub></p>
+<p align="center"><sub>DATABASES 2026 &nbsp; / &nbsp; MODULE 01 &nbsp; / &nbsp; OVERVIEW</sub></p>
 
 # Introduction and Local-First Foundations
-
-> **Build locally. Measure carefully. Verify before you trust.**
 
 <table>
 <tr>

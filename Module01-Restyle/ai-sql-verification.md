@@ -2,8 +2,6 @@
 
 # LLM-assisted SQL verification
 
-> **A query that runs still needs to be checked.**
-
 SQL and verification checks prepared with AI assistance.
 
 <a id="exact-prompt"></a>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
   <title id="title">Module 01 — Local-first foundations</title>
-  <desc id="desc">A navy and cyan database lab banner. Generate, query, verify. HSBI Databases portfolio by Asim Arman Erdogan.</desc>
+  <desc id="desc">A navy and cyan database lab banner. HSBI Databases portfolio by Asim Arman Erdogan.</desc>
   <defs>
     <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081321"/><stop offset="1" stop-color="#102a3c"/></linearGradient>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#7dd3fc" stroke-opacity=".07"/></pattern>
@@ -11,8 +11,8 @@
   <rect x="48" y="48" width="4" height="284" rx="2" fill="url(#accent)"/>
   <text x="80" y="77" font-family="monospace" font-size="15" letter-spacing="4" fill="#67e8f9">HSBI / DATABASES 2026</text>
   <text x="80" y="155" font-family="Arial, sans-serif" font-weight="700" font-size="62" fill="#f1f5f9">LOCAL-FIRST</text>
-  <text x="80" y="218" font-family="Arial, sans-serif" font-weight="700" font-size="48" fill="#5eead4">FOUNDATIONS.</text>
-  <text x="82" y="267" font-family="monospace" font-size="16" fill="#cbd5e1">GENERATE  /  QUERY  /  VERIFY</text>
+  <text x="80" y="218" font-family="Arial, sans-serif" font-weight="700" font-size="48" fill="#5eead4">FOUNDATIONS</text>
+  <text x="82" y="267" font-family="monospace" font-size="16" fill="#cbd5e1">PYTHON  /  SQLITE  /  SQL</text>
   <text x="82" y="318" font-family="Arial, sans-serif" font-size="15" fill="#94a3b8">Asim Arman Erdogan  ·  Module 01</text>
   <g transform="translate(900 101)" fill="none" stroke="url(#accent)" stroke-width="3">
     <ellipse cx="85" cy="25" rx="80" ry="25" fill="#0b2333"/>

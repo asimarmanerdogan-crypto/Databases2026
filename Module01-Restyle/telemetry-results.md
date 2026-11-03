@@ -2,8 +2,6 @@
 
 # Synthetic telemetry in SQLite
 
-> **Three machines. One local database. Measured results.**
-
 The course generator creates repeatable simulated readings using a fixed random seed.
 
 | Recorded dataset | Value |

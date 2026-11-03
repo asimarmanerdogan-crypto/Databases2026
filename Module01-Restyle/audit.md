@@ -2,8 +2,6 @@
 
 # Work overview
 
-> **Every learning goal has a trail of evidence.**
-
 The course assesses the learning goals through the portfolio and checkpoint discussion. Tasks are a way to show those goals. [Assessment rules](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md).
 
 | Area | Work and evidence |

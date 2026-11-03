@@ -2,8 +2,6 @@
 
 # Completed guided demonstration
 
-> **From the first SELECT to the final escape.**
-
 I completed the English version using the character name Asim. After the pilot was released, the character left the island and the game showed its completion screen.
 
 <a id="completion-evidence"></a>
