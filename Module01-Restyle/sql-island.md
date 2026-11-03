@@ -2,7 +2,7 @@
 
 # Completed guided demonstration
 
-I completed the English version using the character name Asim. After the pilot was released, the character left the island and the game showed its completion screen.
+I completed the English version using the character name **Asim**. After the pilot was released, the character left the island and the game showed its completion screen.
 
 <a id="completion-evidence"></a>
 
@@ -17,7 +17,7 @@ I completed the English version using the character name Asim. After the pilot w
 
 ## ◈ 02 / How the session was completed
 
-I completed the game as a guided session. The assistant entered the queries and explained them in Turkish while I watched. Some examples were run automatically by the game.
+I completed the game as a **guided session**. The assistant entered the queries and explained them in Turkish while I watched. *Some examples were run automatically by the game.*
 
 <a id="commands-and-patterns-demonstrated"></a>
 
@@ -44,9 +44,9 @@ I completed the game as a guided session. The assistant entered the queries and 
 
 ## ◈ 04 / Verification and a correction during play
 
-At one point, the editor kept an earlier SELECT, and the result still included evil characters. Clearing the editor and running only the filtered query fixed this. It was a useful reminder to look at the result, not just the success message.
+At one point, the editor kept an earlier SELECT, and the result still included evil characters. **Clearing the editor** and running only the filtered query fixed this. It was a useful reminder to **look at the result**, not just the success message.
 
-The inventory query confirmed six items with owner 20 after collecting ownerless items. Results identified the pilot as Arthur Tailor, personid 8, initially kidnapped. After the release UPDATE, the game advanced to the departure and completion screens.
+The inventory query confirmed **six items** with owner `20` after collecting ownerless items. Results identified the pilot as **Arthur Tailor**, personid `8`, initially kidnapped. After the release UPDATE, the game advanced to the departure and completion screens.
 
 <a id="my-answers"></a>
 
@@ -62,7 +62,7 @@ The inventory query confirmed six items with owner 20 after collecting ownerless
    A table organizes data. A row is one record, and a column holds one type of information. A query is an instruction to get or change data.
 
 4. **What surprised you and what is still confusing?**
-   I was surprised that SQL commands could control the story. JOIN and GROUP BY are still a little confusing, and I need more practice with them.
+   I was surprised that SQL commands could control the story. `JOIN` and `GROUP BY` are still a little confusing, and I need more practice with them.
 
 [Game](https://sql-island.informatik.uni-kl.de/) · [Module instructions](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/01-introduction-and-local-first.md)
 

@@ -2,7 +2,7 @@
 
 # LLM-assisted SQL verification
 
-SQL and verification checks prepared with AI assistance.
+*SQL and verification checks prepared with AI assistance.*
 
 <a id="exact-prompt"></a>
 
@@ -22,7 +22,7 @@ GROUP BY machine
 ORDER BY avg_spindle_load DESC;
 ```
 
-> **Time boundary** — “after 18:00” means strictly later than 18:00:00 on each date. Exactly 18:00 and early-morning readings are excluded. If “overnight” means an entire 18:00-06:00 shift, this query needs a different predicate, for example `time(ts) >= '18:00:00' OR time(ts) < '06:00:00'`. Confirm the business definition before using it.
+> **Time boundary** — “after 18:00” means **strictly later than 18:00:00** on each date. Exactly 18:00 and early-morning readings are **excluded**. If “overnight” means an entire 18:00-06:00 shift, this query needs a different predicate, for example `time(ts) >= '18:00:00' OR time(ts) < '06:00:00'`. Confirm the business definition before using it.
 
 <a id="execution-results"></a>
 
@@ -44,23 +44,23 @@ ORDER BY avg_spindle_load DESC;
 | 12 | 0 | 0 | USE TEMP B-TREE FOR GROUP BY |
 | 51 | 0 | 0 | USE TEMP B-TREE FOR ORDER BY |
 
-`SCAN readings` confirms a full-table scan. The planner also uses temporary B-trees for grouping and ordering; no index was added for this exercise.
+`SCAN readings` confirms a **full-table scan**. The planner also uses temporary B-trees for grouping and ordering; *no index was added for this exercise*.
 
 <a id="break-it-verified-checks"></a>
 
 ## ◈ 05 / Break it: verified checks
 
-- Independent Python filtering and aggregation matched all three machine averages within 1e-9 and matched their ordering.
-- Six-row boundary fixture: 17:59:59, 18:00:00, 18:00:01, next-day 00:00:00, 05:59:59, and 18:30:00. The generated query selected two rows, with average 45.0.
+- **Independent Python filtering and aggregation** matched all three machine averages within `1e-9` and matched their ordering.
+- **Six-row boundary fixture:** 17:59:59, 18:00:00, 18:00:01, next-day 00:00:00, 05:59:59, and 18:30:00. The generated query selected two rows, with average 45.0.
 - Changing `>` to `>=` includes the boundary row and changes the fixture average to 36.666667.
-- Replacing the daily-time predicate with `ts > '2026-01-05 18:00:00'` selects 4 fixture rows instead of 2, incorrectly including the next morning. Its average happens to match in this fixture, showing why checking row membership matters.
-- Deliberate column typo produced SQLite error: `no such column: spindel_load`.
+- Replacing the daily-time predicate with `ts > '2026-01-05 18:00:00'` selects 4 fixture rows instead of 2, incorrectly including the next morning. Its average happens to match in this fixture, showing why **checking row membership matters**.
+- **Deliberate column typo** produced SQLite error: `no such column: spindel_load`.
 
 <a id="ai-assisted-verification-paragraph"></a>
 
 ## ◈ 06 / AI-assisted verification paragraph
 
-The model correctly grouped by machine, computed AVG and sorted descending, and the SQL executed successfully. Its interpretation of “overnight” is incomplete if the intended shift includes midnight through 06:00 or includes exactly 18:00. I verified execution and the full scan with EXPLAIN QUERY PLAN, independently recomputed the result in Python, and tested exact time boundaries and the next date in a small fixture. The deliberately broken date cutoff selected incorrect rows, and a misspelled column failed as expected. The business time boundary must be agreed before relying on the result.
+The model correctly grouped by machine, computed AVG and sorted descending, and the SQL executed successfully. Its interpretation of “overnight” is incomplete if the intended shift includes midnight through 06:00 or includes exactly 18:00. I verified execution and the full scan with EXPLAIN QUERY PLAN, independently recomputed the result in Python, and tested exact time boundaries and the next date in a small fixture. The deliberately broken date cutoff selected incorrect rows, and a misspelled column failed as expected. The **business time boundary** must be agreed before relying on the result.
 
 <a id="reproduce"></a>
 
