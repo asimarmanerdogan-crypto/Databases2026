@@ -70,7 +70,7 @@ for ax, machine, color in zip(axes, sorted(bins), colors):
     ax.set_title(machine.upper(), loc="left", fontsize=11, weight="bold", color=color, pad=9)
     ax.set_title(f"{alarms[machine]:,} alarm readings  |  peak {peaks[machine]:.3f}",
                  loc="right", fontsize=9, color="#cbd5e1", pad=9)
-    ax.set_ylim(.5, 3.4)
+    ax.set_ylim(0, 3.4)
     ax.yaxis.set_major_locator(MultipleLocator(1))
     ax.grid(axis="y", color="#334155", alpha=.45, linewidth=.6)
     ax.set_ylabel("vib_rms", fontsize=9)
