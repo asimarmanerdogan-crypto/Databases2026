@@ -20,7 +20,7 @@
 <a href="ai-sql-verification.md">SQL verification</a>
 </tr>
 
-<a **Creator:** Asim Arman Erdogan.</a>
+**Creator:** Asim Arman Erdogan.
 </p>
 
 ---
