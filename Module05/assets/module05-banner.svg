@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title">
+<title id="title">Module 05: Normalization and denormalization</title>
+<defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081321"/><stop offset="1" stop-color="#102a3c"/></linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#7dd3fc" stroke-opacity=".08"/></pattern>
+</defs>
+<rect width="1200" height="380" rx="18" fill="url(#bg)"/>
+<rect width="1200" height="380" rx="18" fill="url(#grid)"/>
+<rect x="48" y="48" width="4" height="284" rx="2" fill="#38bdf8"/>
+<g font-family="Arial, sans-serif">
+<text x="80" y="77" font-family="monospace" font-size="15" letter-spacing="4" fill="#67e8f9">HSBI / DATABASES 2026</text>
+<text x="80" y="155" font-size="53" font-weight="700" fill="#f1f5f9">NORMALIZATION</text>
+<text x="80" y="218" font-size="47" font-weight="700" fill="#5eead4">VS. DENORMALIZATION</text>
+<text x="82" y="269" font-family="monospace" font-size="16" fill="#cbd5e1">SQLITE / 3NF / BENCHMARKS</text>
+<text x="82" y="318" font-size="15" fill="#94a3b8">Asim Arman Erdogan · Module 05</text>
+</g>
+<g fill="#11283b" stroke="#38bdf8" stroke-width="2.5">
+<path d="M980 153V181H886V211M980 181H1074V211" fill="none"/>
+<rect x="906" y="100" width="148" height="53" rx="9"/>
+<rect x="823" y="211" width="126" height="53" rx="9"/>
+<rect x="1011" y="211" width="126" height="53" rx="9"/>
+</g>
+<g font-family="monospace" font-size="16" text-anchor="middle" fill="#67e8f9">
+<text x="980" y="72">[ 05 ]</text><text x="980" y="133">FLAT</text>
+<text x="886" y="244">3NF</text><text x="1074" y="244">REPORT</text>
+</g>
+</svg>

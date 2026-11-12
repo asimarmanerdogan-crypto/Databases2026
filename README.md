@@ -7,6 +7,7 @@ This is my portfolio for the HSBI Databases course. It brings together my SQL ex
 | [01 - Introduction and Local-First](Module01/README.md) | Tool setup, SQLite, telemetry and SQL Island | [Reflection 1](Reflections/ref01.md) |
 | [02 - Data Contracts and Legacy Schemas](Module02/README.md) | ER diagrams, data problems and a corrected schema | [Reflection 2](Reflections/ref02.md) |
 | [03 - SQL and Query Profiling](Module03/README.md) | Query plans, index benchmarks, injection and query rewrites | [Reflection 3](Reflections/ref03.md) |
+| [05 - Normalization vs. Denormalization](Module05/README.md) | 3NF, anomalies, dashboard benchmarks and storage | [Reflection 5 draft](Reflections/ref05.md) |
 
 [Checkpoint guide](CHECKPOINT.md) · [Pod work and AI assistance](COLLABORATION.md) · [Course workbook](https://github.com/iotempire/iotempire-teaching/tree/main/full-classes/hsbi-databases-10d) · [Syllabus](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/syllabus.md)
 

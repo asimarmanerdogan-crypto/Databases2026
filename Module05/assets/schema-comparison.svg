@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="512" viewBox="0 0 1200 512" role="img" aria-labelledby="title desc">
+<title id="title">Flat relation and 3NF decomposition</title>
+<desc id="desc">The flat job-part table on the left stores repeated facts. On the right, foreign keys connect job to machine, and job_part to job and part.</desc>
+<rect width="1200" height="512" rx="16" fill="#0b1420"/>
+<g fill="#101e2e" stroke="#31516a">
+<rect x="35" y="103" width="420" height="322" rx="9"/>
+<rect x="510" y="103" width="296" height="123" rx="9"/>
+<rect x="866" y="103" width="296" height="123" rx="9"/>
+<rect x="510" y="292" width="296" height="133" rx="9"/>
+<rect x="866" y="292" width="296" height="133" rx="9"/>
+</g>
+<g fill="#38bdf8" stroke="#38bdf8" stroke-width="2">
+<path d="M806 164H864m-8-6 8 6-8 6M657 292V228m-6 8 6-8 6 8M806 354H864m-8-6 8 6-8 6" fill="none"/>
+</g>
+<g font-family="Arial, sans-serif" fill="#f1f5f9">
+<text x="35" y="50" font-size="27" font-weight="700">Flat relation</text>
+<text x="510" y="50" font-size="27" font-weight="700">3NF decomposition</text>
+<text x="35" y="78" font-size="17" fill="#94a3b8">One row per job and part</text>
+<text x="510" y="78" font-size="17" fill="#94a3b8">Arrows point from foreign key to referenced key</text>
+<g font-family="monospace" font-size="18" fill="#5eead4" font-weight="700">
+<text x="54" y="137">flat_jobpart</text><text x="529" y="137">job</text><text x="885" y="137">machine</text>
+<text x="529" y="327">job_part</text><text x="885" y="327">part</text>
+</g>
+<g font-size="17" fill="#cbd5e1">
+<text x="54" y="177">200,000 rows</text>
+<text x="54" y="217">Candidate key: job_id + part_no</text>
+<text x="54" y="257">job_id → machine_id, technician, done_on</text>
+<text x="54" y="297">machine_id → site</text>
+<text x="54" y="337">part_no → part_price</text>
+<text x="54" y="388" fill="#94a3b8">Site and catalog price repeat across job lines.</text>
+<text x="529" y="169">20,000 rows · PK job_id</text><text x="529" y="200" font-size="15">FK machine_id · technician · done_on</text>
+<text x="885" y="169">50 rows · PK machine_id</text><text x="885" y="200">site</text>
+<text x="529" y="360">200,000 rows · composite PK</text><text x="529" y="393">FK job_id + FK part_no</text>
+<text x="885" y="360">10 rows · PK part_no</text><text x="885" y="393">part_price</text>
+<text x="35" y="474" fill="#94a3b8">The 3NF join reproduces all 200,000 source rows after converting text prices to numbers.</text>
+</g>
+</g>
+</svg>

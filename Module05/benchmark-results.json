@@ -1,0 +1,181 @@
+{
+  "python": "3.14.8",
+  "sqlite": "3.53.1",
+  "cache_kib": 65536,
+  "counts": {
+    "flat_jobpart": 200000,
+    "machine": 50,
+    "part": 10,
+    "job": 20000,
+    "job_part": 200000,
+    "report_jobpart": 200000
+  },
+  "lossless_join": true,
+  "result_rows": 350,
+  "total": 722610.0,
+  "reads": {
+    "normalized": {
+      "samples_ms": [
+        384.9619,
+        286.6792,
+        359.4608
+      ],
+      "median_ms": 359.4608,
+      "plan": [
+        "SCAN jp",
+        "SEARCH j USING INTEGER PRIMARY KEY (rowid=?)",
+        "SEARCH m USING INDEX sqlite_autoindex_machine_1 (machine_id=?)",
+        "SEARCH p USING INDEX sqlite_autoindex_part_1 (part_no=?)",
+        "USE TEMP B-TREE FOR GROUP BY"
+      ]
+    },
+    "indexed_report": {
+      "samples_ms": [
+        316.1922,
+        278.1535,
+        281.8619
+      ],
+      "median_ms": 281.8619,
+      "plan": [
+        "SCAN report_jobpart USING INDEX ix_report_machine",
+        "USE TEMP B-TREE FOR GROUP BY"
+      ]
+    }
+  },
+  "index_test": {
+    "normalized": {
+      "samples_ms": [
+        372.495,
+        326.3903,
+        430.0777
+      ],
+      "median_ms": 372.495,
+      "plan": [
+        "SCAN jp",
+        "SEARCH j USING INTEGER PRIMARY KEY (rowid=?)",
+        "SEARCH m USING INDEX sqlite_autoindex_machine_1 (machine_id=?)",
+        "SEARCH p USING INDEX sqlite_autoindex_part_1 (part_no=?)",
+        "USE TEMP B-TREE FOR GROUP BY"
+      ]
+    },
+    "unindexed_report": {
+      "samples_ms": [
+        240.3487,
+        229.2413,
+        332.8022
+      ],
+      "median_ms": 240.3487,
+      "plan": [
+        "SCAN report_jobpart",
+        "USE TEMP B-TREE FOR GROUP BY"
+      ]
+    }
+  },
+  "writes": {
+    "machine": {
+      "rows": 1,
+      "samples_ms": [
+        1.8078,
+        1.6456,
+        2.9381
+      ],
+      "median_ms": 1.8078
+    },
+    "report_jobpart": {
+      "rows": 4000,
+      "samples_ms": [
+        38.9524,
+        41.2182,
+        66.0856
+      ],
+      "median_ms": 41.2182
+    }
+  },
+  "storage": {
+    "normalized_table_bytes": 4071424,
+    "normalized_index_bytes": 4096000,
+    "report_table_bytes": 11091968,
+    "report_index_bytes": 2990080
+  },
+  "anomalies": {
+    "update_rows": 3,
+    "concurrent_write": "SQLITE_BUSY",
+    "sites_after_retry": [
+      "Bielefeld",
+      "Paderborn"
+    ],
+    "part_only_row": [
+      null,
+      null,
+      null,
+      null,
+      "P-9999",
+      12.5
+    ],
+    "deleted_rows": 2,
+    "lost_part": "P-0002"
+  },
+  "wide_comparison": {
+    "result_rows": 3500,
+    "total": 722610.0,
+    "reads": {
+      "six_tables": {
+        "samples_ms": [
+          641.89,
+          690.2266,
+          632.0072
+        ],
+        "median_ms": 641.89,
+        "plan": [
+          "SCAN jp",
+          "SEARCH j USING INTEGER PRIMARY KEY (rowid=?)",
+          "SEARCH m USING INDEX sqlite_autoindex_machine_1 (machine_id=?)",
+          "SEARCH sd USING INDEX sqlite_autoindex_site_dim_1 (site=?)",
+          "SEARCH p USING INDEX sqlite_autoindex_part_1 (part_no=?)",
+          "SEARCH v USING INDEX sqlite_autoindex_vendor_1 (part_no=?)",
+          "USE TEMP B-TREE FOR GROUP BY"
+        ]
+      },
+      "wide_report": {
+        "samples_ms": [
+          475.6732,
+          491.9478,
+          477.8706
+        ],
+        "median_ms": 477.8706,
+        "plan": [
+          "SCAN report_wide",
+          "USE TEMP B-TREE FOR GROUP BY"
+        ]
+      }
+    }
+  },
+  "duckdb": {
+    "version": "2.0.0",
+    "threads": 1,
+    "reads": {
+      "normalized": {
+        "samples_ms": [
+          38.9536,
+          37.0799,
+          41.1122
+        ],
+        "median_ms": 38.9536,
+        "plan": [
+          "╭─ Projection ─────────────────────────────╮\n│ Projections: #0, #1, #2, finalize(#3)    │\n│ ~593 rows                                │\n╰─────────────────────┬────────────────────╯\n╭─ Projection ────────┴────────────────────╮\n│ Projections:                             │\n│ __internal_decompress_string(#0),        │\n│ __internal_decompress_string(#1),        │\n│ __internal_decompress_string(#2), #3     │\n│ ~593 rows                                │\n╰─────────────────────┬────────────────────╯\n╭─ Hash Group By ─────┴────────────────────╮\n│ Groups: #0, #1, #2                       │\n│ Aggregates: combine_aggr(#3)             │\n│ ~593 rows                                │\n╰─────────────────────┬────────────────────╯\n╭─ Projection ────────┴────────────────────╮\n│ Projections: machine_id, site,           │\n│              technician, #3              │\n│ ~38,490 rows                             │\n╰─────────────────────┬────────────────────╯\n╭─ Projection ────────┴────────────────────╮\n│ Projections:                             │\n│ __internal_compress_string_ubigint(#0),  │\n│ __internal_compress_string_ubigint(#1),  │\n│ __internal_compress_string_uhugeint(#2), │\n│ #3                                       │\n│ ~38,490 rows                             │\n╰─────────────────────┬────────────────────╯\n╭─ Hash Join ─────────┴────────────────────╮\n│ Join Type: INNER                         │\n│ Conditions: part_no = #0                 │\n│ ~38,490 rows                             │\n╰─────────────────────┬────────────────────╯\n                      ├────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮\n╭─ Hash Join ─────────┴────────────────────╮                                                                                  ╭─ Projection ───────┴────────────────────╮\n│ Join Type: INNER                         │                                                                                  │ Projections:                            │\n│ Conditions: job_id = job_id              │                                                                                  │ __internal_decompress_string(#0), #1    │\n│ ~38,490 rows                             │                                                                                  │ ~593 rows                               │\n╰─────────────────────┬────────────────────╯                                                                                  ╰────────────────────┬────────────────────╯\n                      ├────────────────────────────────────────────╮                                                          ╭─ Hash Group By ────┴────────────────────╮\n╭─ Seq Scan ──────────┴────────────────────╮  ╭─ Hash Join ────────┴───────────────────╮                                      │ Groups: #0                              │\n│ Table: comparison.main.job_part          │  │ Join Type: INNER                       │                                      │ Aggregates: sum(#1) EXPORT_STATE        │\n│ Type: Sequential Scan                    │  │ Conditions: machine_id = machine_id    │                                      │ ~593 rows                               │\n│ Projections: job_id, part_no             │  │ ~4,255 rows                            │                                      ╰────────────────────┬────────────────────╯\n│ ~200,000 rows                            │  ╰────────────────────┬───────────────────╯                                      ╭─ Projection ───────┴────────────────────╮\n╰──────────────────────────────────────────╯                       ├───────────────────────────────────────╮                  │ Projections: #0, part_price             │\n                                              ╭─ Seq Scan ─────────┴───────────────────╮  ╭─ Seq Scan ─────┴───────────────╮  │ ~10 rows                                │\n                                              │ Table: comparison.main.job             │  │ Table: comparison.main.machine │  ╰────────────────────┬────────────────────╯\n                                              │ Type: Sequential Scan                  │  │ Type: Sequential Scan          │  ╭─ Projection ───────┴────────────────────╮\n                                              │ Projections: machine_id, job_id,       │  │ Projections: machine_id, site  │  │ Projections:                            │\n                                              │              technician                │  │ ~50 rows                       │  │ __internal_compress_string_ubigint(#0), │\n                                              │ Filters: done_on >= '2026-03-01'::DATE │  ╰────────────────────────────────╯  │ #1                                      │\n                                              │ ~4,000 rows                            │                                      │ ~10 rows                                │\n                                              ╰────────────────────────────────────────╯                                      ╰────────────────────┬────────────────────╯\n                                                                                                                              ╭─ Seq Scan ─────────┴────────────────────╮\n                                                                                                                              │ Table: comparison.main.part             │\n                                                                                                                              │ Type: Sequential Scan                   │\n                                                                                                                              │ Projections: part_no, part_price        │\n                                                                                                                              │ ~10 rows                                │\n                                                                                                                              ╰─────────────────────────────────────────╯\n"
+        ]
+      },
+      "report": {
+        "samples_ms": [
+          18.7838,
+          18.0172,
+          19.6168
+        ],
+        "median_ms": 18.7838,
+        "plan": [
+          "╭─ Projection ─────────────────────────────╮\n│ Projections:                             │\n│ __internal_decompress_string(#0),        │\n│ __internal_decompress_string(#1),        │\n│ __internal_decompress_string(#2), #3     │\n│ ~593 rows                                │\n╰─────────────────────┬────────────────────╯\n╭─ Hash Group By ─────┴────────────────────╮\n│ Groups: #0, #1, #2                       │\n│ Aggregates: sum(#3)                      │\n│ ~593 rows                                │\n╰─────────────────────┬────────────────────╯\n╭─ Projection ────────┴────────────────────╮\n│ Projections: machine_id, site,           │\n│              technician, part_price      │\n│ ~40,000 rows                             │\n╰─────────────────────┬────────────────────╯\n╭─ Projection ────────┴────────────────────╮\n│ Projections:                             │\n│ __internal_compress_string_ubigint(#0),  │\n│ __internal_compress_string_uhugeint(#1), │\n│ __internal_compress_string_ubigint(#2),  │\n│ #3                                       │\n│ ~40,000 rows                             │\n╰─────────────────────┬────────────────────╯\n╭─ Seq Scan ──────────┴────────────────────╮\n│ Table: comparison.main.report_jobpart    │\n│ Type: Sequential Scan                    │\n│ Projections: machine_id, site,           │\n│              technician, part_price      │\n│ Filters: done_on >= '2026-03-01'::DATE   │\n│ ~40,000 rows                             │\n╰──────────────────────────────────────────╯\n"
+        ]
+      }
+    }
+  }
+}
