@@ -12,27 +12,34 @@
 </tr>
 </table>
 
-<p align="center"><a href="normalization-notes.md">Design notes</a> &nbsp; · &nbsp; <a href="benchmark-results.md">Measurements</a> &nbsp; · &nbsp; <a href="recommendation.md">Memo</a> &nbsp; · &nbsp; <a href="../Reflections/ref05.md">Reflection draft</a></p>
+<p align="center"><a href="#-01--learning-goals">Learning goals</a> &nbsp; · &nbsp; <a href="normalization-notes.md">Design notes</a> &nbsp; · &nbsp; <a href="benchmark-results.md">Measurements</a> &nbsp; · &nbsp; <a href="recommendation.md">Memo</a> &nbsp; · &nbsp; <a href="../Reflections/ref05.md">Reflection draft</a></p>
 
 **Creator:** Asim Arman Erdogan. Implementation, notes and verification were prepared with AI assistance.
 
 [Course module](https://github.com/iotempire/iotempire-teaching/blob/main/full-classes/hsbi-databases-10d/modules/05-normalization-vs-denormalization.md) · [Portfolio](../README.md)
 
-<h2 align="center">◈ <code>01</code> / Portfolio evidence</h2>
+<h2 align="center">◈ <code>01</code> / Learning goals</h2>
 
-| Round | Evidence |
-| --- | --- |
-| 1 · See it | [Dependencies, key and two ER sketches](normalization-notes.md#see-it) |
-| 2 · Break it | [Three reproduced anomalies](normalization-notes.md#break-it) |
-| 3 · Build it | [Seed and 3NF DDL](setup.sql), [verified row counts](benchmark-results.md) |
-| 4 · Race it | [Report table](report.sql), [query times and plans](benchmark-results.md#query-plans) |
-| 5 · Price it | [Write counts, storage and index experiment](benchmark-results.md#write-and-storage-cost) |
-| 6 · Decide | [Recommendation to the operations lead](recommendation.md) |
-| 7 · Harvest | [Curiosities with sources](normalization-notes.md#harvest), [DuckDB stretch](benchmark-results.md#duckdb) |
+- Identify the keys and functional dependencies of the flat job-part dataset.
+- Demonstrate insert, update and deletion anomalies, then rebuild the data in 3NF.
+- Compare normalized and denormalized layouts using measured read time, storage and write cost.
+- Recommend a reporting layout based on the observed trade-offs.
+
+<h2 align="center">◈ <code>02</code> / Task status and evidence</h2>
+
+| Round | Evidence | Status |
+| --- | --- | --- |
+| 1 · See it | [Dependencies, key and two ER sketches](normalization-notes.md#see-it) | Dependencies and ER sketches documented |
+| 2 · Break it | [Three reproduced anomalies](normalization-notes.md#break-it) | Three anomalies reproduced |
+| 3 · Build it | [Seed and 3NF DDL](setup.sql), [verified row counts](benchmark-results.md) | 200,000 source rows verified |
+| 4 · Race it | [Report table](report.sql), [query times and plans](benchmark-results.md#query-plans) | Timings and query plans recorded |
+| 5 · Price it | [Write counts, storage and index experiment](benchmark-results.md#write-and-storage-cost) | Writes, storage and index effect measured |
+| 6 · Decide | [Recommendation to the operations lead](recommendation.md) | Recommendation documented |
+| 7 · Harvest | [Curiosities with sources](normalization-notes.md#harvest), [DuckDB stretch](benchmark-results.md#duckdb) | Written evidence recorded |
 
 ![Flat and normalized schemas side by side](assets/schema-comparison.svg)
 
-<h2 align="center">◈ <code>02</code> / Reproduce the lab</h2>
+<h2 align="center">◈ <code>03</code> / Reproduce from the repository root</h2>
 
 Run from the repository root. The first command runs the SQLite lab and the second refreshes its presentation.
 
