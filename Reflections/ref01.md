@@ -22,7 +22,7 @@ My pod mate is Habiba Darwish. We also worked with three other classmates over t
 
 ## How did you verify AI suggestions?
 
-The [verification report](../Module01/ai-sql-verification.md) checks the SQL result with a separate Python calculation and tests the time boundaries. These checks were prepared with AI assistance. One useful example is “after 18:00”: it excludes early-morning readings, so it is different from a full overnight shift. A misspelled column also produces an error. This shows why checking the meaning of a query matters as much as checking whether it runs.
+The [verification report](../Module01-Restyle/ai-sql-verification.md) checks the SQL result with a separate Python calculation and tests the time boundaries. These checks were prepared with AI assistance. One useful example is “after 18:00”: it excludes early-morning readings, so it is different from a full overnight shift. A misspelled column also produces an error. This shows why checking the meaning of a query matters as much as checking whether it runs.
 
 ## Help and extra work
 
