@@ -19,11 +19,11 @@ The BEFORE-trigger experiment showed that an alarm does not remain when the read
 
 ## Interaction with peers and instructors
 
-The Module 4 discussion is still to record. The [study notes](../Module04/integrity-notes.md#pod-discussion) contain questions to compare with another pod.
+The Module 4 discussion is still to record. The [study notes](../Module04-Restyle/integrity-notes.md#pod-discussion) contain questions to compare with another pod.
 
 ## How did you verify AI suggestions?
 
-The [verification script](../Module04/verify_module04.py), prepared and run with AI assistance, checks rejected values, reading counts, generated values, alarms, audit records and read-only access. It also measures five batches with and without the alarm trigger. The [recorded results](../Module04/verification.txt) show what happened; I still need to review and explain these checks myself.
+The [verification script](../Module04-Restyle/verify_module04.py), prepared and run with AI assistance, checks rejected values, reading counts, generated values, alarms, audit records and read-only access. It also measures five batches with and without the alarm trigger. The [recorded results](../Module04-Restyle/verification.txt) show what happened; I still need to review and explain these checks myself.
 
 ## Help and extra work
 

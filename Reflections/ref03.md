@@ -22,7 +22,7 @@ I worked with Habiba and discussed the module with another pod in person. We hel
 
 ## How did you verify AI suggestions?
 
-The [benchmark](../Module03/benchmark-results.md) compares query plans and the median of three measurements. The checks were prepared and run with AI assistance and also compare the SQL results with a separate Python calculation. The [injection demo](../Module03/injection-output.txt) shows that the unsafe query returns all customers for the test payload, while the bound-parameter version treats it as data.
+The [benchmark](../Module03-Restyle/benchmark-results.md) compares query plans and the median of three measurements. The checks were prepared and run with AI assistance and also compare the SQL results with a separate Python calculation. The [injection demo](../Module03-Restyle/injection-output.txt) shows that the unsafe query returns all customers for the test payload, while the bound-parameter version treats it as data.
 
 ## Help and extra work
 

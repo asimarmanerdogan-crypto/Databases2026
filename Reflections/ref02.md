@@ -18,11 +18,11 @@ The shared PK/FK example was an interesting point from our discussion. I still n
 
 ## Interaction with peers and instructors
 
-I worked with Habiba and discussed database keys with other classmates in person. We compared the key types and talked about a column being both PK and FK. The [study log](../Module02/study-log.md#agreed-learning-pod-discussion) records the example and shared diagram.
+I worked with Habiba and discussed database keys with other classmates in person. We compared the key types and talked about a column being both PK and FK. The [study log](../Module02-Restyle/study-log.md#agreed-learning-pod-discussion) records the example and shared diagram.
 
 ## How did you verify AI suggestions?
 
-I used AI explanations to help with the concepts. The [checks in my portfolio](../Module02/verification.txt), prepared and run with AI assistance, test duplicate keys, missing references and invalid values. For example, a job pointing to a missing machine should be rejected. These results give a concrete check of the suggested design.
+I used AI explanations to help with the concepts. The [checks in my portfolio](../Module02-Restyle/verification.txt), prepared and run with AI assistance, test duplicate keys, missing references and invalid values. For example, a job pointing to a missing machine should be rejected. These results give a concrete check of the suggested design.
 
 ## Help and extra work
 

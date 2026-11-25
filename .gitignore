@@ -8,4 +8,4 @@
 __pycache__/
 
 # generated synthetic telemetry; recreate with the committed generator
-Module01/telemetry.csv
+Module01-Restyle/telemetry.csv

@@ -4,7 +4,7 @@
 
 My pod mate is [Habiba Darwish](https://github.com/Habiba-AladdinDarwish/Darwish_Databases_C2026). Her portfolio is private but accessible from my account. We worked with three other classmates over the weekend and helped each other with the material. For Modules 2 and 3, we also spoke with another pod face to face.
 
-The [Module 2 study log](Module02/study-log.md#agreed-learning-pod-discussion) records our discussion of key types, the shared PK/FK example, the classmates involved and the Discord diagram post. It was updated using Habiba's class notes. I still need to add the main points from the Module 3 discussion.
+The [Module 2 study log](Module02-Restyle/study-log.md#agreed-learning-pod-discussion) records our discussion of key types, the shared PK/FK example, the classmates involved and the Discord diagram post. It was updated using Habiba's class notes. I still need to add the main points from the Module 3 discussion.
 
 ## Portfolio review
 
@@ -18,7 +18,7 @@ The file review was carried out by the assistant. I still need to complete the p
 
 I used AI to help prepare and explain code, diagrams and documentation. The scripts check results against independent calculations, small test datasets and expected errors. Automated checks support the technical results; I still need to understand and explain the work myself.
 
-For SQL Island, I watched the assistant enter queries and explain them in Turkish. Some examples were run automatically by the game. My [game notes](Module01/sql-island.md) include the certificate, screenshot and my answers.
+For SQL Island, I watched the assistant enter queries and explain them in Turkish. Some examples were run automatically by the game. My [game notes](Module01-Restyle/sql-island.md) include the certificate, screenshot and my answers.
 
 ## Repository access
 
