@@ -1,4 +1,9 @@
-# Module 6a | DuckDB measurements and recommendation
+![Module 06A banner](assets/module06a-banner.svg)
+
+<p align="center"><sub>DATABASES 2026 &nbsp; / &nbsp; MODULE 06A &nbsp; / &nbsp; EVIDENCE</sub></p>
+<h1 align="center">DuckDB: <em>Measurements and Recommendation</em></h1>
+
+<p align="center"><a href="README.md">Overview</a> &nbsp; · &nbsp; <a href="#aggregate-timings">Benchmarks</a> &nbsp; · &nbsp; <a href="#query-plans">Query plans</a> &nbsp; · &nbsp; <a href="#memo-to-lea-winter-and-yasmin-kaya">Refresh memo</a></p>
 
 ## Build and verify
 
