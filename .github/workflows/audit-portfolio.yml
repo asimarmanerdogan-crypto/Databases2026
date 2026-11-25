@@ -14,41 +14,58 @@ jobs:
       - name: Compare original and restyled files
         run: |
           python3 - <<'PY'
-          from collections import defaultdict
-          from difflib import SequenceMatcher
-          from hashlib import sha256
+          from difflib import SequenceMatcher, unified_diff
           from pathlib import Path
-          import re, subprocess
+          import os, re, subprocess
 
           paths = [Path(p) for p in subprocess.check_output(['git', 'ls-files', '-z']).decode().split('\0') if p]
-          hashes = defaultdict(list)
-          for p in paths:
-              if p.is_file():
-                  hashes[sha256(p.read_bytes()).digest()].append(str(p))
-          for files in hashes.values():
-              if len(files) > 1:
-                  print('EXACT', ' | '.join(files))
-          for i in range(1, 5):
-              base = Path(f'Module{i:02}')
-              style = Path(f'{base}-Restyle')
-              orig = {str(p.relative_to(base)): p for p in paths if base in p.parents}
-              new = {str(p.relative_to(style)): p for p in paths if style in p.parents}
-              print('PAIR', str(base), len(orig), len(new))
-              for name, old in sorted(orig.items()):
-                  if name not in new:
-                      print('ORIGINAL_ONLY', old, old.stat().st_size)
-                  elif old.read_bytes() != new[name].read_bytes():
-                      left = old.read_text(errors='replace').splitlines()
-                      right = new[name].read_text(errors='replace').splitlines()
-                      ratio = SequenceMatcher(None, left, right, autojunk=False).ratio()
-                      print('CHANGED', old, 'vs', new[name], f'{len(left)}/{len(right)} lines', f'{ratio:.2f} similarity')
-          print('REFERENCE PATHS')
-          for p in paths:
-              if p.suffix not in {'.md', '.py', '.toml', '.json', '.yml', '.txt', '.sql'} and p.name != '.gitignore':
-                  continue
-              if not p.is_file() or p.stat().st_size > 250000:
-                  continue
-              for n, line in enumerate(p.read_text(errors='replace').splitlines(), 1):
-                  if re.search(r'Module0[1-4](?![0-9])', line):
-                      print('REF', f'{p}:{n}', line[:260])
+          old_roots = {f'Module{i:02}' for i in range(1, 5)}
+          references = {}
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as out:
+              def say(s=''):
+                  print(s, file=out)
+              say('## References to originals in retained files')
+              say('~~~~text')
+              for p in paths:
+                  if p.parts[0] in old_roots or p.stat().st_size > 250000:
+                      continue
+                  try:
+                      data = p.read_text()
+                  except UnicodeError:
+                      continue
+                  for i, line in enumerate(data.splitlines(), 1):
+                      if re.search(r'Module0[1-4](?![-0-9])', line):
+                          say(f'{p}:{i} {line[:215]}')
+              say('~~~~')
+              say('## Original files without a Restyle counterpart')
+              for p in paths:
+                  if p.parts[0] in old_roots:
+                      dest = Path(p.parts[0] + '-Restyle', *p.parts[1:])
+                      if not dest.is_file():
+                          say(str(p))
+              for base in sorted(old_roots):
+                  say(f'## {base}: non-identical counterparts')
+                  for p in paths:
+                      if p.parts[0] != base:
+                          continue
+                      dest = Path(base + '-Restyle', *p.parts[1:])
+                      if not dest.is_file() or p.read_bytes() == dest.read_bytes():
+                          continue
+                      say(f'### {p.name}')
+                      say('~~~~text')
+                      before = p.read_text(errors='replace').splitlines()
+                      after = dest.read_text(errors='replace').splitlines()
+                      if p.suffix != '.md':
+                          say('\n'.join(unified_diff(before, after, n=0))[:7000])
+                      else:
+                          norm = lambda s: re.sub(r'[^a-z0-9]+',' ',s.lower()).strip()
+                          norm_after = [norm(s) for s in after]
+                          for s in before:
+                              n = norm(s)
+                              if len(n) < 14 or n in norm_after:
+                                  continue
+                              score = max((SequenceMatcher(None, n, item).ratio() for item in norm_after if 0.45 * len(n) < len(item) < 2.2 * len(n)), default=0)
+                              if score < 0.68:
+                                  say(s[:450])
+                      say('~~~~')
           PY
