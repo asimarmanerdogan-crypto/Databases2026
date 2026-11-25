@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">Module 06A - THE ANALYTICAL ENGINE DUCKDB and PARQUET</title>
+  <desc id="desc">HSBI Databases 2026 Module 06A banner</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081321"/><stop offset="1" stop-color="#102a3c"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#7dd3fc" stroke-opacity=".07"/></pattern>
+    <linearGradient id="accent"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
+  </defs>
+  <rect width="1200" height="380" rx="18" fill="url(#bg)"/>
+  <rect width="1200" height="380" rx="18" fill="url(#grid)"/>
+  <rect x="48" y="48" width="4" height="284" rx="2" fill="url(#accent)"/>
+  <text x="80" y="77" font-family="monospace" font-size="15" letter-spacing="4" fill="#67e8f9">HSBI / DATABASES 2026</text>
+  <text x="80" y="155" font-family="Arial, sans-serif" font-weight="700" font-size="55" fill="#f1f5f9">THE ANALYTICAL ENGINE</text>
+  <text x="80" y="218" font-family="Arial, sans-serif" font-weight="700" font-size="48" fill="#5eead4">DUCKDB &amp; PARQUET</text>
+  <text x="82" y="267" font-family="monospace" font-size="16" fill="#cbd5e1">SQLITE  /  PARQUET  /  BENCHMARK</text>
+  <text x="82" y="318" font-family="Arial, sans-serif" font-size="15" fill="#94a3b8">Asim Arman Erdogan  ·  Module 06A</text>
+  <g transform="translate(900 101)" fill="none" stroke="url(#accent)" stroke-width="3">
+    <rect x="12" y="18" width="148" height="146" rx="13" fill="#0b2333"/><path d="M12 53h148M12 91h148M12 128h148M62 18v146M110 18v146" opacity=".55"/><path d="M85 169v27m-35 0h70"/><path d="M73 144V36h25v108z" fill="#2dd4bf" fill-opacity=".19"/>
+  </g>
+  <text x="985" y="78" text-anchor="middle" font-family="monospace" font-size="14" letter-spacing="3" fill="#94a3b8">[ 06A ]</text>
+  <text x="985" y="330" text-anchor="middle" font-family="monospace" font-size="13" letter-spacing="2" fill="#67e8f9">READ / AGGREGATE</text>
+</svg>
