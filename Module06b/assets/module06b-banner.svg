@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">Module 06B - POLYGLOT PERSISTENCE SQLITE JSON and KEY-VALUE</title>
+  <desc id="desc">HSBI Databases 2026 Module 06B banner</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#081321"/><stop offset="1" stop-color="#102a3c"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#7dd3fc" stroke-opacity=".07"/></pattern>
+    <linearGradient id="accent"><stop stop-color="#2dd4bf"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
+  </defs>
+  <rect width="1200" height="380" rx="18" fill="url(#bg)"/>
+  <rect width="1200" height="380" rx="18" fill="url(#grid)"/>
+  <rect x="48" y="48" width="4" height="284" rx="2" fill="url(#accent)"/>
+  <text x="80" y="77" font-family="monospace" font-size="15" letter-spacing="4" fill="#67e8f9">HSBI / DATABASES 2026</text>
+  <text x="80" y="155" font-family="Arial, sans-serif" font-weight="700" font-size="55" fill="#f1f5f9">POLYGLOT PERSISTENCE</text>
+  <text x="80" y="218" font-family="Arial, sans-serif" font-weight="700" font-size="48" fill="#5eead4">SQLITE JSON &amp; KEY-VALUE</text>
+  <text x="82" y="267" font-family="monospace" font-size="16" fill="#cbd5e1">CONCURRENCY  /  QUERY PLANS  /  SESSIONS</text>
+  <text x="82" y="318" font-family="Arial, sans-serif" font-size="15" fill="#94a3b8">Asim Arman Erdogan  ·  Module 06B</text>
+  <g transform="translate(900 101)" fill="none" stroke="url(#accent)" stroke-width="3">
+    <rect x="12" y="18" width="148" height="146" rx="13" fill="#0b2333"/><path d="M58 50H48q-7 0-7 8v17q0 12-10 15 10 3 10 15v17q0 8 7 8h10M112 50h10q7 0 7 8v17q0 12 10 15-10 3-10 15v17q0 8-7 8h-10M67 70h38M67 90h38M67 110h38M85 168v28m-35 0h70"/>
+  </g>
+  <text x="985" y="78" text-anchor="middle" font-family="monospace" font-size="14" letter-spacing="3" fill="#94a3b8">[ 06B ]</text>
+  <text x="985" y="330" text-anchor="middle" font-family="monospace" font-size="13" letter-spacing="2" fill="#67e8f9">STORE / LOOK UP</text>
+</svg>
