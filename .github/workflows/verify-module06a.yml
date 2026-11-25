@@ -1,0 +1,26 @@
+name: Verify Module 6a
+on:
+  push:
+    branches: [verify-module06a]
+permissions:
+  contents: read
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install DuckDB
+        run: python -m pip install duckdb==2.0.1
+      - name: Build and verify data
+        run: |
+          python Module06a/prepare.py
+          python Module06a/to_parquet.py
+      - name: Run measurements
+        run: |
+          python Module06a/race.py
+          python Module06a/plan.py
+          python Module06a/boundary.py
